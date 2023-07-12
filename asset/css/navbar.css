@@ -1,0 +1,48 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+
+.logo-img {
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.logo-img > span {
+  font-size: 20px;
+  color: #788024;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-link > p {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.nav-link > a {
+  display: flex;
+}
+
+.login-button {
+  font-size: 16px;
+  font-weight: 600;
+  background-color: white;
+  padding: 10px 20px;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid #0b4d70;
+  transition: 0.3s;
+}
+
+.login-button:hover {
+  background-color: #0b4d70;
+  color: white;
+  border: 1px solid #0b4d70;
+}
