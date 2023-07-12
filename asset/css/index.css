@@ -9,7 +9,6 @@ body {
   padding: 0px;
   outline: 0px;
   background-color: white;
-  width: auto;
   position: relative;
 }
 
@@ -26,11 +25,16 @@ button {
 }
 
 header {
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
   border-bottom: 1px solid #0b4d70;
 }
 
 .container {
   max-width: 1440px;
+  width: auto;
   margin: 0 auto;
 }
 

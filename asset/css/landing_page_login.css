@@ -1,0 +1,102 @@
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hero > h1 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.hero > h1 > span {
+  font-size: 2rem;
+  color: #788024;
+}
+
+.hero > p {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.rent-button {
+  width: fit-content;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #0b4d70;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #0b4d70;
+  transition: 0.3s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.sneakpeak {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sneakpeak > h1 {
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.list-img {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 20px;
+}
+
+.img {
+  position: relative;
+  width: 270px;
+  height: 150px;
+  /* border: 1px solid black; */
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.img > span {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.img-1 {
+  background-image: url(../image/wifi.jpg);
+}
+.img-2 {
+  background-image: url(../image/booking.jpg);
+}
+.img-3 {
+  background-image: url(../image/rooms.jpg);
+}
+.img-4 {
+  background-image: url(../image/laundry.jpg);
+}
+.img-5 {
+  background-image: url(../image/socials.jpg);
+}
+.img-6 {
+  background-image: url(../image/library.jpg);
+}
