@@ -6,7 +6,7 @@
     <title>AsramaSkuy</title>
     <link rel="stylesheet" href="asset/css/index.css" />
     <link rel="stylesheet" href="asset/css/navbar_login.css" />
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="asset/css/list_tower.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -42,40 +42,74 @@
       <!-- Navbar end -->
     </header>
 
+    <!-- list tower start -->
     <section class="wrapper" style="margin-top: 70px">
-      <div class="container">
-        <div class="hero">
-          <h1>Asrama<span>Skuy</span></h1>
-          <p>Want to rent some room?</p>
-          <a href=""><button class="rent-button">Rent a room</button></a>
-          <br />
-          <div class="sneakpeak">
-            <h1>#SneakPeakAsrama</h1>
-            <div class="list-img">
-              <div class="img img-1">
-                <span>Wifi</span>
+      <div class="container flex flex-direction-column">
+        <h1 class="title-q">Where are you planning to stay ?</h1>
+        <div class="list-tower flex flex-direction-column gap-40">
+
+          <!-- list tower For Men start -->
+          <div>
+            <div class="flex gap-20 align-center">
+              <h1>Available tower for Men</h1>
+              <img src="asset/image/men-logo.png" alt="" width="25px" height="25px">
+            </div>
+            <div class="grid-col-4 gap-20" id="men-tower-list">
+                <div class="img-tower">
+                  <img src="asset/image/towerA.jpg" width="250px" height="250px"></img>
+                  <span>Tower A</span>
+                </div>
+
+                <div class="img-tower">
+                  <img src="asset/image/towerB.jpg" width="250px" height="250px"></img>
+                  <span>Tower B</span>
+                </div>
+
+                <div class="img-tower">
+                  <img src="asset/image/towerA.jpg" width="250px" height="250px"></img>
+                  <span>Tower A</span>
+                </div>
+
+                <div class="img-tower">
+                  <img src="asset/image/towerB.jpg" width="250px" height="250px"></img>
+                  <span>Tower B</span>
+                </div>
+            </div>
+          </div>
+          <!-- list tower For Men End -->
+
+          <!-- list tower For Girl start -->
+          <div>
+            <div class="flex gap-20 align-center">
+              <h1>Available tower for Girl</h1>
+              <img src="asset/image/girl-logo.png" alt="" width="20px" height="26px">
+            </div>
+            <div class="grid-col-4 gap-20" id="men-tower-list">
+              <div class="img-tower">
+                <img src="asset/image/towerA.jpg" width="250px" height="250px"></img>
+                <span>Tower A</span>
               </div>
-              <div class="img img-2">
-                <span>Booking</span>
+              <div class="img-tower">
+                <img src="asset/image/towerB.jpg" width="250px" height="250px"></img>
+                <span>Tower B</span>
               </div>
-              <div class="img img-3">
-                <span>Rooms</span>
+              <div class="img-tower">
+                <img src="asset/image/towerA.jpg" width="250px" height="250px"></img>
+                <span>Tower A</span>
               </div>
-              <div class="img img-4">
-                <span>Laundry</span>
-              </div>
-              <div class="img img-5">
-                <span>Socials</span>
-              </div>
-              <div class="img img-6">
-                <span>Library</span>
+              <div class="img-tower">
+                <img src="asset/image/towerB.jpg" width="250px" height="250px"></img>
+                <span>Tower B</span>
               </div>
             </div>
           </div>
-          <br />
-          <br />
+          <!-- list tower For Girl end -->
+
         </div>
       </div>
     </section>
+    <!-- list tower end -->
+    <br>
+    <br>
   </body>
 </html>
