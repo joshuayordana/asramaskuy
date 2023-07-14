@@ -1,8 +1,7 @@
 .hero {
   position: relative;
-  /* border: 1px solid black; */
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .desc-hero {
@@ -52,7 +51,6 @@
   position: relative;
   width: 270px;
   height: 150px;
-  /* border: 1px solid black; */
   border-radius: 10px;
   background-repeat: no-repeat;
   background-size: cover;
