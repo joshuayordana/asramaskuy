@@ -10,7 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0"
+    />
     <link rel="stylesheet" href="asset/css/landing_page.css" />
     <link rel="stylesheet" href="asset/css/index.css" />
     <link rel="stylesheet" href="asset/css/navbar.css" />
@@ -18,45 +21,87 @@
   </head>
   <body>
     <header class="">
-      <nav class="navbar container">
-        <div class="logo">
-          <a class="logo-img" href="landing_page.html"
-            >Asrama<span>Skuy</span></a
-          >
-        </div>
-        <div class="nav-link">
-          <p>Welcome</p>
-          <a href="./login_pilih.html"><button class="login-button">Login</button></div></a>
-        </div>
-      </nav>
+      <!-- Navbar start -->
+      <div class="wrapper">
+        <nav class="navbar container">
+          <div class="logo">
+            <a class="logo-img" href="landing_page.html"
+              >Asrama<span>Skuy</span></a
+            >
+          </div>
+          <div class="nav-link">
+            <p>Welcome</p>
+            <a href="login_pilih.html"
+              ><button class="login-button" href="">Login</button></a
+            >
+          </div>
+        </nav>
+      </div>
+      <!-- Navbar end -->
     </header>
-    <div class="container">
-      <a href="./login_pilih.html"><span class="material-symbols-outlined">arrow_back</span></a>
+    <div class="wrapper">
+      <a href="./login_pilih.html"
+        ><span class="material-symbols-outlined">arrow_back</span></a
+      >
       <div class="grid-container">
         <div class="grid-item">
-          <img id="sapiens1" src="asset/image/sapiens1.png" alt="sapiens1">
+          <img id="sapiens1" src="asset/image/sapiens1.png" alt="sapiens1" />
         </div>
         <div class="grid-item">
-          <div class="login-box" style="height: 95%;">
+          <div class="login-box" style="height: 95%">
             <div class="header">Sign Up</div>
             <div class="isi">
-              <div class="data">Nama<input type="username" class="input-text" id="full_name" placeholder="Full Name"></div>
-              <div class="data">NIK<input type="password" class="input-text" id="nik_input" placeholder="Insert your NIK"></div>
-              <div class="data">Upload Photo<label for="photo" class="input-file">Click here to upload a photo of your face</label><input type="file" id="photo" style="display: none;"></div>
-              <div class="data">Date of Birth<input type="date" class="input-text" id="dateofbirth_input"></div>
-              <div class="data">Gender
+              <div class="data">
+                Nama<input
+                  type="username"
+                  class="input-text"
+                  id="full_name"
+                  placeholder="Full Name"
+                />
+              </div>
+              <div class="data">
+                NIK<input
+                  type="password"
+                  class="input-text"
+                  id="nik_input"
+                  placeholder="Insert your NIK"
+                />
+              </div>
+              <div class="data">
+                Upload Photo<label for="photo" class="input-file"
+                  >Click here to upload a photo of your face</label
+                ><input type="file" id="photo" style="display: none" />
+              </div>
+              <div class="data">
+                Date of Birth<input
+                  type="date"
+                  class="input-text"
+                  id="dateofbirth_input"
+                />
+              </div>
+              <div class="data">
+                Gender
                 <select name="gender" id="gender" class="input-select">
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                 </select>
               </div>
-              <div class="data">Address<input type="password" class="input-text" id="nik_input" placeholder="Address"></div>
-              <div style="text-align: center;"><a href="#"><button class="login">Next</button></a></div>
+              <div class="data">
+                Address<input
+                  type="password"
+                  class="input-text"
+                  id="nik_input"
+                  placeholder="Address"
+                />
+              </div>
+              <div style="text-align: center">
+                <a href="#"><button class="login">Next</button></a>
+              </div>
             </div>
           </div>
         </div>
         <div class="grid-item">
-          <img id="sapiens2" src="asset/image/sapiens2.png" alt="sapiens2">
+          <img id="sapiens2" src="asset/image/sapiens2.png" alt="sapiens2" />
         </div>
       </div>
     </div>

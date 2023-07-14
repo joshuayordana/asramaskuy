@@ -34,20 +34,16 @@ header {
   border-bottom: 1px solid #0b4d70;
 }
 
-.container {
+.wrapper {
   max-width: 1440px;
   margin: 0 auto;
 }
 
-.container2 {
+.container {
   padding-inline: 20px;
 }
 
 .flex {
-  display: flex;
-}
-
-.flex-start {
   display: flex;
 }
 
@@ -91,6 +87,21 @@ header {
 
 .gap-40 {
   gap: 40px;
+}
+
+.grid-col-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-col-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-col-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .grid-container {
