@@ -115,6 +115,19 @@ header {
 
 .back-logo {
   margin-top: 30px;
+  color: #0b4d70;
+}
+
+.padding-20 {
+  padding: 1.25rem;
+}
+
+.padding-inline-20 {
+  padding-inline: 1.25rem;
+}
+
+.test-div {
+  border: 1px solid;
 }
 
 .grid-container {

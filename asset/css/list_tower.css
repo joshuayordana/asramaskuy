@@ -3,11 +3,11 @@
   font-weight: bold;
 }
 
-.list-tower {
+.tower-list {
   padding-inline: 2rem;
 }
 
-.img-tower {
+.tower-box {
   cursor: pointer;
   height: 15.625rem;
   width: 15.625rem;
@@ -17,14 +17,14 @@
   box-shadow: 6px 7px 4px rgba(0, 0, 0, 0.25);
 }
 
-.img-tower > img {
+.tower-box > img {
   width: 100%;
   height: 100%;
   object-fit: fill;
   filter: brightness(50%);
 }
 
-.img-tower > span {
+.tower-box > span {
   position: absolute;
   top: 10px;
   left: 10px;

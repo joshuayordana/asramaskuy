@@ -48,12 +48,12 @@
 
     <!-- list tower start -->
     <section class="container" style="margin-top: 70px">
-      <a href="./landing_page_login.html"
+      <a href="./booking_student.html"
       ><span class="material-symbols-outlined back-logo">arrow_back</span></a
       >
       <div class="flex flex-direction-column">
         <h1 class="title-q">Where are you planning to stay ?</h1>
-        <div class="list-tower flex flex-direction-column gap-40">
+        <div class="tower-list flex flex-direction-column gap-40">
 
           <!-- list tower For Men start -->
           <div>
@@ -61,25 +61,25 @@
               <h1>Available tower for Men</h1>
               <img src="asset/image/men-logo.png" alt="" width="25px" height="25px">
             </div>
-            <div class="grid-col-4 gap-20 grid-center" id="men-tower-list">
-                <div class="img-tower">
-                  <img src="asset/image/towerA.jpg" width="250px" height="250px"></img>
-                  <span>Tower A</span>
+            <div class="grid-col-4 gap-20 grid-center" id="tower-men-list">
+                <div class="tower-box" onclick="test()">
+                  <img id="tower-image" src="asset/image/towerA.jpg" width="250px" height="250px"></img>
+                  <span id="tower-name">Tower A</span>
                 </div>
 
-                <div class="img-tower">
-                  <img src="asset/image/towerB.jpg" width="250px" height="250px"></img>
-                  <span>Tower B</span>
+                <div class="tower-box">
+                  <img id="tower-image" src="asset/image/towerB.jpg" width="250px" height="250px"></img>
+                  <span id="tower-name">Tower B</span>
                 </div>
 
-                <div class="img-tower">
-                  <img src="asset/image/towerA.jpg" width="250px" height="250px"></img>
-                  <span>Tower A</span>
+                <div class="tower-box">
+                  <img id="tower-image" src="asset/image/towerA.jpg" width="250px" height="250px"></img>
+                  <span id="tower-name">Tower A</span>
                 </div>
 
-                <div class="img-tower">
-                  <img src="asset/image/towerB.jpg" width="250px" height="250px"></img>
-                  <span>Tower B</span>
+                <div class="tower-box">
+                  <img id="tower-image" src="asset/image/towerB.jpg" width="250px" height="250px"></img>
+                  <span id="tower-name">Tower B</span>
                 </div>
             </div>
           </div>
@@ -91,22 +91,22 @@
               <h1>Available tower for Girl</h1>
               <img src="asset/image/girl-logo.png" alt="" width="20px" height="26px">
             </div>
-            <div class="grid-col-4 gap-20 grid-center" id="men-tower-list">
-              <div class="img-tower">
-                <img src="asset/image/towerA.jpg" width="250px" height="250px"></img>
-                <span>Tower A</span>
+            <div class="grid-col-4 gap-20 grid-center" id="tower-girl-list">
+              <div class="tower-box">
+                <img id="tower-image" src="asset/image/towerA.jpg" width="250px" height="250px"></img>
+                <span id="tower-name">Tower A</span>
               </div>
-              <div class="img-tower">
-                <img src="asset/image/towerB.jpg" width="250px" height="250px"></img>
-                <span>Tower B</span>
+              <div class="tower-box">
+                <img id="tower-image" src="asset/image/towerB.jpg" width="250px" height="250px"></img>
+                <span id="tower-name">Tower B</span>
               </div>
-              <div class="img-tower">
-                <img src="asset/image/towerA.jpg" width="250px" height="250px"></img>
-                <span>Tower A</span>
+              <div class="tower-box">
+                <img id="tower-image" src="asset/image/towerA.jpg" width="250px" height="250px"></img>
+                <span id="tower-name">Tower A</span>
               </div>
-              <div class="img-tower">
-                <img src="asset/image/towerB.jpg" width="250px" height="250px"></img>
-                <span>Tower B</span>
+              <div class="tower-box">
+                <img id="tower-image" src="asset/image/towerB.jpg" width="250px" height="250px"></img>
+                <span id="tower-name">Tower B</span>
               </div>
             </div>
           </div>
@@ -118,5 +118,10 @@
     <!-- list tower end -->
     <br>
     <br>
+    <script>
+      function test(){
+        console.log("masuk");
+      }
+    </script>
   </body>
 </html>

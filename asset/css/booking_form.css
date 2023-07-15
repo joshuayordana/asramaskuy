@@ -1,0 +1,68 @@
+.booking-form {
+  width: 37.5rem;
+  border-radius: 15px;
+  border: 2px solid #787878;
+  height: fit-content;
+}
+
+.title-form {
+  border-bottom: 1px solid #787878;
+}
+
+.select-option {
+  width: 100%;
+  padding: 7px;
+  border-radius: 10px;
+  font-size: 1rem;
+  border: 2px solid #787878;
+}
+
+.book-label1 {
+  margin-top: 0;
+  margin-bottom: 0.625rem;
+}
+
+.book-label2 {
+  color: #787878;
+  font-size: 0.75rem;
+  margin-bottom: 0.625rem;
+}
+
+.book-information {
+  width: 100%;
+  border: 1px solid;
+  border-radius: 15px;
+  border: 2px solid #787878;
+}
+
+.book-information > .book-name-box {
+  border-bottom: 1px solid;
+}
+
+.book-desc {
+  font-weight: 700;
+}
+
+.select-room-button {
+  gap: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #0b4d70;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 10px;
+  border: 1px solid #0b4d70;
+  transition: 0.3s;
+}
+
+.select-room-button:hover {
+  background-color: white;
+  color: #0b4d70;
+}
+
+.right-column > img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
