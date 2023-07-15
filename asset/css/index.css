@@ -32,18 +32,16 @@ header {
   top: 0;
   z-index: 9999;
   border-bottom: 1px solid #0b4d70;
+  background-color: white;
 }
 
 .height-1vh {
   height: 1vh;
 }
 
-.wrapper {
+.container {
   max-width: 1440px;
   margin: 0 auto;
-}
-
-.container {
   padding-inline: 20px;
 }
 
@@ -106,6 +104,10 @@ header {
 .grid-col-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-center {
+  place-items: center;
 }
 
 .grid-container {
