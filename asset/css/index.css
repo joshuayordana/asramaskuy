@@ -53,6 +53,7 @@ header {
 .align-start {
   align-items: start;
 }
+
 .align-center {
   align-items: center;
 }
@@ -110,7 +111,6 @@ header {
 .grid-center {
   place-items: center;
 }
-
 /* layouting class END */
 
 .back-logo {
@@ -118,8 +118,16 @@ header {
   color: #0b4d70;
 }
 
+.no-border {
+  border: none;
+}
+
 .padding-20 {
   padding: 1.25rem;
+}
+
+.padding-10 {
+  padding: 0.625rem;
 }
 
 .padding-inline-20 {

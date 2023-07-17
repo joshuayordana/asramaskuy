@@ -1,127 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AsramaSkuy</title>
-    <link rel="stylesheet" href="asset/css/index.css" />
-    <link rel="stylesheet" href="asset/css/navbar_login.css" />
-    <link rel="stylesheet" href="asset/css/list_tower.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0"
-  />
-  </head>
-  <body>
-    <header>
-      <!-- Navbar start -->
-      <div class="container">
-        <nav class="navbar">
-          <div class="logo">
-            <a class="logo-img" href="landing_page_login.html"
-              >Asrama<span>Skuy</span></a
-            >
-          </div>
-          <div class="nav-link">
-            <a href="complaint_page.html">Complaint</a>
-            <a href="transaction_page.html">Transaction</a>
-            <a href="profile_page.html"
-              ><button class="profile-button" href="">
-                <span>Profile</span>
-                <div class="profile-logo">
-                  <img
-                    src="asset/image/profile_avatar.png"
-                    width="20px"
-                    height="20px"
-                  />
-                </div></button
-            ></a>
-          </div>
-        </nav>
-      </div>
-      <!-- Navbar end -->
-    </header>
 
-    <!-- list tower start -->
-    <section class="container" style="margin-top: 70px">
-      <a href="./booking_student.html"
-      ><span class="material-symbols-outlined back-logo">arrow_back</span></a
-      >
-      <div class="flex flex-direction-column">
-        <h1 class="title-q">Where are you planning to stay ?</h1>
-        <div class="tower-list flex flex-direction-column gap-40">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AsramaSkuy</title>
+  <link rel="stylesheet" href="asset/css/index.css" />
+  <link rel="stylesheet" href="asset/css/navbar_login.css" />
+  <link rel="stylesheet" href="asset/css/tower_page.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+</head>
 
-          <!-- list tower For Men start -->
-          <div>
-            <div class="flex gap-20 align-center">
-              <h1>Available tower for Men</h1>
-              <img src="asset/image/men-logo.png" alt="" width="25px" height="25px">
-            </div>
-            <div class="grid-col-4 gap-20 grid-center" id="tower-men-list">
-                <div class="tower-box" onclick="test()">
-                  <img id="tower-image" src="asset/image/towerA.jpg" width="250px" height="250px"></img>
-                  <span id="tower-name">Tower A</span>
-                </div>
-
-                <div class="tower-box">
-                  <img id="tower-image" src="asset/image/towerB.jpg" width="250px" height="250px"></img>
-                  <span id="tower-name">Tower B</span>
-                </div>
-
-                <div class="tower-box">
-                  <img id="tower-image" src="asset/image/towerA.jpg" width="250px" height="250px"></img>
-                  <span id="tower-name">Tower A</span>
-                </div>
-
-                <div class="tower-box">
-                  <img id="tower-image" src="asset/image/towerB.jpg" width="250px" height="250px"></img>
-                  <span id="tower-name">Tower B</span>
-                </div>
-            </div>
-          </div>
-          <!-- list tower For Men End -->
-
-          <!-- list tower For Girl start -->
-          <div>
-            <div class="flex gap-20 align-center">
-              <h1>Available tower for Girl</h1>
-              <img src="asset/image/girl-logo.png" alt="" width="20px" height="26px">
-            </div>
-            <div class="grid-col-4 gap-20 grid-center" id="tower-girl-list">
-              <div class="tower-box">
-                <img id="tower-image" src="asset/image/towerA.jpg" width="250px" height="250px"></img>
-                <span id="tower-name">Tower A</span>
-              </div>
-              <div class="tower-box">
-                <img id="tower-image" src="asset/image/towerB.jpg" width="250px" height="250px"></img>
-                <span id="tower-name">Tower B</span>
-              </div>
-              <div class="tower-box">
-                <img id="tower-image" src="asset/image/towerA.jpg" width="250px" height="250px"></img>
-                <span id="tower-name">Tower A</span>
-              </div>
-              <div class="tower-box">
-                <img id="tower-image" src="asset/image/towerB.jpg" width="250px" height="250px"></img>
-                <span id="tower-name">Tower B</span>
-              </div>
-            </div>
-          </div>
-          <!-- list tower For Girl end -->
-
+<body>
+  <header>
+    <!-- Navbar start -->
+    <div class="container">
+      <nav class="navbar">
+        <div class="logo">
+          <a class="logo-img" href="landing_page_login.html">Asrama<span>Skuy</span></a>
         </div>
+        <div class="nav-link">
+          <a href="complaint_page.html">Complaint</a>
+          <a href="transaction_page.html">Transaction</a>
+          <a href="profile_page.html"><button class="profile-button" href="">
+              <span>Profile</span>
+              <div class="profile-logo">
+                <img src="asset/image/profile_avatar.png" width="20px" height="20px" />
+              </div>
+            </button></a>
+        </div>
+      </nav>
+    </div>
+    <!-- Navbar end -->
+  </header>
+
+  <!-- list tower start -->
+  <section class="container" style="margin-top: 70px">
+    <a href="./booking_student.html"><span class="material-symbols-outlined back-logo">arrow_back</span></a>
+    <div class="flex flex-direction-column">
+      <h1 class="title-q">Where are you planning to stay ?</h1>
+      <div class="tower-list flex flex-direction-column gap-40">
+
+        <!-- list tower For Men start -->
+        <div>
+          <div class="flex gap-20 align-center">
+            <h1>Available tower for Men</h1>
+            <img src="asset/image/men-logo.png" alt="" width="25px" height="25px">
+          </div>
+          <div class="grid-col-4 gap-20 grid-center" id="tower-men-list">
+            <div class="tower-box" onclick="test()">
+              <img id="tower-image" src="asset/image/towerA.jpg" width="250px" height="250px"></img>
+              <span id="tower-name">Tower A</span>
+            </div>
+
+            <div class="tower-box">
+              <img id="tower-image" src="asset/image/towerB.jpg" width="250px" height="250px"></img>
+              <span id="tower-name">Tower B</span>
+            </div>
+
+            <div class="tower-box">
+              <img id="tower-image" src="asset/image/towerA.jpg" width="250px" height="250px"></img>
+              <span id="tower-name">Tower A</span>
+            </div>
+
+            <div class="tower-box">
+              <img id="tower-image" src="asset/image/towerB.jpg" width="250px" height="250px"></img>
+              <span id="tower-name">Tower B</span>
+            </div>
+          </div>
+        </div>
+        <!-- list tower For Men End -->
+
+        <!-- list tower For Girl start -->
+        <div>
+          <div class="flex gap-20 align-center">
+            <h1>Available tower for Girl</h1>
+            <img src="asset/image/girl-logo.png" alt="" width="20px" height="26px">
+          </div>
+          <div class="grid-col-4 gap-20 grid-center" id="tower-girl-list">
+            <div class="tower-box">
+              <img id="tower-image" src="asset/image/towerA.jpg" width="250px" height="250px"></img>
+              <span id="tower-name">Tower A</span>
+            </div>
+            <div class="tower-box">
+              <img id="tower-image" src="asset/image/towerB.jpg" width="250px" height="250px"></img>
+              <span id="tower-name">Tower B</span>
+            </div>
+            <div class="tower-box">
+              <img id="tower-image" src="asset/image/towerA.jpg" width="250px" height="250px"></img>
+              <span id="tower-name">Tower A</span>
+            </div>
+            <div class="tower-box">
+              <img id="tower-image" src="asset/image/towerB.jpg" width="250px" height="250px"></img>
+              <span id="tower-name">Tower B</span>
+            </div>
+          </div>
+        </div>
+        <!-- list tower For Girl end -->
+
       </div>
-    </section>
-    <!-- list tower end -->
-    <br>
-    <br>
-    <script>
-      function test(){
-        console.log("masuk");
-      }
-    </script>
-  </body>
+    </div>
+  </section>
+  <!-- list tower end -->
+  <br>
+  <br>
+  <script>
+    function test() {
+      window.location.href = "room_page.html";
+    }
+  </script>
+</body>
+
 </html>
