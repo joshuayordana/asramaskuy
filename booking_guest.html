@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AsramaSkuy</title>
+    <link rel="stylesheet" href="asset/css/index.css" />
+    <link rel="stylesheet" href="asset/css/navbar_login.css" />
+    <link rel="stylesheet" href="asset/css/booking_form.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+</head>
+
+<body>
+    <header>
+        <!-- $ Navbar start -->
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a class="logo-img" href="landing_page_login.html">Asrama<span>Skuy</span></a>
+                </div>
+                <div class="nav-link">
+                    <a href="booking_student.html" onclick="">Rent a room</a>
+                    <a href="complaint_page.html">Complaint</a>
+                    <a href="transaction_page.html">Transaction</a>
+                    <a href="profile_page.html"><button class="profile-button" href="">
+                            <span>Profile</span>
+                            <div class="profile-logo">
+                                <img src="asset/image/profile_avatar.png" width="20px" height="20px" />
+                            </div>
+                        </button></a>
+                </div>
+            </nav>
+        </div>
+        <!-- $ Navbar end -->
+    </header>
+
+    <!-- $ input book start -->
+    <section class="container" style="margin-top: 70px">
+        <a href="./landing_page_login.html"><span class="material-symbols-outlined back-logo">arrow_back</span></a>
+        <div class="grid-col-2">
+            <div class="padding-20 flex justify-center">
+                <div class="booking-form">
+
+                    <div class="title-form flex justify-center" width:="100%">
+                        <h1>Booking</h1>
+                    </div>
+
+                    <div class="padding-20">
+
+                        <h1 class="book-label1">Details</h1>
+
+                        <!-- $ selected period START -->
+                        <div class="grid-col-2 gap-20">
+                            <!-- $ selected Check-in Date START -->
+                            <div>
+                                <p class="book-label2">Check-in</p>
+                                <input class="select-option" type="date" id="book-check-in" name="book-check-in">
+                            </div>
+                            <!-- $ selected  Check-in Date END -->
+
+                            <!-- $ selected  Check-OUT Date START -->
+                            <div>
+                                <p class="book-label2">Check-out</p>
+                                <input class="select-option" type="date" id="book-check-out" name="book-check-out">
+
+                            </div>
+                            <!-- $ selected Check-OUT Date END -->
+                        </div>
+                        <!-- $ selected period END -->
+
+                        <!-- $ inputan Beds START -->
+                        <p class="book-label2">Beds</p>
+                        <select class="select-option" name="book-bed" id="book-bed">
+                            <option value="bed-1">
+                                1 Beds
+                            </option>
+                        </select>
+                        <!-- $ inputan Beds END -->
+
+                        <!-- $ bagian information START -->
+                        <h1 class="">Information</h1>
+                        <div class="book-information">
+                            <div class="book-name-box">
+                                <p class="book-label2 padding-inline-20">Name</p>
+                                <p class="book-desc padding-inline-20" id="book-name">Steven Doni Atiko</p>
+                            </div>
+                            <div class="book-user-id-box">
+                                <p class="book-label2 padding-inline-20">NIK</p>
+                                <p class="book-desc padding-inline-20" id="book-user-id">C14200200</p>
+                            </div>
+                        </div>
+                        <!-- $ bagian information END -->
+
+                        <br>
+                        <br>
+                        <a href="tower_page.html">
+                            <button class="select-room-button" onclick="" style="width: 100%;">
+                                Select Room
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <img src="asset/image/sapiens1.png" alt="" />
+            </div>
+        </div>
+    </section>
+    <!-- $ input book end -->
+
+    <br />
+    <br />
+</body>
+
+</html>

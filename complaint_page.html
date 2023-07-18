@@ -17,13 +17,14 @@
 
 <body>
     <header>
-        <!-- Navbar start -->
+        <!-- $ Navbar start -->
         <div class="container">
             <nav class="navbar">
                 <div class="logo">
                     <a class="logo-img" href="landing_page_login.html">Asrama<span>Skuy</span></a>
                 </div>
                 <div class="nav-link">
+                    <a href="booking_student.html" onclick="">Rent a room</a>
                     <a href="complaint_page.html">Complaint</a>
                     <a href="transaction_page.html">Transaction</a>
                     <a href="profile_page.html"><button class="profile-button" href="">
@@ -35,7 +36,7 @@
                 </div>
             </nav>
         </div>
-        <!-- Navbar end -->
+        <!-- $ Navbar end -->
     </header>
 
     <section class="container" style="margin-top: 70px; overflow: auto;">
@@ -47,9 +48,11 @@
 
             <!-- $ bagian filter START -->
             <div class="flex flex-direction-column justify-center" style="padding-right: 3rem;">
-                <div class="clickable-button">
-                    new +
-                </div>
+                <a href="complaint_new.html">
+                    <div class="clickable-button">
+                        new +
+                    </div>
+                </a>
             </div>
             <!-- $ bagian filter END -->
 
@@ -86,7 +89,9 @@
 
                     <div class="flex align-center justify-between">
                         <p class="no-margin text-1" id="complaint-date">32 Jan 2023</p>
-                        <div class="clickable-button" onclick="">detail</div>
+                        <a href="complaint_detail.html">
+                            <div class="clickable-button" onclick="">detail</div>
+                        </a>
                     </div>
                 </div>
                 <!-- $ bagian compl-item END -->

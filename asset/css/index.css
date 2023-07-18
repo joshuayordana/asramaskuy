@@ -58,6 +58,10 @@ header {
   align-items: center;
 }
 
+.align-end {
+  align-items: end;
+}
+
 .justify-between {
   justify-content: space-between;
 }
@@ -67,6 +71,10 @@ header {
 }
 .justify-center {
   justify-content: center;
+}
+
+.justify-end {
+  justify-content: end;
 }
 
 .flex-direction-row {
@@ -128,6 +136,14 @@ header {
 
 .no-margin {
   margin: 0;
+}
+
+.padding-40 {
+  padding: 2.5rem;
+}
+
+.padding-30 {
+  padding: 1.875rem;
 }
 
 .padding-20 {
