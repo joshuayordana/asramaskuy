@@ -20,11 +20,11 @@
   border: 2px solid #787878;
 }
 
-.booking-receipt > .bottom-div {
+/* .booking-receipt > .bottom-div {
   position: absolute;
   bottom: 0;
   width: 100%;
-}
+} */
 
 .title-form {
   border-bottom: 1px solid #787878;

@@ -118,8 +118,16 @@ header {
   color: #0b4d70;
 }
 
+.back-logo2 {
+  color: #0b4d70;
+}
+
 .no-border {
   border: none;
+}
+
+.no-margin {
+  margin: 0;
 }
 
 .padding-20 {
@@ -143,4 +151,8 @@ header {
   gap: 50px 50px;
   grid-template-columns: auto auto auto;
   padding: 10px;
+}
+
+.not-active {
+  display: none;
 }

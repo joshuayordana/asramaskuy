@@ -45,8 +45,15 @@
 
             <!-- $ Nama Gedung dan filter? START -->
             <div class="flex justify-between">
-                <h1 class="tower-name" id="tower-name">Tower?</h1>
-                <h1 class="title-q">Filter?</h1>
+                <h1 class="tower-name" id="tower-name">Tower - ?</h1>
+                <div class="flex flex-direction-column justify-center">
+                    <span class="room-lantai-title" style="font-weight: 500; font-size: 1.125rem;">Select Floor</span>
+                    <select class="filter-lantai" name="filter-lantai" id="filter-lantai">
+                        <option value="all">all</option>
+                        <option value="lantai-1">Floor 1</option>
+                        <option value="lantai-n">Floor n</option>
+                    </select>
+                </div>
             </div>
             <!-- $ Nama Gedung dan filter? END -->
 
@@ -78,15 +85,15 @@
 
                 <!-- $ list room lantai ? start -->
                 <div>
-                    <p class="room-lantai-title" id="room-lantai">1<sup>st</sup> Floor</p>
+                    <p class="room-lantai-title" id="room-lantai">2<sup>nd</sup> Floor</p>
 
                     <div class="grid-col-4 gap-20 grid-center" id="room-list">
 
                         <!-- $ list room PER lantai start -->
                         <div class="room padding-10 flex align-center justify-between" id="room-?" onclick="test()">
                             <div class="room-desc1">
-                                <p class="room-name" id="room-name">A1-001</p>
-                                <p id="room-lantai">1<sup>st</sup> Floor</p>
+                                <p class="room-name" id="room-name">A2-001</p>
+                                <p id="room-lantai">2<sup>nd</sup> Floor</p>
                             </div>
                             <div class="room-desc2 flex gap-10 align-center">
                                 <p class="room-capacity"><span id="room-current">1</span> / <span id="room-max">5</span>

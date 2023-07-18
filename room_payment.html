@@ -61,9 +61,24 @@
                     <h1 class="book-label1">Details</h1>
 
                     <!-- $ selected period START -->
-                    <p class="book-label2">Period</p>
-                    <div class="select-option" id="book-period">
-                        1/7/2023 - 1/1/2024 (6 months)
+                    <div class="grid-col-2 gap-20">
+                        <!-- $ selected Check-in Date START -->
+                        <div>
+                            <p class="book-label2">Check-in</p>
+                            <div class="select-option" id="book-check-in">
+                                01/07/2023
+                            </div>
+                        </div>
+                        <!-- $ selected  Check-in Date END -->
+
+                        <!-- $ selected  Check-OUT Date START -->
+                        <div>
+                            <p class="book-label2">Check-out</p>
+                            <div class="select-option" id="book-check-out">
+                                01/01/2024
+                            </div>
+                        </div>
+                        <!-- $ selected Check-OUT Date END -->
                     </div>
                     <!-- $ selected period END -->
 
@@ -95,7 +110,7 @@
                             <p class="book-desc padding-inline-20" id="book-name">Steven Doni Atiko</p>
                         </div>
                         <div class="book-user-id-box">
-                            <p class="book-label2 padding-inline-20">Student ID</p>
+                            <p class="book-label2 padding-inline-20">Student ID / NIK</p>
                             <p class="book-desc padding-inline-20" id="book-user-id">C14200200</p>
                         </div>
                     </div>
@@ -119,43 +134,44 @@
 
             <!-- $ booking payment Summary START -->
             <div class="padding-20 flex justify-center ">
-                <div class="booking-receipt">
-                    <div class="bottom-border flex justify-center">
-                        <h1>Booking</h1>
+                <div class="booking-receipt flex justify-between flex-direction-column">
+                    <div>
+                        <div class="bottom-border flex justify-center">
+                            <h1>Booking</h1>
+                        </div>
+
+                        <div class="padding-20">
+                            <h1 class="book-label1">Summary</h1>
+                            <div class="flex justify-between">
+                                <p class="summary-text">Month</p>
+                                <p class="summary-text"><span id="date-count">6</span> month</p>
+                            </div>
+
+                            <!-- $ room detail START -->
+                            <h1 class="book-label3">Room detail</h1>
+                            <div class="flex justify-between">
+                                <p class="summary-text">
+                                    <span id="book-bed">1</span>
+                                    x Bed [
+                                    <span id="book-room">A1-004</span>
+                                    ]
+                                </p>
+                                <p class="summary-text">IDR <span id="room-price">350.000</span> / month</p>
+                            </div>
+                            <div class="flex justify-between">
+                                <p class="summary-text">tax 10%</p>
+                                <p class="summary-text">IDR <span id="tax-price">21.000</span></p>
+                            </div>
+                            <!-- $ room detail END -->
+                        </div>
                     </div>
-
-                    <div class="padding-20">
-                        <h1 class="book-label1">Summary</h1>
-                        <div class="flex justify-between">
-                            <p class="summary-text">Month</p>
-                            <p class="summary-text"><span id="date-count">6</span> month</p>
-                        </div>
-
-                        <!-- $ room detail START -->
-                        <h1 class="book-label3">Room detail</h1>
-                        <div class="flex justify-between">
-                            <p class="summary-text">
-                                <span id="book-bed">1</span>
-                                x Bed [
-                                <span id="book-room">A1-004</span>
-                                ]
-                            </p>
-                            <p class="summary-text">IDR <span id="room-price">350.000</span> / month</p>
-                        </div>
-                        <div class="flex justify-between">
-                            <p class="summary-text">tax 10%</p>
-                            <p class="summary-text">IDR <span id="tax-price">21.000</span></p>
-                        </div>
-                        <!-- $ room detail END -->
-                    </div>
-
-                    <div class="bottom-div top-border padding-20">
+                    <div class="top-border padding-20">
                         <div class="flex justify-between align-center">
                             <h1 class="book-label3">Total bill</h1>
                             <h1 class="book-label3">IDR <span id="total-price">2.121.000</span></h1>
                         </div>
                         <br>
-                        <a href="landing_page_login.html">
+                        <a href="transaction_page.html">
                             <button class="select-room-button" onclick="" style="width: 100%;">
                                 Book Now
                             </button>
@@ -165,7 +181,6 @@
                 </div>
             </div>
             <!-- $ booking payment Summary END -->
-
 
         </div>
     </section>

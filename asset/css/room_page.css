@@ -39,3 +39,13 @@
   background-color: green;
   border-radius: 50%;
 }
+
+.filter-lantai {
+  margin-top: 5px;
+  border: 1px solid black;
+  color: #0b4d70;
+  width: 18.125rem;
+  font-size: 1.5rem;
+  padding: 7px;
+  border-radius: 10px;
+}
