@@ -55,7 +55,7 @@
             <h1 class="book-label1">Details</h1>
 
             <!-- $ inputan period START -->
-            <p class="book-label2">Period</p>
+            <p class="book-label2">Period (DD/MM/YY)</p>
             <select class="select-option" name="book-period" id="book-period">
               <option value="date-1">
                 1/7/2023 - 1/1/2024 (6 months)
@@ -69,7 +69,7 @@
             <!-- $ inputan Beds START -->
             <p class="book-label2">Beds</p>
             <select class="select-option" name="book-bed" id="book-bed">
-              <option value="bed-1">
+              <option value="1">
                 1 Beds
               </option>
             </select>
@@ -91,11 +91,11 @@
 
             <br>
             <br>
-            <a href="tower_page.html">
-              <button class="select-room-button" onclick="" style="width: 100%;">
-                Select Room
-              </button>
-            </a>
+
+            <button class="select-room-button" onclick="takeBookingData()" style="width: 100%;">
+              Select Room
+            </button>
+
           </div>
         </div>
       </div>
@@ -109,6 +109,8 @@
 
   <br />
   <br />
+
+  <script src="asset/js/booking.js"></script>
 </body>
 
 </html>

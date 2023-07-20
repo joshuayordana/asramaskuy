@@ -15,7 +15,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
 </head>
 
-<body>
+<body onload="pickRoom()">
     <header>
         <!-- $ Navbar start -->
         <div class="container">
@@ -41,7 +41,7 @@
 
     <!-- $ list room start -->
     <section class="container" style="margin-top: 70px">
-        <a href="./tower_page.html"><span class="material-symbols-outlined back-logo">arrow_back</span></a>
+        <a href="" onclick="backToForm()"><span class="material-symbols-outlined back-logo">arrow_back</span></a>
         <div class="flex flex-direction-column">
 
             <!-- $ Nama Gedung dan filter? START -->
@@ -67,7 +67,7 @@
                     <div class="grid-col-4 gap-20 grid-center" id="room-list">
 
                         <!-- $ list room PER lantai start -->
-                        <div class="room padding-10 flex align-center justify-between" id="room-?" onclick="test()">
+                        <div class="room padding-10 flex align-center justify-between" id="room-1-1">
                             <div class="room-desc1">
                                 <p class="room-name" id="room-name">A1-001</p>
                                 <p id="room-lantai">1<sup>st</sup> Floor</p>
@@ -91,7 +91,7 @@
                     <div class="grid-col-4 gap-20 grid-center" id="room-list">
 
                         <!-- $ list room PER lantai start -->
-                        <div class="room padding-10 flex align-center justify-between" id="room-?" onclick="test()">
+                        <div class="room padding-10 flex align-center justify-between" id="room-2-1" onclick="test()">
                             <div class="room-desc1">
                                 <p class="room-name" id="room-name">A2-001</p>
                                 <p id="room-lantai">2<sup>nd</sup> Floor</p>
@@ -114,11 +114,7 @@
     <!-- $ list room END -->
     <br>
     <br>
-    <script>
-        function test() {
-            window.location.href = "room_payment.html";
-        }
-    </script>
+    <script src="asset/js/booking.js"></script>
 </body>
 
 </html>
