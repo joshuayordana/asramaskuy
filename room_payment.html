@@ -111,7 +111,7 @@
                             <p class="book-desc padding-inline-20" id="book-name"></p>
                         </div>
                         <div class="book-user-id-box">
-                            <p class="book-label2 padding-inline-20">Student ID / NIK</p>
+                            <p class="book-label2 padding-inline-20" id="id-label"></p>
                             <p class="book-desc padding-inline-20" id="book-user-id"></p>
                         </div>
                     </div>
@@ -144,8 +144,9 @@
                         <div class="padding-20">
                             <h1 class="book-label1">Summary</h1>
                             <div class="flex justify-between">
-                                <p class="summary-text">Month</p>
-                                <p class="summary-text"><span id="date-count"></span> month</p>
+                                <p class="summary-text" id="type-of-date"></p>
+                                <p class="summary-text"> <span id="date-count"></span> <span id="type-of-date"></span>
+                                </p>
                             </div>
 
                             <!-- $ room detail START -->
@@ -157,7 +158,8 @@
                                     <span id="book-room"></span>
                                     ]
                                 </p>
-                                <p class="summary-text">IDR <span id="room-price"></span> / month</p>
+                                <p class="summary-text">IDR <span id="room-price"></span> / <span
+                                        id="type-of-date"></span></p>
                             </div>
                             <div class="flex justify-between">
                                 <p class="summary-text">tax 10%</p>

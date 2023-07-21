@@ -15,7 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
 </head>
 
-<body>
+<body onload="takeBookingData()">
   <header>
     <!-- $ Navbar start -->
     <div class="container">
@@ -55,24 +55,69 @@
             <h1 class="book-label1">Details</h1>
 
             <!-- $ inputan period START -->
-            <p class="book-label2">Period (DD/MM/YY)</p>
-            <select class="select-option" name="book-period" id="book-period">
-              <option value="date-1">
-                1/7/2023 - 1/1/2024 (6 months)
-              </option>
-              <option value="date-2">
-                1/7/2023 - 1/7/2024 (12 months)
-              </option>
-            </select>
+
+            <!-- ! ini inputan untuk STUDENT -->
+            <div class="" id="student-period">
+              <p class="book-label2">Period (DD/MM/YY)<span style="color: red;">*</span></p>
+              <select class="select-option" name="book-period" id="book-period">
+                <option value="date-1">
+                  1/7/2023 - 1/1/2024 (6 months)
+                </option>
+                <option value="date-2">
+                  1/7/2023 - 1/7/2024 (12 months)
+                </option>
+              </select>
+            </div>
+
+            <!-- ! ini inputan untuk GUEST -->
+            <div class="grid-col-2 gap-20" id="guest-period">
+              <!-- selected Check-in Date START -->
+              <div>
+                <p class="book-label2">Check-in<span style="color: red;">*</span></p>
+                <input class="select-option" type="date" id="book-check-in" name="book-check-in">
+                <div class="input-warning" id="check-in-warning"></div>
+              </div>
+              <!-- selected  Check-in Date END -->
+
+              <!-- selected  Check-OUT Date START -->
+              <div>
+                <p class="book-label2">Check-out<span style="color: red;">*</span></p>
+                <input class="select-option" type="date" id="book-check-out" name="book-check-out">
+                <div class="input-warning" id="check-out-warning"></div>
+              </div>
+              <!-- selected Check-OUT Date END -->
+
+            </div>
             <!-- $ inputan period END -->
 
             <!-- $ inputan Beds START -->
-            <p class="book-label2">Beds</p>
-            <select class="select-option" name="book-bed" id="book-bed">
-              <option value="1">
-                1 Beds
-              </option>
-            </select>
+            <p class="book-label2">Beds<span style="color: red;">*</span></p>
+            <div class="" id="student-bed">
+              <select class="select-option" name="book-bed" id="book-bed-student">
+                <option value="1">
+                  1 Beds
+                </option>
+              </select>
+            </div>
+            <div class="" id="guest-bed">
+              <select class="select-option" name="book-bed" id="book-bed-guest">
+                <option value="1">
+                  1 Beds
+                </option>
+                <option value="2">
+                  2 Beds
+                </option>
+                <option value="3">
+                  3 Beds
+                </option>
+                <option value="4">
+                  4 Beds
+                </option>
+                <option value="5">
+                  5 Beds
+                </option>
+              </select>
+            </div>
             <!-- $ inputan Beds END -->
 
             <!-- $ bagian information START -->
@@ -83,7 +128,7 @@
                 <p class="book-desc padding-inline-20" id="book-name">Steven Doni Atiko</p>
               </div>
               <div class="book-user-id-box">
-                <p class="book-label2 padding-inline-20">Student ID</p>
+                <p class="book-label2 padding-inline-20" id="id-label"></p>
                 <p class="book-desc padding-inline-20" id="book-user-id">C14200200</p>
               </div>
             </div>
@@ -92,7 +137,7 @@
             <br>
             <br>
 
-            <button class="select-room-button" onclick="takeBookingData()" style="width: 100%;">
+            <button class="select-room-button" id="pick-room-button" style="width: 100%;">
               Select Room
             </button>
 
