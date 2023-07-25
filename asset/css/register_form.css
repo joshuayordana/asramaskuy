@@ -113,8 +113,8 @@
 }
 
 .input-text{
-    height: 20px;
-    width: 95%;
+    height: 5vh;
+    width: 100%;
     margin: 5px 0;
     padding: 10px;
     border-radius: 15px;
@@ -124,13 +124,13 @@
 
 label{
     vertical-align: baseline;
-    height: 20px;
+    height: 5vh;
     color: gray;
 }
 
 .input-file{
-    height: 20px;
-    width: 95%;
+    height: 5vh;
+    width: 100%;
     margin: 5px 0;
     padding: 10px;
     border-radius: 15px;
