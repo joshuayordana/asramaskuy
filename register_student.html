@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login Student</title>
+    <title>Register Student</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,10 +17,10 @@
     <link rel="stylesheet" href="asset/css/landing_page.css" />
     <link rel="stylesheet" href="asset/css/index.css" />
     <link rel="stylesheet" href="asset/css/navbar.css" />
-    <link rel="stylesheet" href="asset/css/login_form.css" />
+    <link rel="stylesheet" href="asset/css/register_form.css" />
   </head>
   <body>
-    <header>
+    <header class="">
       <!-- Navbar start -->
       <div class="container">
         <nav class="navbar">
@@ -39,6 +39,7 @@
       </div>
       <!-- Navbar end -->
     </header>
+
     <div class="container" style="margin-top: 70px">
       <a href="./login_pilih.html"
         ><span class="material-symbols-outlined">arrow_back</span></a
@@ -48,33 +49,62 @@
           <img id="sapiens1" src="asset/image/sapiens1.png" alt="sapiens1" />
         </div>
         <div class="grid-item">
-          <div class="login-box">
-            <div class="header">Login or Signup</div>
-            <hr />
+          <div class="login-box" style="height: 73vh">
+            <div class="header">Sign Up</div>
             <div class="isi">
-              <div id="greetings">Welcome to Asrama</div>
-              <div class="username">
-                <input type="text" id="nik" placeholder="Student's ID Number" />
-              </div>
-              <div class="pass">
-                <input
-                  type="password"
-                  lass="pass"
-                  id="pass"
-                  placeholder="Password"
+              <div class="data">
+                Nama<input
+                  type="username"
+                  class="input-text"
+                  id="full_name"
+                  placeholder="Full Name"
                 />
               </div>
-              <div class="remember-me">
-                <input type="checkbox" name="remember" id="remember" />
-                <label for="remember">Remember me</label>
+              <div class="data">
+                Student ID<input
+                  type="text"
+                  class="input-text"
+                  id="studentid_input"
+                  placeholder="Insert your Student ID"
+                />
+              </div>
+              <div class="data">
+                NIK<input
+                  type="text"
+                  class="input-text"
+                  id="nik_input"
+                  placeholder="Insert your NIK"
+                />
+              </div>
+              <div class="data">
+                Upload Photo<label for="photo" class="input-file"
+                  >Click here to upload a photo of your face</label
+                ><input type="file" id="photo" style="display: none" />
+              </div>
+              <div class="data">
+                Date of Birth<input
+                  type="date"
+                  class="input-text"
+                  id="dateofbirth_input"
+                />
+              </div>
+              <div class="data">
+                Gender
+                <select name="gender" id="gender" class="input-select">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+              <div class="data">
+                Address<input
+                  type="text"
+                  class="input-text"
+                  id="address_input"
+                  placeholder="Address"
+                />
               </div>
               <div style="text-align: center">
-                <a href="#"><button class="login">Log In</button></a>
-              </div>
-              <div style="text-align: center">
-                <a href="./register_student.html"
-                  ><button class="signup">Don't have an account?</button></a
-                >
+                <a href="register_student2.html"><button class="login">Next</button></a>
               </div>
             </div>
           </div>
