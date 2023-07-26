@@ -14,6 +14,9 @@ function nextStep() {
 
 function back() {
   step -= 1;
+  if (step <= 0) {
+    window.location.href = "./login_guest.html";
+  }
   const isi1 = document.getElementById(`isi${step}`);
   const isi2 = document.getElementById(`isi${step + 1}`);
   isi2.style.display = "none";
