@@ -26,6 +26,13 @@
     margin: 10px 0px;
 }
 
+.header2{
+    font-size: 12pt;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+
 .isi{
     height: 55vh;
     top: 50%;
