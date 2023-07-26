@@ -1,4 +1,4 @@
-const userRole = "student";
+const userRole = "guest";
 
 const check_out_student = document.querySelector("#check-out-student");
 const check_out_guest = document.querySelector("#check-out-guest");
@@ -7,7 +7,7 @@ const id_label = document.querySelector("#id-label");
 //Data dummy
 let booking_data = {
   "check-in": "2023-07-23",
-  "check-out": "2024-01-23",
+  "check-out": "2023-07-23",
   beds: "1",
   name: "susanto",
   "user-id": "c14200200",
@@ -51,8 +51,8 @@ if (userRole === "student") {
   let formattedDate_student = old_date_out.toISOString().slice(0, 10);
 
   // % memasukkannya ke dalam kolom checkout pada form
-  const new_check_out = check_out_student.querySelector("#book-check-out");
-  new_check_out.innerHTML = dateFormatOne(formattedDate_student);
+  const book_check_out = check_out_student.querySelector("#book-check-out");
+  book_check_out.innerHTML = dateFormatOne(formattedDate_student);
 
   booking_data["check-out"] = formattedDate_student; // ! VALUE BARU CHECK OUT MASUK KE SESSION
 } else if (userRole === "guest") {
@@ -64,21 +64,21 @@ if (userRole === "student") {
 const extend_button = document.querySelector("#extend-button");
 extend_button.addEventListener("click", () => {
   if (userRole === "guest") {
-    const new_check_out = check_out_guest.querySelector("#book-check-out");
+    const book_check_out = check_out_guest.querySelector("#book-check-out");
     const check_out_warning =
       check_out_guest.querySelector("#check-out-warning");
-    let date_new_check_out = new Date(new_check_out.value);
+    let new_date_out = new Date(book_check_out.value);
 
     // ! warning CHECK ON DATE INPUT START
-    if (new_check_out.value === "") {
+    if (book_check_out.value === "") {
       check_out_warning.innerHTML = "Date must not be empty";
       return false;
-    } else if (date_new_check_out <= old_date_out) {
+    } else if (new_date_out <= old_date_out) {
       check_out_warning.innerHTML = "date must be later than check in date";
       return false;
     } else {
       check_out_warning.innerHTML = "";
-      let formattedDate_guest = date_new_check_out.toISOString().slice(0, 10);
+      let formattedDate_guest = new_date_out.toISOString().slice(0, 10);
       booking_data["check-out"] = formattedDate_guest; // ! VALUE BARU CHECK OUT MASUK KE SESSION
     }
     // ! warning CHECK ON DATE INPUT END
