@@ -1,4 +1,4 @@
-const userRole = "guest";
+const userRole = "student";
 
 // ! INI PREVENT ORG UNTUK LANGSUNG BUKA HALAMAN INI HEHE START
 let booking_data = JSON.parse(window.sessionStorage.getItem("booking-data"));

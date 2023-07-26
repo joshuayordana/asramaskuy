@@ -12,10 +12,34 @@ if (
 }
 // ! INI PREVENT ORG UNTUK LANGSUNG BUKA HALAMAN INI HEHE END
 
+// % Untuk menampilkan Nama Tower yang di pilih sebelumnya
 const tower_name = document.querySelector("#tower-name");
 tower_name.innerHTML = booking_data["tower"];
 
+// % Untuk membuat filter dalam page room
+const filter_lantai = document.querySelector("#filter-lantai");
+for (let i = 0; i < booking_data["tower-floor"]; i++) {
+  const filter_option = document.createElement("option");
+  filter_option.setAttribute("value", `${i + 1}`);
+  filter_option.innerHTML = `${betterNumberRank(i + 1)} Floor`;
+  filter_lantai.appendChild(filter_option);
+}
+
 // ? disini tempat nampilin room dan lantainya
+
+filter_lantai.addEventListener("change", () => {
+  let filter_result =
+    filter_lantai.value === "all"
+      ? booking_data["tower-floor"]
+      : filter_lantai.value;
+  for (let i = 0; i < filter_result; i++) {
+    console.log("test");
+    // const filter_option = document.createElement("option");
+    // filter_option.setAttribute("value", `${i + 1}`);
+    // filter_option.innerHTML = `${betterNumberRank(i + 1)} Floor`;
+    // filter_lantai.appendChild(filter_option);
+  }
+});
 const room_floor = document.querySelector("#room-lantai-1"); // ini nanti indexnya ganti2 / di loop per lantai
 
 // CODE HERE
@@ -30,4 +54,17 @@ room_box.addEventListener("click", (e) => {
   console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
   window.location.href = "book_payment.html";
 });
+
 // ? disini tempat nampilin room dan lantainya
+
+function betterNumberRank(num) {
+  if (num === 1) {
+    return `${num}<sup>st</sup>`;
+  } else if (num === 2) {
+    return `${num}<sup>nd</sup>`;
+  } else if (num === 3) {
+    return `${num}<sup>rd</sup>`;
+  } else {
+    return `${num}<sup>th</sup>`;
+  }
+}

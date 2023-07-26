@@ -26,6 +26,8 @@ pick_room_button.addEventListener("click", () => {
     name: "",
     "user-id": "",
     tower: "",
+    "tower-id": "",
+    "tower-floor": "",
     room: "",
     "payment-method": "",
   };
