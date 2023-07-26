@@ -51,13 +51,13 @@
         <div class="grid-item">
           <div class="login-box" style="height: 65vh">
             <div class="header">Sign Up</div>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="" method="post" enctype="multipart/form-data" id="register_form">
               <div class="isi" id="isi1">
                 <div class="data">
                   Nama<input
                     type="username"
                     class="input-text"
-                    id="full_name"
+                    id="nama"
                     name="nama"
                     placeholder="Full Name"
                   />
@@ -80,8 +80,8 @@
                   Date of Birth<input
                     type="date"
                     class="input-text"
-                    name="jenis_kelamin"
-                    id="dateofbirth_input"
+                    name="tgl_lahir"
+                    id="tgl_lahir"
                   />
                 </div>
                 <div class="data">
@@ -95,7 +95,7 @@
                   Address<input
                     type="text"
                     class="input-text"
-                    id="address_input"
+                    id="alamat"
                     name="alamat"
                     placeholder="Address"
                   />
@@ -127,13 +127,13 @@
                   Phone<input
                     type="tel"
                     class="input-text"
-                    id="phone"
+                    id="no_telp"
                     name="no_telp"
                     placeholder="Insert your phone number"
                   />
                 </div>
                 <div style="text-align: center">
-                  <a href="#"><button type="submit" class="login">Submit Registration</button></a>
+                  <a href="#"><button type="button" class="login" id="submit">Submit Registration</button></a>
                 </div>
               </div>
             </form>
