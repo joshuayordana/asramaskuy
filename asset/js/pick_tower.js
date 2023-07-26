@@ -1,3 +1,4 @@
+import { config } from "./config";
 const userRole = "student";
 console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
 // ! INI PREVENT ORG UNTUK LANGSUNG BUKA HALAMAN INI HEHE START
@@ -9,7 +10,7 @@ if (booking_data === null || booking_data["user-id"] === "") {
 
 // ? disini tempat nampilin room dan lantainya MEN
 const endpoint =
-  "http://localhost:2681/getGedungByJenisKelamin?jenis_kelamin=Laki-Laki";
+  `${config.api}getGedungByJenisKelamin?jenis_kelamin=Laki-Laki`;
 
 // fetch(endpoint)
 //   .then((result) => result.json())

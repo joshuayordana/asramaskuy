@@ -51,54 +51,92 @@
         <div class="grid-item">
           <div class="login-box" style="height: 65vh">
             <div class="header">Sign Up</div>
-            <div class="isi">
-              <div class="data">
-                Nama<input
-                  type="username"
-                  class="input-text"
-                  id="full_name"
-                  placeholder="Full Name"
-                />
+            <form action="./api/test.php" method="post">
+              <div class="isi" id="isi1">
+                <div class="data">
+                  Nama<input
+                    type="username"
+                    class="input-text"
+                    id="full_name"
+                    name="nama"
+                    placeholder="Full Name"
+                  />
+                </div>
+                <div class="data">
+                  NIK<input
+                    type="text"
+                    class="input-text"
+                    id="nik_input"
+                    name="nik"
+                    placeholder="Insert your NIK"
+                  />
+                </div>
+                <div class="data">
+                  Upload Photo<label for="photo" class="input-file"
+                    >Click here to upload a photo of your face</label
+                  ><input type="file" name="photo" id="photo" style="display: none" />
+                </div>
+                <div class="data">
+                  Date of Birth<input
+                    type="date"
+                    class="input-text"
+                    name="jenis_kelamin"
+                    id="dateofbirth_input"
+                  />
+                </div>
+                <div class="data">
+                  Gender
+                  <select name="gender" id="gender" class="input-select">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
+                <div class="data">
+                  Address<input
+                    type="text"
+                    class="input-text"
+                    id="address_input"
+                    name="alamat"
+                    placeholder="Address"
+                  />
+                </div>
+                <div style="text-align: center">
+                  <a href="register_guest2.html"><button class="login">Next</button></a>
+                </div>
               </div>
-              <div class="data">
-                NIK<input
-                  type="text"
-                  class="input-text"
-                  id="nik_input"
-                  placeholder="Insert your NIK"
-                />
+              <div class="isi" id="isi2">
+                <div class="data">
+                  Email<input
+                    type="email"
+                    class="input-text"
+                    id="email"
+                    name="email"
+                    placeholder="example@gulugulu.com"
+                  />
+                </div>
+                <div class="data">
+                  Password<input
+                    type="password"
+                    class="input-text"
+                    id="password"
+                    name="password"
+                    placeholder="Insert your password"
+                  />
+                </div>
+                <div class="data">
+                  Phone<input
+                    type="tel"
+                    class="input-text"
+                    id="phone"
+                    name="no_telp"
+                    placeholder="Insert your phone number"
+                  />
+                </div>
+                <div style="text-align: center">
+                  <a href="#"><button type="submit" class="login">Submit Registration</button></a>
+                </div>
               </div>
-              <div class="data">
-                Upload Photo<label for="photo" class="input-file"
-                  >Click here to upload a photo of your face</label
-                ><input type="file" id="photo" style="display: none" />
-              </div>
-              <div class="data">
-                Date of Birth<input
-                  type="date"
-                  class="input-text"
-                  id="dateofbirth_input"
-                />
-              </div>
-              <div class="data">
-                Gender
-                <select name="gender" id="gender" class="input-select">
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                </select>
-              </div>
-              <div class="data">
-                Address<input
-                  type="text"
-                  class="input-text"
-                  id="address_input"
-                  placeholder="Address"
-                />
-              </div>
-              <div style="text-align: center">
-                <a href="register_guest2.html"><button class="login">Next</button></a>
-              </div>
-            </div>
+            </form>
           </div>
         </div>
         <div class="grid-item">
