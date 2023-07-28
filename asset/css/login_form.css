@@ -46,7 +46,7 @@
     margin: -1px auto;
 }
 
-#nik, #pass{
+.nik, #pass{
     height: 40px;
     width: 95%;
     padding: 10px;
@@ -54,7 +54,7 @@
     border: 1px solid;
 }
 
-#nik{
+.nik{
     border-radius: 15px 15px 0 0;
 }
 

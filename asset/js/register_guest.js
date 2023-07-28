@@ -35,13 +35,11 @@ submitButton.addEventListener("click", () => {
   register_data["nama"] = document.getElementById("nama").value;
   register_data["nik"] = document.getElementById("nik_input").value;
   register_data["tgl_lahir"] = document.getElementById("tgl_lahir").value;
-  console.log(register_data["tgl_lahir"]);
   register_data["gender"] = document.getElementById("gender").value;
   register_data["alamat"] = document.getElementById("alamat").value;
   register_data["email"] = document.getElementById("email").value;
   register_data["password"] = document.getElementById("password").value;
   register_data["no_telp"] = document.getElementById("no_telp").value;
-  console.log(JSON.stringify(register_data));
   const formData = new URLSearchParams();
   for (const [key, value] of Object.entries(register_data)) {
     formData.append(key, value.toString());
