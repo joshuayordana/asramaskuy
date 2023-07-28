@@ -29,6 +29,7 @@ pick_room_button.addEventListener("click", () => {
     "tower-id": "",
     "tower-floor": "",
     room: "",
+    "room-id": "",
     "payment-method": "",
   };
 

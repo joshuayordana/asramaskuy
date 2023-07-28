@@ -1,4 +1,4 @@
-const userRole = "guest";
+const userRole = "student";
 
 const check_out_student = document.querySelector("#check-out-student");
 const check_out_guest = document.querySelector("#check-out-guest");

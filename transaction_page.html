@@ -63,54 +63,6 @@
             <!-- $ bagian trans-list START -->
             <div class="card-list padding-20 flex flex-direction-column gap-20" id="transaction-list">
 
-                <!-- $ bagian trans-item START -->
-                <div class="card-item padding-10 flex flex-direction-column gap-10" id="transaction-item-n">
-
-                    <!-- $ bagian line-pertama START -->
-                    <div class="flex gap-20 align-center">
-                        <img class="card-logo" src="asset/image/book-check.png" alt="">
-                        <h1 class="no-margin text-1">Booking</h1>
-                        <p class="no-margin text-2" id="transaction-date">32 Jan 2023</p>
-                        <div class="card-status-box flex justify-center padding-10">
-                            <p class="no-margin card-status-text" id="transaction-status-text">Alloted</p>
-                        </div>
-                        <p class="no-margin text-2" id="transaction-id">ID-23412342145/BOO/XVII</p>
-                    </div>
-                    <!-- $ bagian line-pertama END -->
-
-                    <!-- $ bagian line-kedua START -->
-                    <div class="flex gap-10 align-center">
-                        <h1 class="no-margin text-1" id="transaction-room">A1-001</h1>
-                        <p class="no-margin text-2" id="transaction-bed">
-                            [
-                            <span id="transaction-bed">1</span>
-                            beds ]
-                        </p>
-                    </div>
-                    <!-- $ bagian line-kedua END -->
-
-                    <!-- $ bagian line-ketiga START -->
-                    <div class="flex gap-10 align-center">
-                        <h1 class="no-margin text-1">Date:</h1>
-                        <p class="no-margin text-2">
-                            <span id="transaction-check-in">1/7/2023</span>
-                            -
-                            <span id="transaction-check-out">1/1/2024</span>
-                        </p>
-                    </div>
-                    <!-- $ bagian line-ketiga END -->
-
-                    <h1 class="no-margin text-1">Price: <span class="text-2">IDR <span
-                                id="transaction-price">2.121.000</span></span>
-                    </h1>
-                    <div class="flex align-center justify-between">
-                        <div class="text-1" id="transaction-method">BCA Virtual Account</div>
-                        <div class="clickable-button not-active" onclick="">extend</div>
-                        <div class="disabled-button">extend</div>
-                    </div>
-                </div>
-                <!-- $ bagian trans-item END -->
-
             </div>
             <!-- $ bagian trans-list END -->
         </div>
@@ -122,6 +74,8 @@
     <footer>
         @copyright 2023
     </footer>
+    <script type="module" src="../asset/js/transaction.js"></script>
+    <script src="../asset/js/user_validation.js"></script>
 </body>
 
 </html>

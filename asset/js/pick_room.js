@@ -1,6 +1,6 @@
 import { config } from "./config.js";
 
-const userRole = "guest";
+const userRole = "student";
 console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
 
 // ! INI PREVENT ORG UNTUK LANGSUNG BUKA HALAMAN INI HEHE START
@@ -29,8 +29,7 @@ for (let i = 0; i < booking_data["tower-floor"]; i++) {
 
 showAllFloorRoom(booking_data["tower-floor"], false);
 
-// ? disini tempat nampilin room dan lantainya
-
+// % Jika filter Dipakai
 filter_lantai.addEventListener("change", () => {
   if (filter_lantai.value === "all") {
     showAllFloorRoom(booking_data["tower-floor"], false);
@@ -39,14 +38,15 @@ filter_lantai.addEventListener("change", () => {
   }
 });
 
-// ? disini tempat nampilin room dan lantainya
-
+// @ Menampilkan kamar sesuai lantai yang dipilih
 function showAllFloorRoom(floors, isFiltered) {
   const list_lantai_kamar = document.querySelector("#list-lantai-kamar");
 
   // $ JIKA PAKAI FILTER
   if (isFiltered) {
     list_lantai_kamar.innerHTML = "";
+
+    // % Buat Div Per lantai
     const room_floor = document.createElement("div");
     room_floor.setAttribute("id", `room-lantai-${floors}`);
     room_floor.innerHTML = `<p class="room-floor-title" id="room-floor-title">${betterNumberRank(
@@ -55,6 +55,7 @@ function showAllFloorRoom(floors, isFiltered) {
     <div class="grid-col-4 gap-20 grid-center" id="room-list"></div>`;
     list_lantai_kamar.appendChild(room_floor);
 
+    // % Memilih Floor yang sekarang
     const selected_floor = list_lantai_kamar.querySelector(
       `#room-lantai-${floors}`
     );
@@ -68,7 +69,7 @@ function showAllFloorRoom(floors, isFiltered) {
     fetch(endpoint_room)
       .then((result) => result.json())
       .then(({ data }) => {
-        console.log(data.Data);
+        // console.log(data.Data);
         for (let j = 0; j < data.Data.length; j++) {
           const room = document.createElement("div");
           room.setAttribute("id", `room-${j}`);
@@ -92,6 +93,7 @@ function showAllFloorRoom(floors, isFiltered) {
           </div>`;
           room_list.appendChild(room);
           const room_box = room_list.querySelector(`#room-${j}`);
+
           room_box.addEventListener("click", (e) => {
             const room_name = room_box.querySelector("#room-name");
             booking_data["room"] = room_name.textContent;
@@ -139,11 +141,11 @@ function showAllFloorRoom(floors, isFiltered) {
         .then((result) => result.json())
         .then(({ data }) => {
           console.log(data.Data);
-          if (data.Data === null) {
-            console.log("ini null jing");
-          } else {
-            console.log(data.Data);
-          }
+          // if (data.Data === null) {
+          //   console.log("ini null jing");
+          // } else {
+          //   console.log(data.Data);
+          // }
           for (let j = 0; j < data.Data.length; j++) {
             const room = document.createElement("div");
             room.setAttribute("id", `room-${j}`);
@@ -168,8 +170,8 @@ function showAllFloorRoom(floors, isFiltered) {
             room_list.appendChild(room);
             const room_box = room_list.querySelector(`#room-${j}`);
             room_box.addEventListener("click", (e) => {
-              const room_name = room_box.querySelector("#room-name");
-              booking_data["room"] = room_name.textContent;
+              booking_data["room"] = data.Data[j].nama_kamar;
+              booking_data["room-id"] = data.Data[j].nama_kamar;
               window.sessionStorage.setItem(
                 "booking-data",
                 JSON.stringify(booking_data)
@@ -196,28 +198,3 @@ function betterNumberRank(num) {
     return `${num}<sup>th</sup>`;
   }
 }
-
-// <!-- $ list room lantai ? start -->
-// <div id="room-lantai-1">
-//     <p class="room-floor-title" id="room-floor-title">1<sup>st</sup> Floor</p>
-
-//     <!-- $ list room PER lantai start -->
-//     <div class="grid-col-4 gap-20 grid-center" id="room-list">
-
-//         <div class="room padding-10 flex align-center justify-between" id="room-1">
-//             <div class="room-desc1">
-//                 <p class="room-name" id="room-name">A1-001</p>
-//                 <p id="room-lantai">1<sup>st</sup> Floor</p>
-//             </div>
-//             <div class="room-desc2 flex gap-10 align-center">
-//                 <p class="room-capacity"><span id="room-current">1</span> / <span id="room-max">5</span>
-//                 </p>
-//                 <div class="room-capacity-color" id="room-capacity-color"></div>
-//             </div>
-//         </div>
-
-//     </div>
-//     <!-- $ list room PER lantai END -->
-
-// </div>
-// <!-- $ list room lantai ? end -->
