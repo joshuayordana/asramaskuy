@@ -1,12 +1,12 @@
 import { config } from "./config.js";
-const endpoint = `${config.api}loginGuest`;
+const endpoint = `${config.api}loginAdmin`;
 
 const loginButton = document.getElementById("loginButton");
 
 loginButton.addEventListener("click", () => {
     //Get Data
     var register_data = {};
-    register_data["nik"] = document.getElementById("nik").value;
+    register_data["email"] = document.getElementById("email").value;
     register_data["password"] = document.getElementById("pass").value;
     const formData = new URLSearchParams();
     for (const [key, value] of Object.entries(register_data)) {
@@ -40,7 +40,7 @@ loginButton.addEventListener("click", () => {
             var toSave = {};
             toSave["id_user"] = data["Data"]["id_user"];
             toSave["status"] = data["Data"]["status"];
-            toSave["role"] = "guest";
+            toSave["role"] = "student";
             window.sessionStorage.setItem(
                 "user-data",
                 JSON.stringify(toSave)
