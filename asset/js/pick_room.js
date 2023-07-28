@@ -1,38 +1,36 @@
 import { config } from "./config.js";
 
-const userRole = "student";
+let user_data = JSON.parse(window.sessionStorage.getItem("user-data"));
+const userRole = user_data["role"];
+
 console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
 
 // ! INI PREVENT ORG UNTUK LANGSUNG BUKA HALAMAN INI HEHE START
 let booking_data = JSON.parse(window.sessionStorage.getItem("booking-data"));
-if (
-  booking_data === null ||
-  booking_data["user-id"] === "" ||
-  booking_data["tower"] === ""
-) {
+if (booking_data === null || booking_data["id_gedung"] === "") {
   window.location.href = "../booking/book_form.html";
 }
 // ! INI PREVENT ORG UNTUK LANGSUNG BUKA HALAMAN INI HEHE END
 
 // % Untuk menampilkan Nama Tower yang di pilih sebelumnya
 const tower_name = document.querySelector("#tower-name");
-tower_name.innerHTML = booking_data["tower"];
+tower_name.innerHTML = booking_data["nama_gedung"];
 
 // % Untuk membuat filter dalam page room
 const filter_lantai = document.querySelector("#filter-lantai");
-for (let i = 0; i < booking_data["tower-floor"]; i++) {
+for (let i = 0; i < booking_data["tower-max-floor"]; i++) {
   const filter_option = document.createElement("option");
   filter_option.setAttribute("value", `${i + 1}`);
   filter_option.innerHTML = `${betterNumberRank(i + 1)} Floor`;
   filter_lantai.appendChild(filter_option);
 }
 
-showAllFloorRoom(booking_data["tower-floor"], false);
+showAllFloorRoom(booking_data["tower-max-floor"], false);
 
 // % Jika filter Dipakai
 filter_lantai.addEventListener("change", () => {
   if (filter_lantai.value === "all") {
-    showAllFloorRoom(booking_data["tower-floor"], false);
+    showAllFloorRoom(booking_data["tower-max-floor"], false);
   } else {
     showAllFloorRoom(filter_lantai.value, true);
   }
@@ -45,7 +43,6 @@ function showAllFloorRoom(floors, isFiltered) {
   // $ JIKA PAKAI FILTER
   if (isFiltered) {
     list_lantai_kamar.innerHTML = "";
-
     // % Buat Div Per lantai
     const room_floor = document.createElement("div");
     room_floor.setAttribute("id", `room-lantai-${floors}`);
@@ -61,9 +58,7 @@ function showAllFloorRoom(floors, isFiltered) {
     );
     const room_list = selected_floor.querySelector("#room-list");
 
-    const endpoint_room = `${config.api}getKamarByLantai?id_gedung=${booking_data["tower-id"]}&lantai=${floors}`;
-
-    console.log(endpoint_room);
+    const endpoint_room = `${config.api}getKamarByLantai?id_gedung=${booking_data["id_gedung"]}&lantai=${floors}`;
 
     // % Menampilkan semua room berdasarkan FLOOR nya
     fetch(endpoint_room)
@@ -131,16 +126,13 @@ function showAllFloorRoom(floors, isFiltered) {
       const room_list = selected_floor.querySelector("#room-list");
 
       const endpoint_room = `${config.api}getKamarByLantai?id_gedung=${
-        booking_data["tower-id"]
+        booking_data["id_gedung"]
       }&lantai=${i + 1}`;
-
-      console.log(endpoint_room);
 
       // % Menampilkan semua room berdasarkan FLOOR nya
       fetch(endpoint_room)
         .then((result) => result.json())
         .then(({ data }) => {
-          console.log(data.Data);
           // if (data.Data === null) {
           //   console.log("ini null jing");
           // } else {
@@ -168,10 +160,13 @@ function showAllFloorRoom(floors, isFiltered) {
               <div class="room-capacity-color" id="room-capacity-color"></div>
             </div>`;
             room_list.appendChild(room);
+
+            // % Melakukan input ke FORM PAYMENT!!!
             const room_box = room_list.querySelector(`#room-${j}`);
             room_box.addEventListener("click", (e) => {
-              booking_data["room"] = data.Data[j].nama_kamar;
-              booking_data["room-id"] = data.Data[j].nama_kamar;
+              booking_data["nama_kamar"] = data.Data[j].nama_kamar;
+              booking_data["id_kamar"] = data.Data[j].id_kamar;
+              booking_data["harga_kamar"] = data.Data[j].harga_kamar;
               window.sessionStorage.setItem(
                 "booking-data",
                 JSON.stringify(booking_data)

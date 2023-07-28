@@ -1,10 +1,12 @@
 import { config } from "./config.js";
 
-const userRole = "student";
+let user_data = JSON.parse(window.sessionStorage.getItem("user-data"));
+const userRole = user_data["role"];
+
 console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
 // ! INI PREVENT ORG UNTUK LANGSUNG BUKA HALAMAN INI HEHE START
 let booking_data = JSON.parse(window.sessionStorage.getItem("booking-data"));
-if (booking_data === null || booking_data["user-id"] === "") {
+if (booking_data === null || booking_data["id_user"] === "") {
   window.location.href = "../booking/book_form.html";
 }
 // ! INI PREVENT ORG UNTUK LANGSUNG BUKA HALAMAN INI HEHE END
@@ -59,9 +61,9 @@ fetch(endpoint_men)
             const pick_tower_button_men =
               tower_box_men.querySelector("#pick-tower-button");
             pick_tower_button_men.addEventListener("click", () => {
-              booking_data["tower"] = data.Data[i].nama_gedung;
-              booking_data["tower-id"] = data.Data[i].id_gedung;
-              booking_data["tower-floor"] = data.Data[i].jumlah_lantai;
+              booking_data["nama_gedung"] = data.Data[i].nama_gedung;
+              booking_data["id_gedung"] = data.Data[i].id_gedung;
+              booking_data["tower-max-floor"] = data.Data[i].jumlah_lantai;
               window.sessionStorage.setItem(
                 "booking-data",
                 JSON.stringify(booking_data)
@@ -130,9 +132,9 @@ fetch(endpoint_girl)
             const pick_tower_button_girl =
               tower_box_girl.querySelector("#pick-tower-button");
             pick_tower_button_girl.addEventListener("click", () => {
-              booking_data["tower"] = data.Data[i].nama_gedung;
-              booking_data["tower-id"] = data.Data[i].id_gedung;
-              booking_data["tower-floor"] = data.Data[i].jumlah_lantai;
+              booking_data["nama_gedung"] = data.Data[i].nama_gedung;
+              booking_data["id_gedung"] = data.Data[i].id_gedung;
+              booking_data["tower-max-floor"] = data.Data[i].jumlah_lantai;
               window.sessionStorage.setItem(
                 "booking-data",
                 JSON.stringify(booking_data)
