@@ -58,7 +58,7 @@ loginButton.addEventListener("click", () => {
             }).then((result) => {
                 /* Read more about handling dismissals below */
                 if (result.dismiss === Swal.DismissReason.timer) {
-                    window.location.href = "landing_page_login.html";
+                    window.location.href = "home.html";
                 }
             })
         }
