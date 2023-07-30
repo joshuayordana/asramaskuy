@@ -7,7 +7,7 @@ const id_label = document.querySelector("#id-label");
 //Data dummy
 let booking_data = {
   "check-in": "2023-07-23",
-  "check-out": "2023-07-23",
+  "check-out": "2024-07-23",
   beds: "1",
   name: "susanto",
   "user-id": "c14200200",

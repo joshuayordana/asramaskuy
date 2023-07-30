@@ -38,12 +38,12 @@
     </header>
 
     <!-- $ Profile start -->
-    <section class="container" style="margin-top: 70px;">
+    <section class="container min-height-100vh" style="margin-top: 70px;">
         <div class="profile">
             <!-- $ Bagian Sebelah kiri start -->
             <div class="profile-left flex flex-direction-column justify-between">
-                <div class="flex flex-direction-column align-center gap-20">
-                    <div class="profile-picture" id="profile-picture">
+                <div class="flex flex-direction-column align-center gap-20" style="width: fit-content;">
+                    <div>
                         <img class="profile-image" src="asset/image/avatar.jpg" alt="">
                     </div>
 
@@ -51,20 +51,20 @@
                         <img src="asset/image/image-logo.png" alt="">
                     </label>
                     <input type="file" id="file-input" style="display: none;">
-
-                    <div class="flex flex-direction-column align-start gap-20" style="margin-top: 30px;">
-                        <div>
-                            <p class="identity-title-1">Email</p>
-                            <span class="identity-content" id="identity-email">Steven@gulugulu.com</span>
-                        </div>
-
-                        <div>
-                            <p class="identity-title-1">Account-ID</p>
-                            <span class="identity-content" id="identity-id">ASDEW456547121</span>
-                        </div>
-                    </div>
                 </div>
 
+                <div class="flex flex-direction-column align-start gap-20">
+                    <div class="profile-content">
+                        <p class="identity-title-1">Email</p>
+                        <span class="identity-content" id="identity-email">Steven@gulugulu.comasdasdasdasd</span>
+                    </div>
+
+                    <div class="profile-content">
+                        <p class="identity-title-1">Account-ID</p>
+                        <span class="identity-content" id="identity-id">ASDEW456547121</span>
+                    </div>
+
+                </div>
                 <button class="logout-button" href="" onclick="">Logout</button>
             </div>
             <!-- $ Bagian Sebelah kiri End -->

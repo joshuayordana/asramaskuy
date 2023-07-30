@@ -1,3 +1,3 @@
 export const config = {
-  api: "http://10.1.10.32:42765/",
+  api: "http://10.1.10.2:42765/",
 };

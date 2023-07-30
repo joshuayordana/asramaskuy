@@ -40,7 +40,7 @@
   </header>
 
   <!-- $ input book start -->
-  <section class="container" style="margin-top: 70px">
+  <section class="container min-height-100vh" style="margin-top: 70px">
     <a href="../landing_page_login.html"><span class="material-symbols-outlined back-logo">arrow_back</span></a>
     <div class="grid-col-2">
       <div class="padding-20 flex justify-center">
@@ -55,8 +55,6 @@
             <h1 class="book-label1">Details</h1>
 
             <!-- $ inputan period START -->
-
-            <!-- ! ini inputan untuk STUDENT -->
             <div class="" id="student-period">
               <p class="book-label2">Period (DD/MM/YY)<span style="color: red;">*</span></p>
               <select class="select-option" name="book-period" id="book-period">
@@ -69,28 +67,6 @@
               </select>
             </div>
 
-            <!-- ! ini inputan untuk GUEST -->
-            <div class="grid-col-2 gap-20" id="guest-period">
-
-              <!-- $ selected Check-in Date START -->
-              <div>
-                <p class="book-label2">Check-in<span style="color: red;">*</span></p>
-                <input class="select-option" type="date" id="book-check-in" name="book-check-in">
-                <div class="input-warning" id="check-in-warning"></div>
-              </div>
-              <!-- $ selected  Check-in Date END -->
-
-              <!-- $ selected  Check-OUT Date START -->
-              <div>
-                <p class="book-label2">Check-out<span style="color: red;">*</span></p>
-                <input class="select-option" type="date" id="book-check-out" name="book-check-out">
-                <div class="input-warning" id="check-out-warning"></div>
-              </div>
-              <!-- $ selected Check-OUT Date END -->
-
-            </div>
-            <!-- $ inputan period END -->
-
             <!-- $ inputan Beds START -->
             <p class="book-label2">Beds<span style="color: red;">*</span></p>
             <div class="" id="student-bed">
@@ -100,26 +76,6 @@
                 </option>
               </select>
             </div>
-            <div class="" id="guest-bed">
-              <select class="select-option" name="book-bed" id="book-bed-guest">
-                <option value="1">
-                  1 Beds
-                </option>
-                <option value="2">
-                  2 Beds
-                </option>
-                <option value="3">
-                  3 Beds
-                </option>
-                <option value="4">
-                  4 Beds
-                </option>
-                <option value="5">
-                  5 Beds
-                </option>
-              </select>
-            </div>
-            <!-- $ inputan Beds END -->
 
             <!-- $ bagian information START -->
             <h1 class="">Information</h1>
@@ -129,7 +85,7 @@
                 <p class="book-desc padding-inline-20" id="book-name">Steven Doni Atiko</p>
               </div>
               <div class="book-user-id-box">
-                <p class="book-label2 padding-inline-20" id="id-label"></p>
+                <p class="book-label2 padding-inline-20" id="id-label">Student ID</p>
                 <p class="book-desc padding-inline-20" id="book-nim-nik">C14200200</p>
               </div>
             </div>
@@ -152,9 +108,6 @@
     </div>
   </section>
   <!-- $ input book end -->
-
-  <br />
-  <br />
   <footer>
     @copyright 2023
   </footer>
