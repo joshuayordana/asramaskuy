@@ -62,12 +62,12 @@
 }
 
 .text-1 {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
 .text-2 {
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   font-weight: 500;
 }
 
@@ -89,7 +89,7 @@
 
 .card-status-text {
   font-weight: 500;
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: white;
 }
 

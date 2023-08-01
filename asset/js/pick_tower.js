@@ -1,9 +1,8 @@
 import { config } from "./config.js";
 
-let user_data = JSON.parse(window.sessionStorage.getItem("user-data"));
-const userRole = user_data["role"];
+// let user_data = JSON.parse(window.sessionStorage.getItem("user-data"));
 
-console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
+// console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
 // ! INI PREVENT ORG UNTUK LANGSUNG BUKA HALAMAN INI HEHE START
 let booking_data = JSON.parse(window.sessionStorage.getItem("booking-data"));
 if (booking_data === null || booking_data["id_user"] === "") {

@@ -1,19 +1,18 @@
 import { config } from "./config.js";
 
-// let user_data = JSON.parse(window.sessionStorage.getItem("user-data"));
+let user_data = JSON.parse(window.sessionStorage.getItem("user-data"));
 
-// // % Untuk mengubah input period dan id column sesuai ROLE yang ada
-// const endpoint = `${config.api}getUserById?id_user=${user_data["id_user"]}`;
+const endpoint = `${config.api}getUserById?id_user=${user_data["id_user"]}`;
 
 const name = document.querySelector("#book-name");
 const nim_nik = document.querySelector("#book-nim-nik");
-// fetch(endpoint)
-//   .then((result) => result.json())
-//   .then(({ data }) => {
-//     console.log(data);
-//     // name.innerhtml = bla bla
-//     // nim_nik.innerhtml = bla bla
-//   });
+
+fetch(endpoint)
+  .then((result) => result.json())
+  .then(({ data }) => {
+    name.innerHTML = data.Data[0].name;
+    nim_nik.innerHTML = data.Data[0].nim;
+  });
 
 const pick_room_button = document.querySelector("#pick-room-button");
 pick_room_button.addEventListener("click", () => {
@@ -36,7 +35,6 @@ pick_room_button.addEventListener("click", () => {
 
   booking_data["name"] = name.textContent; // ini nanti ambil dri api
   booking_data["nim_nik"] = nim_nik.textContent; // ini nanti ambil dri api
-  // booking_data["id_user"] = user_data["id_user"]; // DIAMBIL DARI SESSION
 
   // % lanjut ke next page jika input form sudah TIDAK ADA warning
   window.sessionStorage.setItem("booking-data", JSON.stringify(booking_data));

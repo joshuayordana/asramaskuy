@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="asset/css/index.css" />
+    <link rel="stylesheet" href="asset/css/navbar_login.css" />
+    <link rel="stylesheet" href="asset/css/profile.css" />\
+    <link rel="stylesheet" href="asset/css/edit_profile.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <!-- $ Navbar start -->
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a class="logo-img" href="landing_page_login.html">Asrama<span>Skuy</span></a>
+                </div>
+                <div class="nav-link">
+                    <a href="booking/book_form.html" onclick="">Rent a room</a>
+                    <a href="complaint_page.html">Complaint</a>
+                    <a href="transaction_page.html">Transaction</a>
+                    <a href="profile_page.html"><button class="profile-button" href="">
+                            <span>Profile</span>
+                            <div class="profile-logo">
+                                <img src="asset/image/profile_avatar.png" width="20px" height="20px" />
+                            </div>
+                        </button></a>
+                </div>
+            </nav>
+        </div>
+        <!-- $ Navbar end -->
+    </header>
+
+    <!-- $ Edit Profile start -->
+    <section class="container min-height-100vh" style="margin-top: 70px;">
+        <div style="margin-top: 30px;">
+            <div class="flex gap-20 align-center">
+                <a href="./profile_page.html"><span class="material-symbols-outlined back-logo2">arrow_back</span></a>
+                <h1>Edit Profile</h1>
+            </div>
+        </div>
+
+
+        <form class="edit-area">
+            <div class="grid-col-2 gap-20">
+                <!-- $ Bagian Edit Data Pribadi Start -->
+                <div class="flex flex-direction-column gap-20">
+                    <div>
+                        <p class="identity-title-2">Email</p>
+                        <input class="input-area" id="email" value="" required>
+                        <div class="warning-area" id="warning-email"></div>
+                    </div>
+                    <div>
+                        <p class="identity-title-2">Password</p>
+                        <input type="password" class="input-area" id="password" placeholder="insert new password"
+                            required>
+                        <div class="warning-area" id="warning-password"></div>
+                    </div>
+                    <div>
+                        <p class="identity-title-2">Full Name</p>
+                        <input class="input-area" id="name" value="" required>
+                        <div class="warning-area" id="warning-name"></div>
+                    </div>
+                    <div>
+                        <p class="identity-title-2">NIK</p>
+                        <input class="input-area" id="nik" value="" required>
+                        <div class="warning-area" id="warning-nik"></div>
+                    </div>
+                    <div>
+                        <p class="identity-title-2">Date of Birth</p>
+                        <input type="date" class="input-area" id="birth" required>
+                        <div class="warning-area" id="warning-birth"></div>
+                    </div>
+                    <div>
+                        <p class="identity-title-2">Address</p>
+                        <input class="input-area" id="address" value="" required>
+                        <div class="warning-area" id="warning-adress"></div>
+                    </div>
+                    <div>
+                        <p class="identity-title-2">Gender</p>
+                        <select class="input-area" name="period" id="period">
+                            <option value="male">
+                                Male
+                            </option>
+                            <option value="female">
+                                Female
+                            </option>
+                        </select>
+                    </div>
+                    <div>
+                        <p class="identity-title-2">Phone Number</p>
+                        <input class="input-area" id="phone" value="" required>
+                        <div class="warning-area" id="warning-phone"></div>
+                    </div>
+                </div>
+                <!-- $ Bagian Edit Data Pribadi END -->
+
+                <!-- $ Bagian Edit Data Ortu Start -->
+                <div class="flex flex-direction-column gap-30">
+                    <div class="identity-father flex flex-direction-column gap-10">
+                        <div>
+                            <p class="identity-title-2">Name (Father)</p>
+                            <input class="input-area" id="f-name" value="" required>
+                            <div class="warning-area" id="warning-f-name"></div>
+                        </div>
+                        <div>
+                            <p class="identity-title-2">Occupation (Father)</p>
+                            <input class="input-area" id="f-occ" value="" required>
+                            <div class="warning-area" id="warning-f-occ"></div>
+                        </div>
+                        <div>
+                            <p class="identity-title-2">Phone Number (Father)</p>
+                            <input class="input-area" id="f-phone" value="" required>
+                            <div class="warning-area" id="warning-f-phone"></div>
+                        </div>
+                    </div>
+                    <div class="identity-mother flex flex-direction-column gap-10">
+                        <div>
+                            <p class="identity-title-2">Name (Mother)</p>
+                            <input class="input-area" id="m-name" value="" required>
+                            <div class="warning-area" id="warning-m-name"></div>
+                        </div>
+                        <div>
+                            <p class="identity-title-2">Occupation (Mother)</p>
+                            <input class="input-area" id="m-occ" value="" required>
+                            <div class="warning-area" id="warning-m-occ"></div>
+                        </div>
+                        <div>
+                            <p class="identity-title-2">Phone Number (Mother)</p>
+                            <input class="input-area" id="m-phone" value="" required>
+                            <div class="warning-area" id="warning-m-phone"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- $ Bagian Edit Data Ortu END -->
+            </div>
+
+            <div class="flex justify-end">
+                <input type="submit" class="edit-button" id="simpan-button" value="simpan">
+            </div>
+        </form>
+
+    </section>
+    <!-- $ Profile end -->
+    <br>
+    <br>
+    <footer>
+        @copyright 2023
+    </footer>
+
+    <script type="module" src="asset/js/edit_profile.js"></script>
+    <script src="asset/js/user_validation.js"></script>
+</body>
+
+</html>

@@ -4,9 +4,10 @@
 }
 
 .profile-left {
-  margin-top: 40px;
+  margin-block: 40px;
   padding: 20px 20px 20px 50px;
   gap: 50px;
+  word-wrap: break-word;
 }
 
 .profile-image {
@@ -102,7 +103,7 @@
 .identity-title-2 {
   margin-block: 5px;
   color: #787878;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 400;
 }
 
@@ -112,12 +113,11 @@
 }
 
 .profile-content {
-  width: 21.875rem;
-  overflow-wrap: break-word;
+  max-width: 21.875rem;
 }
 
 .profile-right {
-  margin-top: 40px;
+  margin-block: 40px;
   padding: 20px;
   border: 1px solid #0b4d70;
   box-shadow: 6px 7px 4px rgba(0, 0, 0, 0.25);

@@ -2,7 +2,7 @@ import { config } from "./config.js";
 
 showAllTransaction("newest");
 
-const date_filter = document.querySelector("#filter");
+const date_filter = document.querySelector("#filter-date");
 date_filter.addEventListener("change", () => {
   if (date_filter.value === "newest") {
     showAllTransaction("newest");
@@ -12,6 +12,7 @@ date_filter.addEventListener("change", () => {
 });
 
 function showAllTransaction(filter) {
+  const transaction_list = document.querySelector("#transaction-list");
   // link fetch tinggal di if else
 
   if (filter === "newest") {
@@ -22,14 +23,15 @@ function showAllTransaction(filter) {
   // atau bisa juga langsung masukin variabel ke api-nya
 
   // ? FETCH API MULAI DARI SINI
-  const transaction_list = document.querySelector("#transaction-list");
-  const trans_card = document.createElement("div");
-  trans_card.setAttribute(
-    "class",
-    `card-item padding-10 flex flex-direction-column gap-10`
-  );
-  trans_card.setAttribute("id", `transaction-item-n`);
-  trans_card.innerHTML = `
+
+  for (let j = 0; j < 5; j++) {
+    const trans_card = document.createElement("div");
+    trans_card.setAttribute(
+      "class",
+      `card-item padding-10 flex flex-direction-column gap-10`
+    );
+    trans_card.setAttribute("id", `transaction-item-${j}`);
+    trans_card.innerHTML = `
                     <!-- $ bagian line-pertama START -->
                     <div class="flex gap-20 align-center">
                         <img class="card-logo" src="asset/image/book-check.png" alt="">
@@ -69,18 +71,24 @@ function showAllTransaction(filter) {
                     </h1>
                     <div class="flex align-center justify-between">
                         <div class="text-1" id="transaction-method">BCA Virtual Account</div>
-                        <div class="clickable-button" id="clickable-button" onclick="">extend</div>
+                        <div class="clickable-button" id="extend-button" onclick="">extend</div>
                         <div class="disabled-button" id="disabled-button" >extend</div>
                     </div>
-`;
+    `;
 
-  let test = "on going"; //  ini untuk statusnya nanti
-  if (test === "alloted" || test === "done") {
-    const button = trans_card.querySelector("#clickable-button");
-    button.classList.add("not-active");
-  } else if (test === "on going") {
-    const button = trans_card.querySelector("#disabled-button");
-    button.classList.add("not-active");
+    let test = "on going"; //  ini untuk statusnya nanti
+    if (test === "alloted" || test === "done") {
+      const button = trans_card.querySelector("#clickable-button");
+      button.classList.add("not-active");
+    } else if (test === "on going") {
+      const button = trans_card.querySelector("#disabled-button");
+      button.classList.add("not-active");
+    }
+
+    transaction_list.appendChild(trans_card);
+
+    trans_card.querySelector("#extend-button").addEventListener("click", () => {
+      console.log(`masuk ke - ${j}`);
+    });
   }
-  transaction_list.appendChild(trans_card);
 }

@@ -50,18 +50,19 @@
                     <label for="file-input" class="image-change-button flex align-center">Change
                         <img src="asset/image/image-logo.png" alt="">
                     </label>
-                    <input type="file" id="file-input" style="display: none;">
+                    <input type="file" id="file-input" accept="image/*" style="display: none;">
                 </div>
 
                 <div class="flex flex-direction-column align-start gap-20">
                     <div class="profile-content">
                         <p class="identity-title-1">Email</p>
-                        <span class="identity-content" id="identity-email">Steven@gulugulu.comasdasdasdasd</span>
+                        <span class="identity-content"
+                            id="email">Steven@gulugulu.comasdasdasdasdasdasdasdasdasdasdasdasdasdasd</span>
                     </div>
 
                     <div class="profile-content">
-                        <p class="identity-title-1">Account-ID</p>
-                        <span class="identity-content" id="identity-id">ASDEW456547121</span>
+                        <p class="identity-title-1">Student-ID</p>
+                        <span class="identity-content" id="sid">C14200200</span>
                     </div>
 
                 </div>
@@ -76,60 +77,56 @@
                         <div class="flex flex-direction-column gap-20">
                             <div>
                                 <p class="identity-title-2">Full Name</p>
-                                <span class="identity-content" id="identity-email">Steven@gulugulu.com</span>
-                            </div>
-                            <div>
-                                <p class="identity-title-2">Student's ID Number</p>
-                                <span class="identity-content" id="identity-nim">C14200200</span>
+                                <span class="identity-content" id="name">Steven Doni Atiko</span>
                             </div>
                             <div>
                                 <p class="identity-title-2">NIK</p>
-                                <span class="identity-content" id="identity-nik">C14200200</span>
+                                <span class="identity-content" id="nik">C14200200</span>
                             </div>
                             <div>
                                 <p class="identity-title-2">Date of Birth</p>
-                                <span class="identity-content" id="identity-birth">25 october 2000</span>
+                                <span class="identity-content" id="birth">25 october 2000</span>
                             </div>
                             <div>
                                 <p class="identity-title-2">Address</p>
-                                <span class="identity-content" id="identity-address">GBM M46</span>
+                                <span class="identity-content" id="address">GBM M46</span>
                             </div>
                             <div>
                                 <p class="identity-title-2">Gender</p>
-                                <span class="identity-content" id="identity-gender">Male</span>
+                                <span class="identity-content" id="gender">Male</span>
                             </div>
                             <div>
                                 <p class="identity-title-2">Phone Number</p>
-                                <span class="identity-content" id="identity-phone">0822312312</span>
+                                <span class="identity-content" id="phone">0822312312</span>
                             </div>
                         </div>
                         <div class="flex flex-direction-column gap-30">
                             <div class="identity-father flex flex-direction-column gap-10">
                                 <div>
                                     <p class="identity-title-2">Name (Father)</p>
-                                    <span class="identity-content" id="identity-mother-name">Suli</span>
+                                    <span class="identity-content" id="f-name">Suli</span>
                                 </div>
                                 <div>
                                     <p class="identity-title-2">Occupation (Father)</p>
-                                    <span class="identity-content" id="identity-mother-occ">Presiden</span>
+                                    <span class="identity-content" id="f-occ">Presiden</span>
                                 </div>
                                 <div>
                                     <p class="identity-title-2">Phone Number (Father)</p>
-                                    <span class="identity-content" id="identity-mother-phone">0822312312</span>
+                                    <span class="identity-content" id="f-phone">0822312312</span>
                                 </div>
                             </div>
                             <div class="identity-mother flex flex-direction-column gap-10">
                                 <div>
                                     <p class="identity-title-2">Name (Mother)</p>
-                                    <span class="identity-content" id="identity-mother-name">Yanto</span>
+                                    <span class="identity-content" id="m-name">Yanto</span>
                                 </div>
                                 <div>
                                     <p class="identity-title-2">Occupation (Mother)</p>
-                                    <span class="identity-content" id="identity-mother-occ">Presiden</span>
+                                    <span class="identity-content" id="m-occ">Presiden</span>
                                 </div>
                                 <div>
                                     <p class="identity-title-2">Phone Number (Mother)</p>
-                                    <span class="identity-content" id="identity-mother-phone">0822312312</span>
+                                    <span class="identity-content" id="m-phone">0822312312</span>
                                 </div>
                             </div>
                         </div>
@@ -141,7 +138,9 @@
                             <img src="asset/image/notif-logo.png" width="24px" height="24px"></img>
                         </button>
                     </a>
-                    <button class="edit-button" onclick="">Edit Profile</button>
+                    <a href="edit_profile.html">
+                        <button class="edit-button" onclick="">Edit Profile</button>
+                    </a>
                 </div>
             </div>
             <!-- $ Bagian Sebelah kanan End -->
@@ -149,11 +148,14 @@
     </section>
     <!-- $ Profile end -->
 
-    <br>
-    <br><br>
+
     <footer>
         @copyright 2023
     </footer>
+
+    <script type="module" src="asset/js/profile.js"></script>
+    <script type="module" src="asset/js/logout.js"></script>
+    <script src="asset/js/user_validation.js"></script>
 </body>
 
 </html>

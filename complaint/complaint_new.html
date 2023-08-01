@@ -52,40 +52,36 @@
 
             <!-- $ bagian compl-type and submit START -->
             <div class="card-list2 padding-40" id="complaint-form">
-                <div class="flex justify-between align-center">
-
-                    <div class="card-status-box flex justify-center padding-10">
-                        <p class="no-margin card-status-text" id="complaint-status-text">Asked</p>
-                    </div>
-
-                    <div class="flex flex-direction-column align-end" id="complaint-email">
-                        <p class="text-3 no-margin">This complaint will be replied through this email</p>
-                        <p class="text-2 no-margin">stevenuhuy@gulugulu.com</p>
-                    </div>
-                </div>
-                <br>
                 <div class="flex justify-between">
                     <div>
                         <!-- $ inputan compl-type START -->
                         <p class="no-margin filter-label">Complaint Type</p>
-                        <div class="filter">
-                            <p class="no-margin text-4" id="complaint-type">Room Problem 1</p>
-                        </div>
+                        <select class="filter-2" name="complaint-type" id="complaint-type">
+                            <option value="type-1">
+                                Room Problem 1
+                            </option>
+                            <option value="type-2">
+                                Room Problem 2
+                            </option>
+                        </select>
                         <!-- $ inputan compl-type END -->
+                    </div>
+                    <div>
+                        <a href="complaint_page.html">
+                            <div class="clickable-button" onclick="">submit</div>
+                        </a>
                     </div>
                 </div>
                 <br>
 
                 <p class="no-margin filter-label" style="margin-bottom: 5px;">Description</p>
-                <textarea class="text-desc" name="compl-desc" id="compl-desc" readonly>Asyikk ruangannya hehe</textarea>
-                <br>
-                <br>
-
-                <div class="flex justify-center text-3" style="width: 100%;">
-                    Please kindly wait our reply on your email
-                </div>
+                <textarea class="text-desc" name="compl-desc" id="compl-desc" maxlength="100"
+                    placeholder="Write your problem here"></textarea>
             </div>
             <!-- $ bagian compl-type and submit END -->
+
+            <p class="no-margin filter-label" style="margin-bottom: 5px;">Note:</p>
+            <p class="no-margin text-3">Problems will be replied via email that has been registered</p>
         </div>
 
     </section>
@@ -96,6 +92,7 @@
     <footer>
         @copyright 2023
     </footer>
+    <script src="../asset/js/user_validation.js"></script>
 </body>
 
 </html>
