@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register Student</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+  <link rel="stylesheet" href="asset/css/landing_page.css" />
+  <link rel="stylesheet" href="asset/css/index.css" />
+  <link rel="stylesheet" href="asset/css/navbar.css" />
+  <link rel="stylesheet" href="asset/css/register_form.css" />
+</head>
+
+<body>
+  <header class="">
+    <!-- Navbar start -->
+    <div class="container">
+      <nav class="navbar">
+        <div class="logo">
+          <a class="logo-img" href="landing_page.html">Asrama<span>Skuy</span></a>
+        </div>
+        <div class="nav-link">
+          <p>Welcome</p>
+          <a href="login.html"><button class="login-button" href="">Login</button></a>
+        </div>
+      </nav>
+    </div>
+    <!-- Navbar end -->
+  </header>
+
+  <div class="container" style="margin-top: 70px">
+    <a id="arrow_back"><span class="material-symbols-outlined">arrow_back</span></a>
+    <div class="grid-container">
+      <div class="grid-item">
+        <img id="sapiens1" src="asset/image/sapiens1.png" alt="sapiens1" />
+      </div>
+      <div class="grid-item">
+        <div class="login-box" style="height: 72vh">
+          <div class="header">Sign Up</div>
+          <form action="" method="post" enctype="multipart/form-data" id="register_form">
+            <div class="isi" id="isi1">
+              <div class="data">
+                Nama<input type="username" class="input-text" id="nama" name="nama" placeholder="Full Name" />
+              </div>
+              <div class="data">
+                Student ID<input type="text" class="input-text" id="studentid_input" name="studentid_input"
+                  placeholder="Insert your Student ID" />
+              </div>
+              <div class="data">
+                NIK<input type="text" class="input-text" id="nik_input" name="nik" placeholder="Insert your NIK" />
+              </div>
+              <div class="data">
+                Upload Photo<label for="photo" class="input-file">Click here to upload a photo of your
+                  face</label><input type="file" name="photo" id="photo" style="display: none" />
+              </div>
+              <div class="data">
+                Date of Birth<input type="date" class="input-text" name="tgl_lahir" id="tgl_lahir" />
+              </div>
+              <div class="data">
+                Gender
+                <select name="gender" id="gender" class="input-select">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+              <div class="data">
+                Address<input type="text" class="input-text" id="alamat" name="alamat" placeholder="Address" />
+              </div>
+              <div style="text-align: center">
+                <button type="button" class="login" id="next1">Next</button>
+              </div>
+            </div>
+            <div class="isi" id="isi2" style="display: none;">
+              <div class="data">
+                Email<input type="email" class="input-text" id="email" name="email"
+                  placeholder="example@gulugulu.com" />
+              </div>
+              <div class="data">
+                Password<input type="password" class="input-text" id="password" name="password"
+                  placeholder="Insert your password" />
+              </div>
+              <div class="data">
+                Phone<input type="tel" class="input-text" id="no_telp" name="no_telp"
+                  placeholder="Insert your phone number" />
+              </div>
+              <div style="text-align: center">
+                <button type="button" class="login" id="next2">Next</button>
+              </div>
+            </div>
+            <div class="isi" id="isi3" style="display: none;">
+              <div class="header2">Father Information</div>
+              <div class="data">
+                Father's Name<input type="text" class="input-text" id="father_name" placeholder="Full Name" />
+              </div>
+              <div class="data">
+                Father's Occupation<input type="text" class="input-text" id="father_occup" placeholder="Occupation" />
+              </div>
+              <div class="data">
+                Father's Phone<input type="tel" class="input-text" id="father_phone" placeholder="Phone Number" />
+              </div>
+              <div class="header2">Mother Information</div>
+              <div class="data">
+                Mother's Name<input type="text" class="input-text" id="mother_name" placeholder="Full Name" />
+              </div>
+              <div class="data">
+                Mother's Occupation<input type="text" class="input-text" id="mother_occup" placeholder="Occupation" />
+              </div>
+              <div class="data">
+                Mother's Phone<input type="tel" class="input-text" id="mother_phone" placeholder="Phone Number" />
+              </div>
+              <div style="text-align: center">
+                <a href="#"><button type="button" class="login" id="submit">Submit Registration</button></a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="grid-item">
+        <img id="sapiens2" src="asset/image/sapiens2.png" alt="sapiens2" />
+      </div>
+    </div>
+  </div>
+  <script type="module" src="asset/js/register_student.js"></script>
+</body>
+
+</html>

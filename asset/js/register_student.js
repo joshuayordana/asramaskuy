@@ -15,7 +15,7 @@ function nextStep() {
 function back() {
   step -= 1;
   if (step <= 0) {
-    window.location.href = "./login_student.html";
+    window.location.href = "./login.html";
   }
   const isi1 = document.getElementById(`isi${step}`);
   const isi2 = document.getElementById(`isi${step + 1}`);
