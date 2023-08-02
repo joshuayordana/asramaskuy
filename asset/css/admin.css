@@ -204,3 +204,23 @@ input:checked + .slider:before {
   background-color: green;
   border-radius: 50%;
 }
+
+/* GUEST MENU */
+.box{
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+table, td, th {
+  border: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tr{
+  border-bottom: 1px solid;
+}

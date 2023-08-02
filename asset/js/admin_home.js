@@ -2,6 +2,7 @@ import { config } from "./config.js";
 
 const towerInput = document.getElementById("tower");
 var dataGedung = [];
+var dataKamar = [];
 
 function getDetailByGedung(id_gedung) {
   var jumlahLantai = 0;
@@ -25,6 +26,7 @@ fetch(endpoint)
       var option = document.createElement("option");
       option.value = dataGedung[i]["id_gedung"];
       option.text = dataGedung[i]["nama_gedung"];
+      option.text += ` (${dataGedung[i]["jenis_kelamin"]})`;
       towerInput.add(option);
     }
     //Tampilkan detail
@@ -112,9 +114,7 @@ function showAllFloorRoom(id_gedung, floors) {
                               </div>
                               <div>
                                 <label class="switch">
-                                    <input type="checkbox" id="roomSwitch" onchange="changeRoomStatus(${
-                                      data.Data[j].id_kamar
-                                    });" checked>
+                                    <input type="checkbox" id="roomSwitch" checked>
                                     <span class="slider round"></span>
                                 </label>
                               </div>`;
@@ -128,14 +128,49 @@ function showAllFloorRoom(id_gedung, floors) {
               0
             ) {
               capacity_color.style.backgroundColor = "#EE0202";
-              roomSwitch.checked = false;
             } else if (
               data.Data[j].kapasitas_kamar - data.Data[j].jumlah_customer <=
               data.Data[j].kapasitas_kamar / 2
             ) {
               capacity_color.style.backgroundColor = "#EED202";
+            }
+
+            //Data Kamar
+            var x = data.Data[j]["id_kamar"];
+            dataKamar[x] = data.Data[j];
+
+            //Matiin switch
+            var roomStatus = data.Data[j]["status_kamar"];
+            if (roomStatus == "Full") {
               roomSwitch.checked = false;
             }
+
+            //Ganti Status
+            roomSwitch.addEventListener("change", () => {
+              var id = data.Data[j]["id_kamar"];
+              var stat = data.Data[j]["status_kamar"];
+              if (stat == "Full") {
+                //Enable
+                fetch(`${config.api}enableKamar?id_kamar=${id}`, {
+                  method: "PUT",
+                })
+                  .then((result) => result.json())
+                  .then((result) => {
+                    dataKamar[id]["status_kamar"] = "Available";
+                    console.log(result);
+                  });
+              } else {
+                //Disable
+                fetch(`${config.api}disableKamar?id_kamar=${id}`, {
+                  method: "PUT",
+                })
+                  .then((result) => result.json())
+                  .then((result) => {
+                    dataKamar[id]["status_kamar"] = "Full";
+                    console.log(result);
+                  });
+              }
+            });
           }
         }
       });
