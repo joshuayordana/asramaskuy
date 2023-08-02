@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AsramaSkuy</title>
+  <title>AsramaSkuy - Admin</title>
   <link rel="stylesheet" href="../asset/css/index.css" />
   <link rel="stylesheet" href="../asset/css/navbar_login.css" />
   <link rel="stylesheet" href="../asset/css/admin.css" />
@@ -13,6 +13,7 @@
     rel="stylesheet" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+    <script src="../asset/js/admin_home_pre.js"></script>
 </head>
 
 <body>
@@ -45,17 +46,67 @@
 
   <!-- input book start -->
   <section class="container" style="margin-top: 70px">
-    <a href="./"><span class="material-symbols-outlined back-logo">arrow_back</span></a>
-    <div>
-      <h1>All Rooms</h1>
+
+    <div class="grid-col-2 titleBar">
+      <span class="h1">All Rooms</span>
+
+      <span class="searchBar gap-20">
+        <a class="filterButton">
+          <iconify-icon icon="material-symbols:add"></iconify-icon>
+          <span>Add Transaction</span>
+        </a>
+        <a class="filterButton">
+          <iconify-icon icon="material-symbols:download"></iconify-icon>
+          <span>Download</span>
+        </a>
+        <div class="filterSearch">
+          <iconify-icon icon="material-symbols:search"></iconify-icon>
+          <input type="text" class="searchInput" placeholder="Search">
+        </div>
+      </span>
     </div>
-      
+
+      <div class="gap-30" style="margin-top: 30px;">
+        <div class="filterBar flex align-center justify-between gap-30">
+          <div class="flex align-center gap-20">
+            <div>Filter by Date</div>
+            <div><input class="dateInput" type="date" name="startDate" id="startDate"></div>
+            <div style="font-weight: 400; font-size: 1.5rem;"> - </div>
+            <div><input class="dateInput" type="date" name="endDate" id="endDate"></div>
+          </div>
+          <div class="flex align-center gap-20">
+            <div><label for="tower">Choose a Tower</label></div>
+            <div class="flex-end">
+              <select class="towerInput" id="tower">
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="flex flex-direction-column gap-20" id="list-lantai-kamar"></div>
+    
+    <!-- <div class="floorHeader">1st Floor</div>
     <div class="grid-container">
+      <div class="roomCard grid-col-3 align-center">
+        <div>
+          <span class="roomName">
+            A1-001
+            <iconify-icon icon="material-symbols:male-rounded" style="color: blue;"></iconify-icon>
+            <iconify-icon icon="material-symbols:female-rounded" style="color: red;"></iconify-icon>
+          </span>
+          <br>
+          <span class="roomFloor">1st floor</span>
+        </div>
+        <div class="roomCapacity">3/5</div>
+        <div>A</div>
+        
+      </div>
       <label class="switch">
         <input type="checkbox" checked>
         <span class="slider round"></span>
       </label>
-    </div>
+    </div> -->
   </section>
   <!-- input book end -->
 
@@ -64,7 +115,8 @@
   <!-- <footer>
     @copyright 2023
   </footer> -->
-  <script type="module" src="../asset/js/book_form.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script type="module" src="../asset/js/admin_home.js"></script>
   <script src="../asset/js/user_validation.js"></script>
 </body>
 
