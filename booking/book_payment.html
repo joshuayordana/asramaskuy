@@ -138,7 +138,7 @@
                 <div class="booking-receipt flex justify-between flex-direction-column">
                     <div>
                         <div class="bottom-border flex justify-center">
-                            <h1>Booking</h1>
+                            <h1 id="receipt-title">Booking</h1>
                         </div>
 
                         <div class="padding-20">
@@ -149,9 +149,6 @@
                                         id="type-of-date">Month</span>
                                 </p>
                             </div>
-
-                            <!-- $ room detail START -->
-                            <h1 class="book-label3">Room detail</h1>
                             <div class="flex justify-between">
                                 <p class="summary-text">
                                     <span id="book-bed"></span>
@@ -162,9 +159,23 @@
                                 <p class="summary-text"><span id="room-price"></span> / <span
                                         id="type-of-date">Month</span></p>
                             </div>
+                            <br>
+
+                            <!-- $ room detail START -->
+                            <h1 class="book-label3">Room detail</h1>
+                            <div class="flex justify-between">
+                                <p class="summary-text">Bill</p>
+                                <p class="summary-text" id="bill-price"></p>
+                            </div>
+                            <div class="flex justify-between">
+                                <p class="summary-text" id="label-old-payment">
+                                </p>
+                                <p class="summary-text" id="old-payment">
+                                </p>
+                            </div>
                             <div class="flex justify-between">
                                 <p class="summary-text">tax 10%</p>
-                                <p class="summary-text"><span id="tax-price"></span></p>
+                                <p class="summary-text" id="tax-price"></p>
                             </div>
                             <!-- $ room detail END -->
                         </div>

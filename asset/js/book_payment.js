@@ -11,6 +11,9 @@ if (booking_data === null || booking_data["id_kamar"] === "") {
 }
 // ! INI PREVENT ORG UNTUK LANGSUNG BUKA HALAMAN INI HEHE END
 
+const receipt_title = document.querySelector("#receipt-title");
+receipt_title.innerHTML = `${booking_data["jenis_transaksi"]}`;
+
 // % TAKE value from Session Storage
 const check_in = document.querySelector("#book-check-in");
 const check_out = document.querySelector("#book-check-out");
@@ -41,22 +44,15 @@ user_id.innerHTML = user_id_value;
 const date1 = new Date(check_in_value);
 const date2 = new Date(check_out_value);
 const difference_in_time = date2.getTime() - date1.getTime();
+let difference_in_month = difference_in_time / (1000 * 3600 * 24 * 30);
 
-// % ASSIGN data pada bagian kanan
+// % AMBIL ID data pada bagian kanan
 const room_price = document.querySelector("#room-price");
 const tax_price = document.querySelector("#tax-price");
 const total_price = document.querySelector("#total-price");
-
-let difference_in_month = difference_in_time / (1000 * 3600 * 24 * 30); // ini hasil hitung selisih month
-// let difference_in_day = difference_in_time / (1000 * 3600 * 24); // ini hasil hitung selisih day
+const bill_price = document.querySelector("#bill-price");
 const date_count = document.querySelector("#date-count");
 date_count.innerHTML = Math.floor(difference_in_month);
-
-// % Menghitung harga yang diperlukan
-// let price = booking_data["harga_kamar"] * 30;
-const count_price = booking_data["harga_kamar"] * parseInt(difference_in_month);
-const tax_price_value = count_price * (10 / 100);
-const total_price_value = count_price + tax_price_value;
 
 const betterPriceFormatter = new Intl.NumberFormat("id-ID", {
   style: "currency",
@@ -64,8 +60,22 @@ const betterPriceFormatter = new Intl.NumberFormat("id-ID", {
   minimumFractionDigits: 2,
 });
 
-// % ASSIGN value room_price, tax_price, total_price
+// % MENGHITUNG HARGA PADA BAGIAN RECEIPT BAGIAN KANAN
+const total_month_price = booking_data["harga_kamar"] * parseInt(difference_in_month);
+let current_price_value;
+if (booking_data["jenis_transaksi"] === "extend") {
+  current_price_value = total_month_price - booking_data["pembayaran_sebelumnya"];
+  document.querySelector("#label-old-payment").innerHTML = "Prepaid transaction";
+  document.querySelector("#old-payment").innerHTML = `( - ) ${betterPriceFormatter.format(booking_data["pembayaran_sebelumnya"])}`;
+} else {
+  current_price_value = total_month_price;
+}
+const tax_price_value = current_price_value * (10 / 100);
+const total_price_value = current_price_value + tax_price_value;
+
+// % ASSIGN value room_price, bill price, tax_price, total_price
 room_price.innerHTML = betterPriceFormatter.format(booking_data["harga_kamar"]);
+bill_price.innerHTML = betterPriceFormatter.format(total_month_price);
 tax_price.innerHTML = betterPriceFormatter.format(tax_price_value);
 total_price.innerHTML = betterPriceFormatter.format(total_price_value);
 booking_data["total_harga"] = total_price_value;
@@ -79,10 +89,33 @@ payment_button.addEventListener("click", () => {
   booking_data["payment_method"] = book_payment.value;
   booking_data["va"] = "123456789";
 
-  console.log(booking_data);
+  /**
+   * DATA PENTING
+   *
+   * check in
+   * check out
+   * id user
+   * payment method
+   * total pembayaran
+   * va
+   * id kamar
+   *
+   * id transaksi (untuk extend)
+   * catatan (untuk extend)
+   */
 
+  // % Menyesuaikan endpoint berdasarkan tipe transaksi
+  let endpoint;
+  if (booking_data["jenis_transaksi"] === "booking") {
+    endpoint = `${config.api}createNewTransaksi`;
+  } else if (booking_data["jenis_transaksi"] === "extend") {
+    booking_data["catatan"] = `extend dari transaksi yang memiliki id ${booking_data["id_transaksi"]}`;
+    endpoint = `${config.api}extendTransaksi`; // ? BELUM YANG INI UNTUK EXTEND
+  }
+
+  console.log(booking_data);
+  console.log(endpoint);
   // ? disini tempat buat masukin ke database
-  const endpoint = `${config.api}createNewTransaksi`;
   const formData = new URLSearchParams();
   for (const [key, value] of Object.entries(booking_data)) {
     formData.append(key, value.toString());

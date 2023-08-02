@@ -37,6 +37,7 @@ pick_room_button.addEventListener("click", () => {
   booking_data["nim_nik"] = nim_nik.textContent; // ini nanti ambil dri api
 
   // % lanjut ke next page jika input form sudah TIDAK ADA warning
+  booking_data["jenis_transaksi"] = "booking";
   window.sessionStorage.setItem("booking-data", JSON.stringify(booking_data));
   console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
   window.location.href = "tower_page.html";

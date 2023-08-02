@@ -35,14 +35,14 @@
     <!-- Navbar end -->
   </header>
 
-  <div class="container" style="margin-top: 70px">
+  <div class="container min-height-100vh" style="margin-top: 70px">
     <a id="arrow_back"><span class="material-symbols-outlined">arrow_back</span></a>
-    <div class="grid-container">
+    <div class="grid-col-3 gap-30 grid-center">
       <div class="grid-item">
         <img id="sapiens1" src="asset/image/sapiens1.png" alt="sapiens1" />
       </div>
-      <div class="grid-item">
-        <div class="login-box" style="height: 72vh">
+      <div class="grid-item-form">
+        <div class="login-box">
           <div class="header">Sign Up</div>
           <form action="" method="post" enctype="multipart/form-data" id="register_form">
             <div class="isi" id="isi1">
@@ -57,8 +57,8 @@
                 NIK<input type="text" class="input-text" id="nik_input" name="nik" placeholder="Insert your NIK" />
               </div>
               <div class="data">
-                Upload Photo<label for="photo" class="input-file">Click here to upload a photo of your
-                  face</label><input type="file" name="photo" id="photo" style="display: none" />
+                Upload Photo<label for="photo" class="input-file">Click here to upload a photo</label><input type="file"
+                  name="photo" id="photo" style="display: none" />
               </div>
               <div class="data">
                 Date of Birth<input type="date" class="input-text" name="tgl_lahir" id="tgl_lahir" />
