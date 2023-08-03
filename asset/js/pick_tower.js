@@ -19,6 +19,10 @@ fetch(endpoint_men)
   .then(({ data }) => {
     const tower_men_list = document.querySelector("#tower-men-list");
 
+    const ALL_SKELETON = document.querySelectorAll("#dummy-skeleton-man");
+    ALL_SKELETON.forEach((element) => {
+      element.parentNode.removeChild(element);
+    });
     // % Iterasi per Data
     for (let i = 0; i < data.Data.length; i++) {
       if (data.Data[i].status_gedung === "Active") {
@@ -57,19 +61,13 @@ fetch(endpoint_men)
 
             // % JIKA KLIK BUTTON
             const tower_box_men = document.querySelector(`#tower-men-${i}`); // ini nanti indexnya ganti2 / atau di loop per tower
-            const pick_tower_button_men =
-              tower_box_men.querySelector("#pick-tower-button");
+            const pick_tower_button_men = tower_box_men.querySelector("#pick-tower-button");
             pick_tower_button_men.addEventListener("click", () => {
               booking_data["nama_gedung"] = data.Data[i].nama_gedung;
               booking_data["id_gedung"] = data.Data[i].id_gedung;
               booking_data["tower-max-floor"] = data.Data[i].jumlah_lantai;
-              window.sessionStorage.setItem(
-                "booking-data",
-                JSON.stringify(booking_data)
-              );
-              console.log(
-                JSON.parse(window.sessionStorage.getItem("booking-data"))
-              );
+              window.sessionStorage.setItem("booking-data", JSON.stringify(booking_data));
+              console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
               window.location.href = "room_page.html";
             });
           });
@@ -89,7 +87,11 @@ fetch(endpoint_girl)
   .then((result) => result.json())
   .then(({ data }) => {
     const tower_girl_list = document.querySelector("#tower-girl-list");
-    console.log(data.Data);
+
+    const ALL_SKELETON = document.querySelectorAll("#dummy-skeleton-girl");
+    ALL_SKELETON.forEach((element) => {
+      element.parentNode.removeChild(element);
+    });
     // % Iterasi per Data
     for (let i = 0; i < data.Data.length; i++) {
       if (data.Data[i].status_gedung === "Active") {
@@ -128,19 +130,13 @@ fetch(endpoint_girl)
 
             // % JIKA KLIK BUTTON
             const tower_box_girl = document.querySelector(`#tower-girl-${i}`); // ini nanti indexnya ganti2 / atau di loop per tower
-            const pick_tower_button_girl =
-              tower_box_girl.querySelector("#pick-tower-button");
+            const pick_tower_button_girl = tower_box_girl.querySelector("#pick-tower-button");
             pick_tower_button_girl.addEventListener("click", () => {
               booking_data["nama_gedung"] = data.Data[i].nama_gedung;
               booking_data["id_gedung"] = data.Data[i].id_gedung;
               booking_data["tower-max-floor"] = data.Data[i].jumlah_lantai;
-              window.sessionStorage.setItem(
-                "booking-data",
-                JSON.stringify(booking_data)
-              );
-              console.log(
-                JSON.parse(window.sessionStorage.getItem("booking-data"))
-              );
+              window.sessionStorage.setItem("booking-data", JSON.stringify(booking_data));
+              console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
               window.location.href = "room_page.html";
             });
           });

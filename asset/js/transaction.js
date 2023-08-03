@@ -2,22 +2,24 @@ import { config } from "./config.js";
 
 let user_data = JSON.parse(window.sessionStorage.getItem("user-data"));
 console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
+
 showAllTransaction("newest");
 
+const transaction_list = document.querySelector("#transaction-list");
 const date_filter = document.querySelector("#filter-date");
 date_filter.addEventListener("change", () => {
   if (date_filter.value === "newest") {
+    transaction_list.innerHTML = "";
     showAllTransaction("newest");
   } else if (date_filter.value === "oldest") {
+    transaction_list.innerHTML = "";
     showAllTransaction("oldest");
   }
 });
 
 function showAllTransaction(filter_sort) {
   const transaction_list = document.querySelector("#transaction-list");
-  transaction_list.innerHTML = "";
   const endpoint = `${config.api}getTransaksiByIdUser?id_user=${user_data["id_user"]}&tipe_sort=${filter_sort}`;
-  console.log(endpoint);
 
   const betterPriceFormatter = new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -27,7 +29,11 @@ function showAllTransaction(filter_sort) {
   fetch(endpoint)
     .then((result) => result.json())
     .then(({ data }) => {
-      console.log(data);
+      // % Remove skeleton
+      const ALL_SKELETON = document.querySelectorAll("#dummy-skeleton");
+      ALL_SKELETON.forEach((element) => {
+        element.parentNode.removeChild(element);
+      });
 
       // ? FETCH API MULAI DARI SINI
       for (let j = 0; j < data.Data.length; j++) {

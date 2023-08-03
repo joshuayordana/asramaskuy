@@ -49,7 +49,14 @@ function showAllFloorRoom(floors, isFiltered) {
     const room_floor = document.createElement("div");
     room_floor.setAttribute("id", `room-lantai-${floors}`);
     room_floor.innerHTML = `<p class="room-floor-title" id="room-floor-title">${betterNumberRank(floors)} Floor</p>
-                            <div class="grid-col-4 gap-20 grid-center" id="room-list"></div>`;
+                            <div class="grid-col-4 gap-20 grid-center" id="room-list">
+                              <div class="room padding-10" id="dummy-skeleton">
+                                <div class="skeleton skeleton-text">
+                                </div> 
+                                <div class="skeleton skeleton-text">
+                                </div> 
+                              </div>             
+                            </div>`;
     list_lantai_kamar.appendChild(room_floor);
 
     // % Memilih Floor yang sekarang
@@ -70,7 +77,32 @@ function showAllFloorRoom(floors, isFiltered) {
       const room_floor = document.createElement("div");
       room_floor.setAttribute("id", `room-lantai-${i}`);
       room_floor.innerHTML = `<p class="room-floor-title" id="room-floor-title">${betterNumberRank(i + 1)} Floor</p>
-                              <div class="grid-col-4 gap-20 grid-center" id="room-list"></div>`;
+                                <div class="grid-col-4 gap-20 grid-center" id="room-list">
+                                  <div class="room padding-10" id="dummy-skeleton">
+                                    <div class="skeleton skeleton-text">
+                                    </div> 
+                                    <div class="skeleton skeleton-text">
+                                    </div> 
+                                  </div>       
+                                  <div class="room padding-10" id="dummy-skeleton">
+                                    <div class="skeleton skeleton-text">
+                                    </div> 
+                                    <div class="skeleton skeleton-text">
+                                    </div> 
+                                  </div>   
+                                  <div class="room padding-10" id="dummy-skeleton">
+                                    <div class="skeleton skeleton-text">
+                                    </div> 
+                                    <div class="skeleton skeleton-text">
+                                    </div> 
+                                  </div>     
+                                  <div class="room padding-10" id="dummy-skeleton">
+                                    <div class="skeleton skeleton-text">
+                                    </div> 
+                                    <div class="skeleton skeleton-text">
+                                    </div> 
+                                  </div>     
+                                </div>`;
       list_lantai_kamar.appendChild(room_floor);
 
       // % Memilih Floor yang sekarang
@@ -93,6 +125,12 @@ function showAllFloorRoom(floors, isFiltered) {
     fetch(endpoint)
       .then((result) => result.json())
       .then(({ data }) => {
+        // % Remove skeleton
+        const ALL_SKELETON = document.querySelectorAll("#dummy-skeleton");
+        ALL_SKELETON.forEach((element) => {
+          element.parentNode.removeChild(element);
+        });
+
         if (data.Data === null) {
           room_list.className = "flex justify-center align-center";
           room_list.innerHTML = "There is no room available in this floor";
