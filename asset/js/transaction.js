@@ -1,7 +1,7 @@
 import { config } from "./config.js";
 
 let user_data = JSON.parse(window.sessionStorage.getItem("user-data"));
-
+console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
 showAllTransaction("newest");
 
 const date_filter = document.querySelector("#filter-date");
@@ -101,16 +101,14 @@ function showAllTransaction(filter_sort) {
 
         trans_card.querySelector("#extend-button").addEventListener("click", () => {
           let booking_data = {};
-          booking_data["jenis_transaksi"] = "extend";
+          booking_data["jenis_transaksi"] = "Extend";
           booking_data["beds"] = "1";
           booking_data["id_transaksi"] = data.Data[j].id_transaksi;
           booking_data["check_in"] = data.Data[j].check_in.slice(0, 10);
           booking_data["old_check_out"] = data.Data[j].check_out.slice(0, 10);
-          booking_data["pembayaran_sebelumnya"] = data.Data[j].total_pembayaran;
           booking_data["id_kamar"] = data.Data[j].id_kamar;
           booking_data["nama_kamar"] = data.Data[j].nama_kamar;
           booking_data["harga_kamar"] = data.Data[j].harga_kamar;
-          booking_data["id_user"] = data.Data[j].id_user;
           booking_data["name"] = data.Data[j].nama_user;
           booking_data["nim_nik"] = data.Data[j].nim;
           console.log(booking_data);

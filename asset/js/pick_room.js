@@ -70,15 +70,15 @@ function showAllFloorRoom(floors, isFiltered) {
       const room_floor = document.createElement("div");
       room_floor.setAttribute("id", `room-lantai-${i}`);
       room_floor.innerHTML = `<p class="room-floor-title" id="room-floor-title">${betterNumberRank(i + 1)} Floor</p>
-      <div class="grid-col-4 gap-20 grid-center" id="room-list"></div>`;
+                              <div class="grid-col-4 gap-20 grid-center" id="room-list"></div>`;
       list_lantai_kamar.appendChild(room_floor);
 
       // % Memilih Floor yang sekarang
       const selected_floor = list_lantai_kamar.querySelector(`#room-lantai-${i}`);
 
       // % Menampilkan semua room berdasarkan FLOOR nya
-      const room_list = selected_floor.querySelector("#room-list");
       const endpoint_room = `${config.api}getKamarByLantai?id_gedung=${booking_data["id_gedung"]}&lantai=${i + 1}`;
+      const room_list = selected_floor.querySelector("#room-list");
       showRoom(endpoint_room, i + 1, room_list);
     }
   }

@@ -40,7 +40,7 @@
     </header>
 
     <!-- $ booking payment start -->
-    <section class="container" style="margin-top: 70px">
+    <section class="container min-height-100vh" style="margin-top: 70px">
         <a onclick="backToForm()"><span class="material-symbols-outlined back-logo">arrow_back</span></a>
         <div class="grid-col-2">
 
@@ -63,44 +63,31 @@
 
                     <!-- $ selected period START -->
                     <div class="grid-col-2 gap-20">
-                        <!-- $ selected Check-in Date START -->
                         <div>
                             <p class="book-label2">Check-in</p>
                             <div class="select-option" id="book-check-in">
 
                             </div>
                         </div>
-                        <!-- $ selected  Check-in Date END -->
-
-                        <!-- $ selected  Check-OUT Date START -->
                         <div>
                             <p class="book-label2">Check-out</p>
                             <div class="select-option" id="book-check-out">
 
                             </div>
                         </div>
-                        <!-- $ selected Check-OUT Date END -->
                     </div>
                     <!-- $ selected period END -->
 
+                    <!-- $ selected Room and Bed START -->
                     <div class="grid-col-2 gap-20">
-                        <!-- $ selected Room START -->
                         <div>
                             <p class="book-label2">Room</p>
-                            <div class="select-option" id="book-room">
-
-                            </div>
+                            <div class="select-option" id="book-room"></div>
                         </div>
-                        <!-- $ selected Room END -->
-
-                        <!-- $ selected Beds START -->
                         <div>
                             <p class="book-label2">Beds</p>
-                            <div class="select-option">
-                                <span id="book-bed"></span> Beds
-                            </div>
+                            <div class="select-option"><span id="book-bed"></span> Beds</div>
                         </div>
-                        <!-- $ selected Beds END -->
                     </div>
 
                     <!-- $ bagian information START -->
@@ -131,77 +118,78 @@
 
                 </div>
             </div>
-            <!-- $ booking payment details END -->
+            <!-- $ booking payment DETAILS END -->
 
-            <!-- $ booking payment Summary START -->
+            <!-- $ booking payment RECEIPT START -->
             <div class="padding-20 flex justify-center ">
                 <div class="booking-receipt flex justify-between flex-direction-column">
                     <div>
                         <div class="bottom-border flex justify-center">
-                            <h1 id="receipt-title">Booking</h1>
+                            <h1 id="receipt-title"></h1>
                         </div>
 
                         <div class="padding-20">
                             <h1 class="book-label1">Summary</h1>
-                            <div class="flex justify-between">
-                                <p class="summary-text" id="type-of-date">Month</p>
-                                <p class="summary-text"> <span id="date-count"></span> <span
-                                        id="type-of-date">Month</span>
-                                </p>
-                            </div>
-                            <div class="flex justify-between">
-                                <p class="summary-text">
-                                    <span id="book-bed"></span>
-                                    x Bed [
-                                    <span id="book-room"></span>
-                                    ]
-                                </p>
-                                <p class="summary-text"><span id="room-price"></span> / <span
-                                        id="type-of-date">Month</span></p>
+                            <div class="flex flex-direction-column gap-5">
+                                <div class="flex justify-between">
+                                    <div class="receipt-text">
+                                        <span id="book-bed"></span>
+                                        x Bed [
+                                        <span id="book-room"></span>
+                                        ]
+                                    </div>
+                                    <div class="receipt-text" id="room-price"></div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div class="receipt-text">Month</div>
+                                    <div class="receipt-text" id="date-count">Month</div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div class="receipt-text" id="label-paid-date-count"></div>
+                                    <div class="receipt-text" id="paid-date-count"></div>
+                                </div>
                             </div>
                             <br>
 
                             <!-- $ room detail START -->
                             <h1 class="book-label3">Room detail</h1>
-                            <div class="flex justify-between">
-                                <p class="summary-text">Bill</p>
-                                <p class="summary-text" id="bill-price"></p>
+                            <div class="flex flex-direction-column gap-5">
+                                <div class="flex justify-between">
+                                    <div class="receipt-text">Bill</div>
+                                    <div class="receipt-text" id="bill-price"></div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div class="receipt-text" id="label-old-payment"></div>
+                                    <div class="receipt-text" id="old-payment"></div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div class="receipt-text">tax 10%</div>
+                                    <div class="receipt-text" id="tax-price"></div>
+                                </div>
+                                <!-- $ room detail END -->
                             </div>
-                            <div class="flex justify-between">
-                                <p class="summary-text" id="label-old-payment">
-                                </p>
-                                <p class="summary-text" id="old-payment">
-                                </p>
-                            </div>
-                            <div class="flex justify-between">
-                                <p class="summary-text">tax 10%</p>
-                                <p class="summary-text" id="tax-price"></p>
-                            </div>
-                            <!-- $ room detail END -->
                         </div>
                     </div>
+
+                    <!-- $ bagian tempat total bill dan jumlah payment START -->
                     <div class="top-border padding-20">
                         <div class="flex justify-between align-center">
                             <h1 class="book-label3">Total bill</h1>
                             <h1 class="book-label3"><span id="total-price"></span></h1>
                         </div>
                         <br>
-                        <button class="continue-button" id="payment-button" style="width: 100%;">
-                            Book Now
-                        </button>
+                        <button class="continue-button" id="payment-button" style="width: 100%;"> Book Now </button>
                     </div>
+                    <!-- $ bagian tempat total bill dan jumlah payment START -->
+
                 </div>
             </div>
-            <!-- $ booking payment Summary END -->
+            <!-- $ booking payment Receipt END -->
 
         </div>
     </section>
     <!-- $ booking payment end -->
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+
     <footer>
         @copyright 2023
     </footer>

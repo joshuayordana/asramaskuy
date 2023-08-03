@@ -1,92 +1,99 @@
 import { config } from "./config.js";
 
+// % Mengambil semua data dari session
 let user_data = JSON.parse(window.sessionStorage.getItem("user-data"));
+let booking_data = JSON.parse(window.sessionStorage.getItem("booking-data"));
 
 console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
 
 // ! INI PREVENT ORG UNTUK LANGSUNG BUKA HALAMAN INI HEHE START
-let booking_data = JSON.parse(window.sessionStorage.getItem("booking-data"));
 if (booking_data === null || booking_data["id_kamar"] === "") {
+  window.sessionStorage.removeItem("booking-data");
   window.location.href = "../booking/book_form.html";
 }
 // ! INI PREVENT ORG UNTUK LANGSUNG BUKA HALAMAN INI HEHE END
 
+// % ASSIGN period
+const check_in = document.querySelector("#book-check-in");
+check_in.innerHTML = dateFormatOne(booking_data["check_in"]);
+const check_out = document.querySelector("#book-check-out");
+check_out.innerHTML = dateFormatOne(booking_data["check_out"]);
+
+// % ASSIGN room and bed
+const room = document.querySelectorAll("#book-room");
+room.forEach((e) => {
+  e.innerHTML = booking_data["nama_kamar"];
+});
+const bed = document.querySelectorAll("#book-bed");
+bed.forEach((e) => {
+  e.innerHTML = booking_data["beds"];
+});
+
+// % ASSIGN information name and student_id
+const name = document.querySelector("#book-name");
+name.innerHTML = booking_data["name"];
+const nim_nik = document.querySelector("#book-user-id");
+nim_nik.innerHTML = booking_data["nim_nik"];
+
+// =====================================================
+
+// % Untuk mengubah judul title pada receipt sesuai tipe transaksinya
 const receipt_title = document.querySelector("#receipt-title");
 receipt_title.innerHTML = `${booking_data["jenis_transaksi"]}`;
 
-// % TAKE value from Session Storage
-const check_in = document.querySelector("#book-check-in");
-const check_out = document.querySelector("#book-check-out");
-const room = document.querySelectorAll("#book-room");
-const bed = document.querySelectorAll("#book-bed");
-const name = document.querySelector("#book-name");
-const user_id = document.querySelector("#book-user-id");
-const check_in_value = booking_data["check_in"];
-const check_out_value = booking_data["check_out"];
-const room_value = booking_data["nama_kamar"];
-const beds_value = booking_data["beds"];
-const name_value = booking_data["name"];
-const user_id_value = booking_data["nim_nik"];
-
-// % ASSIGN value from Session Storage
-check_in.innerHTML = dateFormatOne(check_in_value);
-check_out.innerHTML = dateFormatOne(check_out_value);
-room.forEach((e) => {
-  e.innerHTML = room_value;
-});
-bed.forEach((e) => {
-  e.innerHTML = beds_value;
-});
-name.innerHTML = name_value;
-user_id.innerHTML = user_id_value;
-
-// % Menghitung periode tanggal check in dan check out
-const date1 = new Date(check_in_value);
-const date2 = new Date(check_out_value);
-const difference_in_time = date2.getTime() - date1.getTime();
-let difference_in_month = difference_in_time / (1000 * 3600 * 24 * 30);
-
-// % AMBIL ID data pada bagian kanan
+// % ASSIGN harga kamar per month
 const room_price = document.querySelector("#room-price");
-const tax_price = document.querySelector("#tax-price");
-const total_price = document.querySelector("#total-price");
-const bill_price = document.querySelector("#bill-price");
+room_price.innerHTML = `${betterPriceFormat(booking_data["harga_kamar"])} / Month`;
+
+// % ASSIGN selisih bulan
+const SELISIH_BULAN_NEW = monthDiff(booking_data["check_in"], booking_data["check_out"]);
 const date_count = document.querySelector("#date-count");
-date_count.innerHTML = Math.floor(difference_in_month);
+date_count.innerHTML = `${SELISIH_BULAN_NEW} Month`;
 
-const betterPriceFormatter = new Intl.NumberFormat("id-ID", {
-  style: "currency",
-  currency: "IDR",
-  minimumFractionDigits: 2,
-});
+// % ASSIGN harga sesuai selisih bulan
+let bill_price_value = SELISIH_BULAN_NEW * booking_data["harga_kamar"];
+document.querySelector("#bill-price").innerHTML = `${betterPriceFormat(bill_price_value)}`;
 
-// % MENGHITUNG HARGA PADA BAGIAN RECEIPT BAGIAN KANAN
-const total_month_price = booking_data["harga_kamar"] * parseInt(difference_in_month);
-let current_price_value;
-if (booking_data["jenis_transaksi"] === "extend") {
-  current_price_value = total_month_price - booking_data["pembayaran_sebelumnya"];
-  document.querySelector("#label-old-payment").innerHTML = "Prepaid transaction";
-  document.querySelector("#old-payment").innerHTML = `( - ) ${betterPriceFormatter.format(booking_data["pembayaran_sebelumnya"])}`;
-} else {
-  current_price_value = total_month_price;
+// ! UNTUK TIPE TRANSAKSI YANG EXTEND
+if (booking_data["jenis_transaksi"] === "Extend") {
+  //% Assign label paid month
+  const label_paid_date_count = document.querySelector("#label-paid-date-count");
+  label_paid_date_count.innerHTML = `Paid month`;
+
+  //% Assign selisih paid month
+  const SELISIH_BULAN_OLD = monthDiff(booking_data["check_in"], booking_data["old_check_out"]);
+  const paid_date_count = document.querySelector("#paid-date-count");
+  paid_date_count.innerHTML = `${SELISIH_BULAN_OLD} Month`;
+
+  //% Assign harga sesuai selisih paid month
+  document.querySelector("#label-old-payment").innerHTML = "Paid bill";
+  let paid_bill_price_value = SELISIH_BULAN_OLD * booking_data["harga_kamar"];
+  document.querySelector("#old-payment").innerHTML = `( - ) ${betterPriceFormat(paid_bill_price_value)}`;
+
+  bill_price_value -= paid_bill_price_value;
 }
-const tax_price_value = current_price_value * (10 / 100);
-const total_price_value = current_price_value + tax_price_value;
 
-// % ASSIGN value room_price, bill price, tax_price, total_price
-room_price.innerHTML = betterPriceFormatter.format(booking_data["harga_kamar"]);
-bill_price.innerHTML = betterPriceFormatter.format(total_month_price);
-tax_price.innerHTML = betterPriceFormatter.format(tax_price_value);
-total_price.innerHTML = betterPriceFormatter.format(total_price_value);
+// % Menghitung harga tax
+const tax_price_value = bill_price_value * (10 / 100);
+const tax_price = document.querySelector("#tax-price");
+tax_price.innerHTML = `${betterPriceFormat(tax_price_value)}`;
+
+// % Menghitung harga total setelah ditambahkan tax
+const total_price_value = bill_price_value + tax_price_value;
+const total_price = document.querySelector("#total-price");
+total_price.innerHTML = `${betterPriceFormat(total_price_value)}`;
+
 booking_data["total_harga"] = total_price_value;
+
+//=========================================
 
 // % jika payment button sudah di klik
 const payment_button = document.querySelector("#payment-button");
 payment_button.addEventListener("click", () => {
   // % Menambahkan variable baru pada assoc array untuk post sesuai parameter
   const book_payment = document.querySelector("#book-payment");
-  booking_data["id_user"] = user_data["id_user"];
   booking_data["payment_method"] = book_payment.value;
+  booking_data["id_user"] = user_data["id_user"];
   booking_data["va"] = "123456789";
 
   /**
@@ -106,11 +113,11 @@ payment_button.addEventListener("click", () => {
 
   // % Menyesuaikan endpoint berdasarkan tipe transaksi
   let endpoint;
-  if (booking_data["jenis_transaksi"] === "booking") {
+  if (booking_data["jenis_transaksi"] === "Booking") {
     endpoint = `${config.api}createNewTransaksi`;
-  } else if (booking_data["jenis_transaksi"] === "extend") {
+  } else if (booking_data["jenis_transaksi"] === "Extend") {
     booking_data["catatan"] = `extend dari transaksi yang memiliki id ${booking_data["id_transaksi"]}`;
-    endpoint = `${config.api}extendTransaksi`; // ? BELUM YANG INI UNTUK EXTEND
+    endpoint = `${config.api}extendTransaksi`;
   }
 
   console.log(booking_data);
@@ -139,6 +146,25 @@ payment_button.addEventListener("click", () => {
     });
   // ? disini tempat buat masukin ke database
 });
+
+function betterPriceFormat(price) {
+  const betterPriceFormatter = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 2,
+  });
+
+  return betterPriceFormatter.format(price);
+}
+
+function monthDiff(date_one, date_two) {
+  const date1 = new Date(date_one);
+  const date2 = new Date(date_two);
+  const difference_in_time = date2.getTime() - date1.getTime();
+  const month_count = Math.floor(difference_in_time / (1000 * 3600 * 24 * 30));
+
+  return month_count;
+}
 
 // @ untuk mengubah tgl dari YYYY-MM-DD menjadi DD - Month - YYYY
 function dateFormatOne(date) {
