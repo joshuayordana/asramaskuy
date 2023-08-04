@@ -41,92 +41,141 @@
       <div class="grid-item">
         <img id="sapiens1" src="asset/image/sapiens1.png" alt="sapiens1" />
       </div>
-      <div class="grid-item-form">
-        <div class="login-box">
-          <div class="header">Sign Up</div>
-          <form action="" method="post" enctype="multipart/form-data" id="register_form">
-            <div class="isi" id="isi1">
-              <div class="data">
-                Nama<input type="username" class="input-text" id="nama" name="nama" placeholder="Full Name" />
-              </div>
-              <div class="data">
-                Student ID<input type="text" class="input-text" id="studentid_input" name="studentid_input"
-                  placeholder="Insert your Student ID" />
-              </div>
-              <div class="data">
-                NIK<input type="text" class="input-text" id="nik_input" name="nik" placeholder="Insert your NIK" />
-              </div>
-              <div class="data">
-                Upload Photo<label for="photo" class="input-file">Click here to upload a photo</label><input type="file"
-                  name="photo" id="photo" style="display: none" />
-              </div>
-              <div class="data">
-                Date of Birth<input type="date" class="input-text" name="tgl_lahir" id="tgl_lahir" />
-              </div>
-              <div class="data">
-                Gender
-                <select name="gender" id="gender" class="input-select">
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                </select>
-              </div>
-              <div class="data">
-                Address<input type="text" class="input-text" id="alamat" name="alamat" placeholder="Address" />
-              </div>
-              <div style="text-align: center">
-                <button type="button" class="login" id="next1">Next</button>
-              </div>
+
+      <div class="login-box">
+
+        <div class="header">Sign Up</div>
+        <form action="" id="register_form">
+
+          <!-- $ halaman pertama START -->
+          <div class="isi" id="isi1">
+            <div class="header2" style="text-align: center;">Personal Data</div>
+            <div class="data">
+              <label class="input-label" for="nama">Nama<span class="warning">*</span></label><br>
+              <input type="username" class="input-text" id="nama" name="nama" placeholder="Full Name" />
+              <small class="warning"></small>
             </div>
-            <div class="isi" id="isi2" style="display: none;">
-              <div class="data">
-                Email<input type="email" class="input-text" id="email" name="email"
-                  placeholder="example@gulugulu.com" />
-              </div>
-              <div class="data">
-                Password<input type="password" class="input-text" id="password" name="password"
-                  placeholder="Insert your password" />
-              </div>
-              <div class="data">
-                Phone<input type="tel" class="input-text" id="no_telp" name="no_telp"
-                  placeholder="Insert your phone number" />
-              </div>
-              <div style="text-align: center">
-                <button type="button" class="login" id="next2">Next</button>
-              </div>
+            <div class="data">
+              <label class="input-label" for="student_id">studentID<span class="warning">*</span></label><br>
+              <input type="text" class="input-text" id="student_id" name="student_id"
+                placeholder="Insert your Student ID" />
+              <small class="warning"></small>
             </div>
-            <div class="isi" id="isi3" style="display: none;">
-              <div class="header2">Father Information</div>
-              <div class="data">
-                Father's Name<input type="text" class="input-text" id="father_name" placeholder="Full Name" />
-              </div>
-              <div class="data">
-                Father's Occupation<input type="text" class="input-text" id="father_occup" placeholder="Occupation" />
-              </div>
-              <div class="data">
-                Father's Phone<input type="tel" class="input-text" id="father_phone" placeholder="Phone Number" />
-              </div>
-              <div class="header2">Mother Information</div>
-              <div class="data">
-                Mother's Name<input type="text" class="input-text" id="mother_name" placeholder="Full Name" />
-              </div>
-              <div class="data">
-                Mother's Occupation<input type="text" class="input-text" id="mother_occup" placeholder="Occupation" />
-              </div>
-              <div class="data">
-                Mother's Phone<input type="tel" class="input-text" id="mother_phone" placeholder="Phone Number" />
-              </div>
-              <div style="text-align: center">
-                <a href="#"><button type="button" class="login" id="submit">Submit Registration</button></a>
-              </div>
+            <div class="data">
+              <label class="input-label" for="nik">NIK<span class="warning">*</span></label><br>
+              <input type="text" class="input-text" id="nik" name="nik" placeholder="Insert your NIK" />
+              <small class="warning"></small>
             </div>
-          </form>
-        </div>
+            <div class="data">
+              <label class="input-label">Upload Photo</label><br>
+              <label for="photo" class="input-text input-photo" id="photo-name" style="text-align: center;">Click here
+                to upload a
+                photo</label>
+              <input type="file" name="photo" id="photo" accept="image/*" style="display: none" />
+              <small class="warning"></small>
+            </div>
+            <div class="data">
+              <label class="input-label" for="tgl_lahir">Date of Birth<span class="warning">*</span></label><br>
+              <input type="date" class="input-text" name="tgl_lahir" id="tgl_lahir" />
+              <small class="warning"></small>
+            </div>
+            <div class="data">
+              <label class="input-label" for="gender">Gender</label><br>
+              <select name="gender" id="gender" class="input-text">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+            <div class="data">
+              <label class="input-label" for="alamat">Address<span class="warning">*</span></label><br>
+              <input type="text" class="input-text" id="alamat" name="alamat" placeholder="Address" />
+              <small class="warning"></small>
+            </div>
+            <div style="text-align: center">
+              <button type="button" class="login" id="next1">Next</button>
+            </div>
+          </div>
+          <!-- $ halaman pertama END -->
+
+          <!-- $ halaman kedua START -->
+          <div class="isi" id="isi2" style="display: none;">
+            <div class="header2">Account Details</div>
+            <div class="data">
+              <label class="input-label" for="email">Email<span class="warning">*</span></label><br>
+              <input type="email" class="input-text" id="email" name="email" placeholder="example@gulugulu.com" />
+              <small class="warning"></small>
+            </div>
+            <div class="data">
+              <label class="input-label" for="password">Password<span class="warning">*</span></label><br>
+              <input type="password" class="input-text" id="password" name="password"
+                placeholder="Insert your password" />
+              <small class="warning"></small>
+            </div>
+            <div class="data">
+              <label class="input-label" for="phone">Phone<span class="warning">*</span></label><br>
+              <input type="tel" class="input-text" id="no_telp" name="no_telp" placeholder="Insert your phone number" />
+              <small class="warning"></small>
+            </div>
+            <div style="text-align: center">
+              <button type="button" class="login" id="next2">Next</button>
+            </div>
+          </div>
+          <!-- $ halaman kedua END -->
+
+          <!-- $ halaman ketiga START -->
+          <div class="isi" id="isi3" style="display: none;">
+            <div class="header2">Father Information</div>
+            <div class="data">
+              <label class="input-label" for="f_name">Father's Name<span class="warning">*</span></label><br>
+              <input type="text" class="input-text" id="f_name" placeholder="Full Name" />
+              <small class="warning"></small>
+            </div>
+            <div class="data">
+              <label class="input-label" for="f_occ">Father's Occupation<span class="warning">*</span></label><br>
+              <input type="text" class="input-text" id="f_occ" placeholder="Occupation" />
+              <small class="warning"></small>
+            </div>
+            <div class="data">
+              <label class="input-label" for="f_phone">Father's Phone<span class="warning">*</span></label><br>
+              <input type="tel" class="input-text" id="f_phone" placeholder="Phone Number" />
+              <small class="warning"></small>
+            </div>
+
+            <div class="header2">Mother Information</div>
+            <div class="data">
+              <label class="input-label" for="m_name">Mother's Name<span class="warning">*</span></label><br>
+              <input type="text" class="input-text" id="m_name" placeholder="Full Name" />
+              <small class="warning"></small>
+            </div>
+            <div class="data">
+              <label class="input-label" for="m_occ">Mother's Occupation<span class="warning">*</span></label><br>
+              <input type="text" class="input-text" id="m_occ" placeholder="Occupation" />
+              <small class="warning"></small>
+            </div>
+            <div class="data">
+              <label class="input-label" for="m_phone">Mother's Phone<span class="warning">*</span></label><br>
+              <input type="tel" class="input-text" id="m_phone" placeholder="Phone Number" />
+              <small class="warning"></small>
+            </div>
+            <div style="text-align: center">
+              <button type="button" class="login" id="submit">Submit Registration</button>
+            </div>
+          </div>
+          <!-- $ halaman ketiga END -->
+        </form>
       </div>
+
       <div class="grid-item">
         <img id="sapiens2" src="asset/image/sapiens2.png" alt="sapiens2" />
       </div>
     </div>
   </div>
+  <br>
+  <br>
+  <br>
+  <footer>
+    @copyright 2023
+  </footer>
   <script type="module" src="asset/js/register_student.js"></script>
 </body>
 

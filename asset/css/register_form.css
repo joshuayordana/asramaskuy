@@ -8,15 +8,15 @@
   height: 70vh;
   object-fit: cover;
 }
-
 #sapiens2 {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
 }
 
 .login-box {
+  width: 100%;
   border-radius: 10px;
-  border: 2px solid;
+  border: 2px solid #0b4d70;
   padding: 20px;
 }
 
@@ -31,52 +31,44 @@
   font-size: 12pt;
   text-align: center;
   font-weight: bold;
-  margin: 10px 0px;
-}
-
-.grid-item-form {
-  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 0.7rem;
+  color: #0b4d70;
 }
 
 .isi {
   padding: 0px 20px;
   margin: 10px 0px;
   font-size: 16pt;
-  font-weight: bold;
 }
 
-#greetings {
-  margin-bottom: 20px;
+.data {
+  margin-bottom: 5px;
 }
 
-.username,
-.pass {
-  text-align: center;
-  margin: -1px auto;
+.warning {
+  font-size: 0.7rem;
+  color: red;
 }
 
-#nik,
-#pass {
-  height: 40px;
-  width: 95%;
+.input-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #000000;
+}
+
+.input-text {
+  width: 100%;
   padding: 10px;
-  border-radius: 15px;
+  border-radius: 5px;
   border: 1px solid;
   display: block;
 }
 
-#nik {
-  border-radius: 15px 15px 0 0;
-}
-
-#pass {
-  border-radius: 0 0 15px 15px;
-}
-
-.remember-me {
-  margin: 20px 0;
-  font-size: 14px;
-  font-weight: 400;
+.input-photo {
+  cursor: pointer;
+  color: #4b4b4b !important;
+  font-size: 0.7rem;
 }
 
 .login {
@@ -88,7 +80,7 @@
   border: 1px solid #0b4d70;
   border-radius: 10px;
   font-size: 16pt;
-  font-weight: bold;
+  font-weight: 600;
   transition: 0.3s;
 }
 
@@ -96,63 +88,4 @@
   background-color: white;
   color: #0b4d70;
   border-radius: 10px;
-}
-
-.signup {
-  width: 100%;
-  margin-top: 10px;
-  background-color: white;
-  color: #0b4d70;
-  border: 1px solid #0b4d70;
-  border-radius: 10px;
-  font-size: 16pt;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.signup:hover {
-  background-color: #0b4d70;
-  color: white;
-  border-radius: 10px;
-}
-
-.data {
-  font-weight: 500;
-  font-size: 12pt;
-}
-
-.input-text {
-  height: 5vh;
-  width: 100%;
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 15px;
-  border: 1px solid;
-  display: block;
-}
-
-label {
-  vertical-align: baseline;
-  height: 5vh;
-  color: gray;
-}
-
-.input-file {
-  height: 5vh;
-  width: 100%;
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 15px;
-  border: 1px solid;
-  display: block;
-}
-
-.input-select {
-  height: 40px;
-  width: 100%;
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 15px;
-  border: 1px solid;
-  display: block;
 }
