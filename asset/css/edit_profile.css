@@ -5,16 +5,36 @@
   border-radius: 15px;
 }
 
-.input-area {
-  border: 2px solid #727171;
-  color: rgb(49, 49, 49);
-  border-radius: 5px;
-  font-size: 1.125rem;
-  padding: 5px;
-  width: 31.25rem;
+.header {
+  font-size: 16pt;
+  text-align: center;
+  font-weight: bold;
+  margin: 10px 0px;
 }
 
-.input-area:focus {
-  border: none;
-  outline: 2px solid #0b4d70;
+.header2 {
+  font-size: 12pt;
+  font-weight: bold;
+  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
+  color: #0b4d70;
+}
+
+.warning {
+  font-size: 0.7rem;
+  color: red;
+}
+
+.input-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #000000;
+}
+
+.input-text {
+  width: 70%;
+  padding: 7px;
+  border-radius: 5px;
+  border: 2px solid #686767;
+  display: block;
 }

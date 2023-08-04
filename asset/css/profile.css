@@ -14,7 +14,7 @@
   height: 15.625rem;
   width: 15.625rem;
   border-radius: 50%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .image-change-button {

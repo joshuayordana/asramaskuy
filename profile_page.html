@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="asset/css/index.css" />
     <link rel="stylesheet" href="asset/css/navbar_login.css" />
     <link rel="stylesheet" href="asset/css/profile.css" />
+    <link rel="stylesheet" href="asset/css/skeleton_loading.css" />
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
@@ -44,29 +45,28 @@
             <div class="profile-left flex flex-direction-column justify-between">
                 <div class="flex flex-direction-column align-center gap-20" style="width: fit-content;">
                     <div>
-                        <img class="profile-image" src="asset/image/avatar.jpg" alt="">
+                        <img class="profile-image skeleton" src="" alt="" id="profile-img">
                     </div>
-
-                    <label for="file-input" class="image-change-button flex align-center">Change
+                    <label for="profile-img-input" class="image-change-button flex align-center">Change
                         <img src="asset/image/image-logo.png" alt="">
                     </label>
-                    <input type="file" id="file-input" accept="image/*" style="display: none;">
+                    <input type="file" accept="image/*" id="profile-img-input" name="profile-img-input"
+                        style="display: none;">
                 </div>
 
                 <div class="flex flex-direction-column align-start gap-20">
                     <div class="profile-content">
                         <p class="identity-title-1">Email</p>
-                        <span class="identity-content"
-                            id="email">Steven@gulugulu.comasdasdasdasdasdasdasdasdasdasdasdasdasdasd</span>
+                        <span class="identity-content" id="email">Loading...</span>
                     </div>
 
                     <div class="profile-content">
                         <p class="identity-title-1">Student-ID</p>
-                        <span class="identity-content" id="sid">C14200200</span>
+                        <span class="identity-content" id="sid">Loading...</span>
                     </div>
 
                 </div>
-                <button class="logout-button" id="logout-button" onclick="">Logout</button>
+                <button class="logout-button" id="logout-button" onclick="">Log Out</button>
             </div>
             <!-- $ Bagian Sebelah kiri End -->
 
@@ -77,56 +77,56 @@
                         <div class="flex flex-direction-column gap-20">
                             <div>
                                 <p class="identity-title-2">Full Name</p>
-                                <span class="identity-content" id="name">Steven Doni Atiko</span>
+                                <span class="identity-content" id="name">Loading...</span>
                             </div>
                             <div>
                                 <p class="identity-title-2">NIK</p>
-                                <span class="identity-content" id="nik">C14200200</span>
+                                <span class="identity-content" id="nik">Loading...</span>
                             </div>
                             <div>
                                 <p class="identity-title-2">Date of Birth</p>
-                                <span class="identity-content" id="birth">25 october 2000</span>
+                                <span class="identity-content" id="birth">Loading...</span>
                             </div>
                             <div>
                                 <p class="identity-title-2">Address</p>
-                                <span class="identity-content" id="address">GBM M46</span>
+                                <span class="identity-content" id="address">Loading...</span>
                             </div>
                             <div>
                                 <p class="identity-title-2">Gender</p>
-                                <span class="identity-content" id="gender">Male</span>
+                                <span class="identity-content" id="gender">Loading...</span>
                             </div>
                             <div>
                                 <p class="identity-title-2">Phone Number</p>
-                                <span class="identity-content" id="phone">0822312312</span>
+                                <span class="identity-content" id="phone">Loading...</span>
                             </div>
                         </div>
                         <div class="flex flex-direction-column gap-30">
                             <div class="identity-father flex flex-direction-column gap-10">
                                 <div>
                                     <p class="identity-title-2">Name (Father)</p>
-                                    <span class="identity-content" id="f-name">Suli</span>
+                                    <span class="identity-content" id="f-name">Loading...</span>
                                 </div>
                                 <div>
                                     <p class="identity-title-2">Occupation (Father)</p>
-                                    <span class="identity-content" id="f-occ">Presiden</span>
+                                    <span class="identity-content" id="f-occ">Loading...</span>
                                 </div>
                                 <div>
                                     <p class="identity-title-2">Phone Number (Father)</p>
-                                    <span class="identity-content" id="f-phone">0822312312</span>
+                                    <span class="identity-content" id="f-phone">Loading...</span>
                                 </div>
                             </div>
                             <div class="identity-mother flex flex-direction-column gap-10">
                                 <div>
                                     <p class="identity-title-2">Name (Mother)</p>
-                                    <span class="identity-content" id="m-name">Yanto</span>
+                                    <span class="identity-content" id="m-name">Loading...</span>
                                 </div>
                                 <div>
                                     <p class="identity-title-2">Occupation (Mother)</p>
-                                    <span class="identity-content" id="m-occ">Presiden</span>
+                                    <span class="identity-content" id="m-occ">Loading...</span>
                                 </div>
                                 <div>
                                     <p class="identity-title-2">Phone Number (Mother)</p>
-                                    <span class="identity-content" id="m-phone">0822312312</span>
+                                    <span class="identity-content" id="m-phone">Loading...</span>
                                 </div>
                             </div>
                         </div>
@@ -138,9 +138,7 @@
                             <img src="asset/image/notif-logo.png" width="24px" height="24px"></img>
                         </button>
                     </a>
-                    <a href="edit_profile.html">
-                        <button class="edit-button" onclick="">Edit Profile</button>
-                    </a>
+                    <button class="edit-button" id="edit-button">Edit Profile</button>
                 </div>
             </div>
             <!-- $ Bagian Sebelah kanan End -->

@@ -1,8 +1,5 @@
 import { config } from "./config.js";
 
-// let user_data = JSON.parse(window.sessionStorage.getItem("user-data"));
-
-// console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
 // ! INI PREVENT ORG UNTUK LANGSUNG BUKA HALAMAN INI HEHE START
 let booking_data = JSON.parse(window.sessionStorage.getItem("booking-data"));
 if (booking_data === null || booking_data["id_user"] === "") {
@@ -28,18 +25,14 @@ fetch(endpoint_men)
       if (data.Data[i].status_gedung === "Active") {
         // % Fetch Img
         const api_image_src = `${config.api}getfiles?path_gambar=${data.Data[i].gambar_gedung}`;
-        fetch(api_image_src)
-          .then((response) => response.blob())
-          .then((blob) => {
-            let img_src = URL.createObjectURL(blob);
 
-            // % Membuat Kotak baru untuk simadukkan ke dalam Tower-Men-List
-            const new_box = document.createElement("div");
-            new_box.setAttribute("class", "tower-card flex padding-20 gap-20");
-            new_box.setAttribute("id", `tower-men-${i}`);
-            new_box.innerHTML = `
+        // % Membuat Kotak baru untuk simadukkan ke dalam Tower-Men-List
+        const new_box = document.createElement("div");
+        new_box.setAttribute("class", "tower-card flex padding-20 gap-20");
+        new_box.setAttribute("id", `tower-men-${i}`);
+        new_box.innerHTML = `
               <div>
-                <img class="tower-img" id="tower-image" src="${img_src}">
+                <img class="tower-img" id="tower-image" src="${api_image_src}">
               </div>
               <div class="flex flex-direction-column justify-between" style="width: 100%;">
                 <div class="flex flex-direction-column gap-10">
@@ -57,20 +50,20 @@ fetch(endpoint_men)
                   Pick Tower
                 </button>
               </div>`;
-            tower_men_list.appendChild(new_box);
+        tower_men_list.appendChild(new_box);
 
-            // % JIKA KLIK BUTTON
-            const tower_box_men = document.querySelector(`#tower-men-${i}`); // ini nanti indexnya ganti2 / atau di loop per tower
-            const pick_tower_button_men = tower_box_men.querySelector("#pick-tower-button");
-            pick_tower_button_men.addEventListener("click", () => {
-              booking_data["nama_gedung"] = data.Data[i].nama_gedung;
-              booking_data["id_gedung"] = data.Data[i].id_gedung;
-              booking_data["tower-max-floor"] = data.Data[i].jumlah_lantai;
-              window.sessionStorage.setItem("booking-data", JSON.stringify(booking_data));
-              console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
-              window.location.href = "room_page.html";
-            });
-          });
+        // % JIKA KLIK BUTTON
+        const tower_box_men = document.querySelector(`#tower-men-${i}`); // ini nanti indexnya ganti2 / atau di loop per tower
+        const pick_tower_button_men = tower_box_men.querySelector("#pick-tower-button");
+        pick_tower_button_men.addEventListener("click", () => {
+          booking_data["nama_gedung"] = data.Data[i].nama_gedung;
+          booking_data["id_gedung"] = data.Data[i].id_gedung;
+          booking_data["tower-max-floor"] = data.Data[i].jumlah_lantai;
+          window.sessionStorage.setItem("booking-data", JSON.stringify(booking_data));
+          console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
+          window.location.href = "room_page.html";
+        });
+        // });
       }
     }
   });
@@ -97,18 +90,14 @@ fetch(endpoint_girl)
       if (data.Data[i].status_gedung === "Active") {
         // % Fetch Img
         const api_image_src = `${config.api}getfiles?path_gambar=${data.Data[i].gambar_gedung}`;
-        fetch(api_image_src)
-          .then((response) => response.blob())
-          .then((blob) => {
-            let img_src = URL.createObjectURL(blob);
 
-            // % Membuat Kotak baru untuk simadukkan ke dalam Tower-Girl-List
-            const new_box = document.createElement("div");
-            new_box.setAttribute("class", "tower-card flex padding-20 gap-20");
-            new_box.setAttribute("id", `tower-girl-${i}`);
-            new_box.innerHTML = `
+        // % Membuat Kotak baru untuk simadukkan ke dalam Tower-Girl-List
+        const new_box = document.createElement("div");
+        new_box.setAttribute("class", "tower-card flex padding-20 gap-20");
+        new_box.setAttribute("id", `tower-girl-${i}`);
+        new_box.innerHTML = `
               <div>
-                <img class="tower-img" id="tower-image" src="${img_src}">
+                <img class="tower-img" id="tower-image" src="${api_image_src}">
               </div>
               <div class="flex flex-direction-column justify-between" style="width: 100%;">
                 <div class="flex flex-direction-column gap-10">
@@ -126,20 +115,19 @@ fetch(endpoint_girl)
                   Pick Tower
                 </button>
               </div>`;
-            tower_girl_list.appendChild(new_box);
+        tower_girl_list.appendChild(new_box);
 
-            // % JIKA KLIK BUTTON
-            const tower_box_girl = document.querySelector(`#tower-girl-${i}`); // ini nanti indexnya ganti2 / atau di loop per tower
-            const pick_tower_button_girl = tower_box_girl.querySelector("#pick-tower-button");
-            pick_tower_button_girl.addEventListener("click", () => {
-              booking_data["nama_gedung"] = data.Data[i].nama_gedung;
-              booking_data["id_gedung"] = data.Data[i].id_gedung;
-              booking_data["tower-max-floor"] = data.Data[i].jumlah_lantai;
-              window.sessionStorage.setItem("booking-data", JSON.stringify(booking_data));
-              console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
-              window.location.href = "room_page.html";
-            });
-          });
+        // % JIKA KLIK BUTTON
+        const tower_box_girl = document.querySelector(`#tower-girl-${i}`); // ini nanti indexnya ganti2 / atau di loop per tower
+        const pick_tower_button_girl = tower_box_girl.querySelector("#pick-tower-button");
+        pick_tower_button_girl.addEventListener("click", () => {
+          booking_data["nama_gedung"] = data.Data[i].nama_gedung;
+          booking_data["id_gedung"] = data.Data[i].id_gedung;
+          booking_data["tower-max-floor"] = data.Data[i].jumlah_lantai;
+          window.sessionStorage.setItem("booking-data", JSON.stringify(booking_data));
+          console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
+          window.location.href = "room_page.html";
+        });
       }
     }
   });

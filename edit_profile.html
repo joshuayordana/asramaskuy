@@ -44,100 +44,122 @@
     <section class="container min-height-100vh" style="margin-top: 70px;">
         <div style="margin-top: 30px;">
             <div class="flex gap-20 align-center">
-                <a href="./profile_page.html"><span class="material-symbols-outlined back-logo2">arrow_back</span></a>
+                <a id="back-button"><span class="material-symbols-outlined back-logo2">arrow_back</span></a>
                 <h1>Edit Profile</h1>
             </div>
         </div>
 
 
-        <form class="edit-area">
-            <div class="grid-col-2 gap-20">
+        <div class="edit-area">
+            <div class="flex flex-direction-column gap-20">
                 <!-- $ Bagian Edit Data Pribadi Start -->
-                <div class="flex flex-direction-column gap-20">
-                    <div>
-                        <p class="identity-title-2">Email</p>
-                        <input class="input-area" id="email" value="" required>
-                        <div class="warning-area" id="warning-email"></div>
-                    </div>
-                    <div>
-                        <p class="identity-title-2">Password</p>
-                        <input type="password" class="input-area" id="password" placeholder="insert new password"
-                            required>
-                        <div class="warning-area" id="warning-password"></div>
-                    </div>
-                    <div>
-                        <p class="identity-title-2">Full Name</p>
-                        <input class="input-area" id="name" value="" required>
-                        <div class="warning-area" id="warning-name"></div>
-                    </div>
-                    <div>
-                        <p class="identity-title-2">NIK</p>
-                        <input class="input-area" id="nik" value="" required>
-                        <div class="warning-area" id="warning-nik"></div>
-                    </div>
-                    <div>
-                        <p class="identity-title-2">Date of Birth</p>
-                        <input type="date" class="input-area" id="birth" required>
-                        <div class="warning-area" id="warning-birth"></div>
-                    </div>
-                    <div>
-                        <p class="identity-title-2">Address</p>
-                        <input class="input-area" id="address" value="" required>
-                        <div class="warning-area" id="warning-adress"></div>
-                    </div>
-                    <div>
-                        <p class="identity-title-2">Gender</p>
-                        <select class="input-area" name="period" id="period">
-                            <option value="male">
-                                Male
-                            </option>
-                            <option value="female">
-                                Female
-                            </option>
-                        </select>
-                    </div>
-                    <div>
-                        <p class="identity-title-2">Phone Number</p>
-                        <input class="input-area" id="phone" value="" required>
-                        <div class="warning-area" id="warning-phone"></div>
+                <div>
+                    <div class="header2">Personal Information</div>
+                    <div class="grid-col-2 gap-20">
+                        <div class="flex flex-direction-column gap-10">
+                            <div>
+                                <label class="input-label">Email</label><br>
+                                <input class="input-text" id="email" value="" placeholder="Insert your email">
+                                <small class="warning" id="warning"></small>
+                            </div>
+                            <div>
+                                <label class="input-label">Password</label><br>
+                                <input type="password" class="input-text" id="password"
+                                    placeholder="Insert your password" required>
+                                <small class="warning" id="warning"></small>
+                            </div>
+                            <div>
+                                <label class="input-label">Full Name</label><br>
+                                <input class="input-text" id="nama" value="" placeholder="Insert your name" required>
+                                <small class="warning" id="warning"></small>
+                            </div>
+                            <div>
+                                <label class="input-label">NIK</label>
+                                <input class="input-text" id="nik" value="" placeholder="Insert your NIK" required>
+                                <small class="warning" id="warning-nik"></small>
+                            </div>
+                        </div>
+                        <div class="flex flex-direction-column gap-10">
+                            <div>
+                                <label class="input-label">Date of Birth</label>
+                                <input type="date" class="input-text" id="birth" required>
+                                <small class="warning" id="warning-birth"></small>
+                            </div>
+                            <div>
+                                <label class="input-label">Address</label>
+                                <input class="input-text" id="address" value="" placeholder="Insert your address"
+                                    required>
+                                <small class="warning" id="warning-adress"></small>
+                            </div>
+                            <div>
+                                <label class="input-label">Gender</label>
+                                <select class="input-text" name="period" id="period">
+                                    <option value="male">
+                                        Male
+                                    </option>
+                                    <option value="female">
+                                        Female
+                                    </option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="input-label">Phone Number</label>
+                                <input type="number" class="input-text" id="phone" value=""
+                                    placeholder="Insert your Phone Number" required>
+                                <small class="warning" id="warning-phone"></small>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
                 <!-- $ Bagian Edit Data Pribadi END -->
 
                 <!-- $ Bagian Edit Data Ortu Start -->
-                <div class="flex flex-direction-column gap-30">
-                    <div class="identity-father flex flex-direction-column gap-10">
-                        <div>
-                            <p class="identity-title-2">Name (Father)</p>
-                            <input class="input-area" id="f-name" value="" required>
-                            <div class="warning-area" id="warning-f-name"></div>
-                        </div>
-                        <div>
-                            <p class="identity-title-2">Occupation (Father)</p>
-                            <input class="input-area" id="f-occ" value="" required>
-                            <div class="warning-area" id="warning-f-occ"></div>
-                        </div>
-                        <div>
-                            <p class="identity-title-2">Phone Number (Father)</p>
-                            <input class="input-area" id="f-phone" value="" required>
-                            <div class="warning-area" id="warning-f-phone"></div>
+                <div class="grid-col-2 gap-20">
+                    <div>
+                        <div class="header2">Father's Information</div>
+                        <div class="flex flex-direction-column gap-10">
+                            <div>
+                                <label class="input-label">Name (Father)</label>
+                                <input class="input-text" id="f-name" value="" placeholder="Insert your Father name"
+                                    required>
+                                <small class="warning" id="warning-f-name"></small>
+                            </div>
+                            <div>
+                                <label class="input-label">Occupation (Father)</label>
+                                <input class="input-text" id="f-occ" value=""
+                                    placeholder="Insert your Father occupation" required>
+                                <small class="warning" id="warning-f-occ"></small>
+                            </div>
+                            <div>
+                                <label class="input-label">Phone Number (Father)</label>
+                                <input type="number" class="input-text" id="f-phone" value=""
+                                    placeholder="Insert your Father Phone Number" required>
+                                <small class="warning" id="warning-f-phone"></small>
+                            </div>
                         </div>
                     </div>
-                    <div class="identity-mother flex flex-direction-column gap-10">
-                        <div>
-                            <p class="identity-title-2">Name (Mother)</p>
-                            <input class="input-area" id="m-name" value="" required>
-                            <div class="warning-area" id="warning-m-name"></div>
-                        </div>
-                        <div>
-                            <p class="identity-title-2">Occupation (Mother)</p>
-                            <input class="input-area" id="m-occ" value="" required>
-                            <div class="warning-area" id="warning-m-occ"></div>
-                        </div>
-                        <div>
-                            <p class="identity-title-2">Phone Number (Mother)</p>
-                            <input class="input-area" id="m-phone" value="" required>
-                            <div class="warning-area" id="warning-m-phone"></div>
+                    <div>
+                        <div class="header2">Mother's Information</div>
+                        <div class="flex flex-direction-column gap-10">
+                            <div>
+                                <label class="input-label">Name (Mother)</label>
+                                <input class="input-text" id="m-name" value="" placeholder="Insert your Mother name"
+                                    required>
+                                <small class="warning" id="warning-m-name"></small>
+                            </div>
+                            <div>
+                                <label class="input-label">Occupation (Mother)</label>
+                                <input class="input-text" id="m-occ" value=""
+                                    placeholder="Insert your Mother occupation" required>
+                                <small class="warning" id="warning-m-occ"></small>
+                            </div>
+                            <div>
+                                <label class="input-label">Phone Number (Mother)</label>
+                                <input type="number" class="input-text" id="m-phone" value=""
+                                    placeholder="Insert your Mother Phone Number" required>
+                                <small class="warning" id="warning-m-phone"></small>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -145,9 +167,9 @@
             </div>
 
             <div class="flex justify-end">
-                <input type="submit" class="edit-button" id="simpan-button" value="simpan">
+                <input type="button" class="edit-button" id="simpan-button" value="simpan">
             </div>
-        </form>
+        </div>
 
     </section>
     <!-- $ Profile end -->
