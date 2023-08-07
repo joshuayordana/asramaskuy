@@ -76,8 +76,9 @@
                     <div class="profile-desc">
                         <div class="flex flex-direction-column gap-20">
                             <div>
+                                <div class="header2">Personal Information</div>
                                 <p class="identity-title-2">Full Name</p>
-                                <span class="identity-content" id="name">Loading...</span>
+                                <span class="identity-content" id="nama">Loading...</span>
                             </div>
                             <div>
                                 <p class="identity-title-2">NIK</p>
@@ -103,6 +104,7 @@
                         <div class="flex flex-direction-column gap-30">
                             <div class="identity-father flex flex-direction-column gap-10">
                                 <div>
+                                    <div class="header2">Father's Information</div>
                                     <p class="identity-title-2">Name (Father)</p>
                                     <span class="identity-content" id="f-name">Loading...</span>
                                 </div>
@@ -117,6 +119,7 @@
                             </div>
                             <div class="identity-mother flex flex-direction-column gap-10">
                                 <div>
+                                    <div class="header2">Mother's Information</div>
                                     <p class="identity-title-2">Name (Mother)</p>
                                     <span class="identity-content" id="m-name">Loading...</span>
                                 </div>
@@ -138,7 +141,10 @@
                             <img src="asset/image/notif-logo.png" width="24px" height="24px"></img>
                         </button>
                     </a>
-                    <button class="edit-button" id="edit-button">Edit Profile</button>
+                    <div class="flex gap-10">
+                        <button class="primary-button" id="open-pwd-modal">Edit Pass</button>
+                        <button class="primary-button" id="open-info-modal">Edit Profile</button>
+                    </div>
                 </div>
             </div>
             <!-- $ Bagian Sebelah kanan End -->
@@ -151,7 +157,151 @@
         @copyright 2023
     </footer>
 
+    <!-- $ Bagian untuk modal edit profil START -->
+    <dialog class="edit-area" id="edit-info-modal">
+        <div class="header" style="text-align: start;">Edit Profile</div>
+        <div class="flex flex-direction-column gap-20">
+            <!-- $ Bagian Edit Data Pribadi Start -->
+            <div>
+                <div class="header2">Personal Information</div>
+                <div class="grid-col-2 gap-20">
+                    <div class="flex flex-direction-column gap-10">
+                        <div>
+                            <label class="input-label">Email</label><br>
+                            <input class="input-text" id="info-email" value="" placeholder="Insert your email">
+                            <small class="warning" id="warning"></small>
+                        </div>
+                        <div>
+                            <label class="input-label">Full Name</label><br>
+                            <input class="input-text" id="info-nama" value="" placeholder="Insert your name" required>
+                            <small class="warning" id="warning"></small>
+                        </div>
+                        <div>
+                            <label class="input-label">NIK</label>
+                            <input class="input-text" id="info-nik" value="" placeholder="Insert your NIK" required>
+                            <small class="warning" id="warning-nik"></small>
+                        </div>
+                        <div>
+                            <label class="input-label">Date of Birth</label>
+                            <input type="date" class="input-text" id="info-birth" required>
+                            <small class="warning" id="warning-birth"></small>
+                        </div>
+                    </div>
+                    <div class="flex flex-direction-column gap-10">
+                        <div>
+                            <label class="input-label">Address</label>
+                            <input class="input-text" id="info-address" value="" placeholder="Insert your address"
+                                required>
+                            <small class="warning" id="warning-adress"></small>
+                        </div>
+                        <div>
+                            <label class="input-label">Gender</label>
+                            <select class="input-text" name="info-gender" id="info-gender">
+                                <option value="male">
+                                    Male
+                                </option>
+                                <option value="female">
+                                    Female
+                                </option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="input-label">Phone Number</label>
+                            <input type="number" class="input-text" id="info-phone" value=""
+                                placeholder="Insert your Phone Number" required>
+                            <small class="warning" id="warning-phone"></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- $ Bagian Edit Data Pribadi END -->
+
+            <!-- $ Bagian Edit Data Ortu Start -->
+            <div class="grid-col-2 gap-20">
+                <div>
+                    <div class="header2">Father's Information</div>
+                    <div class="flex flex-direction-column gap-10">
+                        <div>
+                            <label class="input-label">Name (Father)</label>
+                            <input class="input-text" id="info-f-name" value="" placeholder="Insert your Father name"
+                                required>
+                            <small class="warning" id="warning-f-name"></small>
+                        </div>
+                        <div>
+                            <label class="input-label">Occupation (Father)</label>
+                            <input class="input-text" id="info-f-occ" value=""
+                                placeholder="Insert your Father occupation" required>
+                            <small class="warning" id="warning-f-occ"></small>
+                        </div>
+                        <div>
+                            <label class="input-label">Phone Number (Father)</label>
+                            <input type="number" class="input-text" id="info-f-phone" value=""
+                                placeholder="Insert your Father Phone Number" required>
+                            <small class="warning" id="warning-f-phone"></small>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="header2">Mother's Information</div>
+                    <div class="flex flex-direction-column gap-10">
+                        <div>
+                            <label class="input-label">Name (Mother)</label>
+                            <input class="input-text" id="info-m-name" value="" placeholder="Insert your Mother name"
+                                required>
+                            <small class="warning" id="warning-m-name"></small>
+                        </div>
+                        <div>
+                            <label class="input-label">Occupation (Mother)</label>
+                            <input class="input-text" id="info-m-occ" value=""
+                                placeholder="Insert your Mother occupation" required>
+                            <small class="warning" id="warning-m-occ"></small>
+                        </div>
+                        <div>
+                            <label class="input-label">Phone Number (Mother)</label>
+                            <input type="number" class="input-text" id="info-m-phone" value=""
+                                placeholder="Insert your Mother Phone Number" required>
+                            <small class="warning" id="warning-m-phone"></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- $ Bagian Edit Data Ortu END -->
+        </div>
+
+        <br>
+        <div class="flex justify-between">
+            <input type="button" class="primary-button" id="back-info-modal" value="Back">
+            <input type="button" class="primary-button" id="submit-info-modal" value="Submit">
+        </div>
+    </dialog>
+    <!-- $ Bagian untuk modal edit profil END -->
+
+    <!-- $ Bagian untuk modal edit profil START -->
+    <dialog class="pwd-area" id="edit-pwd-modal">
+        <div class="header" style="text-align: center;">Edit password</div>
+        <div class="flex flex-direction-column gap-20">
+            <div>
+                <label class="input-label">Password</label><br>
+                <input class="input-text" id="pwd-old" value="" placeholder="Insert your current password" required>
+                <small class="warning" id="warning"></small>
+            </div>
+            <div>
+                <label class="input-label">New Password</label><br>
+                <input class="input-text" id="pwd-new" value="" placeholder="Insert your new password">
+                <small class="warning" id="warning"></small>
+            </div>
+        </div>
+        <br>
+        <div class="flex justify-between">
+            <input type="button" class="primary-button" id="back-pwd-modal" value="Back">
+            <input type="button" class="primary-button" id="submit-pwd-modal" value="Submit">
+        </div>
+    </dialog>
+    <!-- $ Bagian untuk modal edit profil END -->
+
     <script type="module" src="asset/js/profile.js"></script>
+    <script type="module" src="asset/js/edit_profile.js"></script>
+    <script type="module" src="asset/js/edit_password.js"></script>
     <script type="module" src="asset/js/logout.js"></script>
     <script src="asset/js/user_validation.js"></script>
 </body>

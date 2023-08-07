@@ -68,7 +68,7 @@ next1.addEventListener("click", () => {
 
   const tgl_lahir = document.getElementById("tgl_lahir");
   if (tgl_lahir.value.trim() === "") {
-    setErrorMsg(tgl_lahir, "Please insert NIK correctly");
+    setErrorMsg(tgl_lahir, "Please insert birth date correctly");
     validate["tgl_lahir"] = false;
   } else {
     setSuccessMsg(tgl_lahir);
@@ -77,7 +77,7 @@ next1.addEventListener("click", () => {
 
   const alamat = document.getElementById("alamat");
   if (alamat.value.trim() === "") {
-    setErrorMsg(alamat, "Please insert NIK correctly");
+    setErrorMsg(alamat, "Please insert adress correctly");
     validate["alamat"] = false;
   } else if (alamat.value.trim().length < 3) {
     setErrorMsg(alamat, "Please input minimum 3 character");

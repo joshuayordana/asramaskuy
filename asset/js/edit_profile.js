@@ -1,235 +1,235 @@
 import { config } from "./config.js";
 
-// ! INI PREVENT ORG UNTUK LANGSUNG BUKA HALAMAN INI HEHE START
-let edit_data = JSON.parse(window.sessionStorage.getItem("edit-data"));
-let user_data = JSON.parse(window.sessionStorage.getItem("user-data"));
-console.log(edit_data);
-if (edit_data === null) {
-  window.location.href = "profile_page.html";
-}
-// ! INI PREVENT ORG UNTUK LANGSUNG BUKA HALAMAN INI HEHE END
+const edit_modal = document.querySelector("#edit-info-modal");
 
-const back_button = document.querySelector("#back-button");
-back_button.addEventListener("click", () => {
-  window.sessionStorage.removeItem("edit-data");
-  window.location.href = "profile_page.html";
+// % MEMBUKA modal edit profile pada halaman profile
+const open_info = document.querySelector("#open-info-modal");
+open_info.addEventListener("click", () => {
+  edit_modal.showModal();
 });
 
-let validate = {
-  nama: false,
-  nik: false,
-  tgl_lahir: false,
-  alamat: false,
-  email: false,
-  pwd: false,
-  phone: false,
-  f_name: false,
-  f_occ: false,
-  f_phone: false,
-  m_name: false,
-  m_occ: false,
-  m_phone: false,
-};
+// % MENUTUP modal edit profile pada halaman profile
+const close_info = document.querySelector("#back-info-modal");
+close_info.addEventListener("click", () => {
+  edit_modal.close();
+});
 
-const gender = document.querySelector("#gender");
-const birth = document.querySelector("#birth");
-const password = document.querySelector("#password");
+// % MENGIRIMKAN data input ke API pada modal edit profile
+const submit_info = document.querySelector("#submit-info-modal");
+submit_info.addEventListener("click", () => {
+  inputData();
+});
 
-// $ PERSONAL INFORMATION
-const email = document.querySelector("#email");
-email.value = edit_data["email"];
-const nama = document.querySelector("#nama");
-nama.value = edit_data["name"];
-const nik = document.querySelector("#nik");
-nik.value = edit_data["nik"];
-const alamat = document.querySelector("#address");
-alamat.value = edit_data["alamat"];
-const no_telp = document.querySelector("#phone");
-no_telp.value = edit_data["no_telp"];
+function inputData() {
+  const info_email = document.querySelector("#info-email");
+  const info_name = document.querySelector("#info-nama");
+  const info_nik = document.querySelector("#info-nik");
+  const info_birth = document.querySelector("#info-birth");
+  const info_address = document.querySelector("#info-address");
+  const info_gender = document.querySelector("#info-gender");
+  const info_phone = document.querySelector("#info-phone");
+  const info_f_name = document.querySelector("#info-f-name");
+  const info_f_occ = document.querySelector("#info-f-occ");
+  const info_f_phone = document.querySelector("#info-f-phone");
+  const info_m_name = document.querySelector("#info-m-name");
+  const info_m_occ = document.querySelector("#info-m-occ");
+  const info_m_phone = document.querySelector("#info-m-phone");
+  // let edit_data = {};
+  // edit_data["email"] = data.Data[0].email;
+  // edit_data["nim"] = data.Data[0].nim;
+  // edit_data["name"] = data.Data[0].name;
+  // edit_data["nik"] = data.Data[0].nik;
+  // edit_data["tgl_lahir"] = data.Data[0].tgl_lahir.slice(0, 10);
+  // edit_data["alamat"] = data.Data[0].alamat;
+  // edit_data["jenis_kelamin"] = data.Data[0].jenis_kelamin;
+  // edit_data["no_telp"] = data.Data[0].no_telp;
+  // edit_data["nama_ayah"] = data.Data[0].nama_ayah;
+  // edit_data["pekerjaan_ayah"] = data.Data[0].pekerjaan_ayah;
+  // edit_data["no_telp_ayah"] = data.Data[0].no_telp_ayah;
+  // edit_data["nama_ibu"] = data.Data[0].nama_ibu;
+  // edit_data["pekerjaan_ibu"] = data.Data[0].pekerjaan_ibu;
+  // edit_data["no_telp_ibu"] = data.Data[0].no_telp_ibu;
 
-// $ PARENT INFORMATION
-const f_name = document.querySelector("#f-name");
-f_name.value = edit_data["nama_ayah"];
-const f_occ = document.querySelector("#f-occ");
-f_occ.value = edit_data["pekerjaan_ayah"];
-const f_phone = document.querySelector("#f-phone");
-f_phone.value = edit_data["no_telp_ayah"];
-const m_name = document.querySelector("#m-name");
-m_name.value = edit_data["nama_ibu"];
-const m_occ = document.querySelector("#m-occ");
-m_occ.value = edit_data["pekerjaan_ibu"];
-const m_phone = document.querySelector("#m-phone");
-m_phone.value = edit_data["no_telp_ibu"];
+  let validate = {
+    nama: false,
+    nik: false,
+    tgl_lahir: false,
+    alamat: false,
+    email: false,
+    phone: false,
+    f_name: false,
+    f_occ: false,
+    f_phone: false,
+    m_name: false,
+    m_occ: false,
+    m_phone: false,
+  };
 
-const simpan_button = document.querySelector("#simpan-button");
-simpan_button.addEventListener("click", () => {
-  // $ PERSONAL INFORMATION
-  edit_data["jenis_kelamin"] = gender.value;
-  edit_data["id_user"] = user_data["id_user"];
-
-  if (nama.value.trim() === "") {
-    setErrorMsg(nama, "Please insert name correctly");
+  // % NAME
+  if (info_name.value.trim() === "") {
+    setErrorMsg(info_name, "Please insert name correctly");
     validate["nama"] = false;
-  } else if (nama.value.trim().length < 3) {
-    setErrorMsg(nama, "Please input minimum 3 character");
+  } else if (info_name.value.trim().length < 3) {
+    setErrorMsg(info_name, "Please input minimum 3 character");
     validate["nama"] = false;
   } else {
-    setSuccessMsg(nama);
-    edit_data["name"] = nama.value;
+    setSuccessMsg(info_name);
     validate["nama"] = true;
   }
 
-  if (nik.value.trim() === "") {
-    setErrorMsg(nik, "Please insert NIK correctly");
+  // % NIK
+  if (info_nik.value.trim() === "") {
+    setErrorMsg(info_nik, "Please insert NIK correctly");
     validate["nik"] = false;
-  } else if (nik.value.trim().length < 3) {
-    setErrorMsg(nik, "Please input minimum 3 character");
+  } else if (info_nik.value.trim().length < 3) {
+    setErrorMsg(info_nik, "Please input minimum 3 character");
     validate["nik"] = false;
   } else {
-    setSuccessMsg(nik);
-    edit_data["nik"] = nik.value;
+    setSuccessMsg(info_nik);
     validate["nik"] = true;
   }
 
-  if (birth.value.trim() === "") {
-    setErrorMsg(birth, "Please insert birth date correctly");
+  // % BIRTH
+  if (info_birth.value.trim() === "") {
+    setErrorMsg(info_birth, "Please insert birth date correctly");
     validate["tgl_lahir"] = false;
   } else {
-    setSuccessMsg(birth);
-    edit_data["tgl_lahir"] = birth.value;
+    setSuccessMsg(info_birth);
     validate["tgl_lahir"] = true;
   }
 
-  if (alamat.value.trim() === "") {
-    setErrorMsg(alamat, "Please insert adress correctly");
+  // % ALAMAT
+  if (info_address.value.trim() === "") {
+    setErrorMsg(info_address, "Please insert adress correctly");
     validate["alamat"] = false;
-  } else if (alamat.value.trim().length < 3) {
-    setErrorMsg(alamat, "Please input minimum 3 character");
+  } else if (info_address.value.trim().length < 3) {
+    setErrorMsg(info_address, "Please input minimum 3 character");
     validate["alamat"] = false;
   } else {
-    setSuccessMsg(alamat);
-    edit_data["alamat"] = alamat.value;
+    setSuccessMsg(info_address);
     validate["alamat"] = true;
   }
 
-  if (email.value.trim() === "") {
-    setErrorMsg(email, "Please insert email correctly");
+  // % EMAIL
+  if (info_email.value.trim() === "") {
+    setErrorMsg(info_email, "Please insert email correctly");
     validate["nama"] = false;
-  } else if (email.value.trim().length < 3) {
-    setErrorMsg(email, "Please input minimum 3 character");
+  } else if (info_email.value.trim().length < 3) {
+    setErrorMsg(info_email, "Please input minimum 3 character");
     validate["email"] = false;
   } else {
-    setSuccessMsg(email);
-    email.value = edit_data["email"];
+    setSuccessMsg(info_email);
     validate["email"] = true;
   }
 
-  if (password.value.trim() === "") {
-    setErrorMsg(password, "Please insert password correctly");
-    validate["pwd"] = false;
-  } else if (password.value.trim().length < 5) {
-    setErrorMsg(password, "Please input minimum 5 character");
-    validate["pwd"] = false;
-  } else {
-    setSuccessMsg(password);
-    edit_data["password"] = password.value;
-    validate["pwd"] = true;
-  }
-
-  if (no_telp.value.trim() === "") {
-    setErrorMsg(no_telp, "Please insert phone number correctly");
+  // % PHONE
+  if (info_phone.value.trim() === "") {
+    setErrorMsg(info_phone, "Please insert phone number correctly");
     validate["phone"] = false;
-  } else if (no_telp.value.trim().length < 8) {
-    setErrorMsg(no_telp, "Please input minimum 8 character");
+  } else if (info_phone.value.trim().length < 8) {
+    setErrorMsg(info_phone, "Please input minimum 8 character");
     validate["phone"] = false;
   } else {
-    setSuccessMsg(no_telp);
-    edit_data["no_telp"] = no_telp.value;
+    setSuccessMsg(info_phone);
     validate["phone"] = true;
   }
 
   // $ FATHER INFORMATION
-  if (f_name.value.trim() === "") {
-    setErrorMsg(f_name, "Please insert Father's name correctly");
+  //% FATHER NAME
+  if (info_f_name.value.trim() === "") {
+    setErrorMsg(info_f_name, "Please insert Father's name correctly");
     validate["f_name"] = false;
-  } else if (f_name.value.trim().length < 3) {
-    setErrorMsg(f_name, "Please input minimum 3 character");
+  } else if (info_f_name.value.trim().length < 3) {
+    setErrorMsg(info_f_name, "Please input minimum 3 character");
     validate["f_name"] = false;
   } else {
-    setSuccessMsg(f_name);
-    edit_data["nama_ayah"] = f_name.value;
+    setSuccessMsg(info_f_name);
     validate["f_name"] = true;
   }
 
-  if (f_occ.value.trim() === "") {
-    setErrorMsg(f_occ, "Please insert Father's occupation correctly");
+  //% FATHER OCCUPATION
+  if (info_f_occ.value.trim() === "") {
+    setErrorMsg(info_f_occ, "Please insert Father's occupation correctly");
     validate["f_occ"] = false;
-  } else if (f_occ.value.trim().length < 5) {
-    setErrorMsg(f_occ, "Please input minimum 5 character");
+  } else if (info_f_occ.value.trim().length < 5) {
+    setErrorMsg(info_f_occ, "Please input minimum 5 character");
     validate["f_occ"] = false;
   } else {
-    setSuccessMsg(f_occ);
-    edit_data["pekerjaan_ayah"] = f_occ.value;
+    setSuccessMsg(info_f_occ);
     validate["f_occ"] = true;
   }
 
-  if (f_phone.value.trim() === "") {
-    setErrorMsg(f_phone, "Please insert Father's phone number correctly");
+  //% FATHER PHONE
+  if (info_f_phone.value.trim() === "") {
+    setErrorMsg(info_f_phone, "Please insert Father's phone number correctly");
     validate["f_phone"] = false;
-  } else if (f_phone.value.trim().length < 8) {
-    setErrorMsg(f_phone, "Please input minimum 8 character");
+  } else if (info_f_phone.value.trim().length < 8) {
+    setErrorMsg(info_f_phone, "Please input minimum 8 character");
     validate["f_phone"] = false;
   } else {
-    setSuccessMsg(f_phone);
-    edit_data["no_telp_ayah"] = f_phone.value;
+    setSuccessMsg(info_f_phone);
     validate["f_phone"] = true;
   }
 
   // $ MOTHER INFORMATION
-  if (m_name.value.trim() === "") {
-    setErrorMsg(m_name, "Please insert Mother's name correctly");
+  //% MOTHER NAME
+  if (info_m_name.value.trim() === "") {
+    setErrorMsg(info_m_name, "Please insert Mother's name correctly");
     validate["m_name"] = false;
-  } else if (m_name.value.trim().length < 3) {
-    setErrorMsg(m_name, "Please input minimum 3 character");
+  } else if (info_m_name.value.trim().length < 3) {
+    setErrorMsg(info_m_name, "Please input minimum 3 character");
     validate["m_name"] = false;
   } else {
-    setSuccessMsg(m_name);
-    edit_data["nama_ibu"] = m_name.value;
+    setSuccessMsg(info_m_name);
     validate["m_name"] = true;
   }
 
-  if (m_occ.value.trim() === "") {
-    setErrorMsg(m_occ, "Please insert Mother's occupation correctly");
+  // % MOTHER OCCUPATION
+  if (info_m_occ.value.trim() === "") {
+    setErrorMsg(info_m_occ, "Please insert Mother's occupation correctly");
     validate["m_occ"] = false;
-  } else if (m_occ.value.trim().length < 5) {
-    setErrorMsg(m_occ, "Please input minimum 5 character");
+  } else if (info_m_occ.value.trim().length < 5) {
+    setErrorMsg(info_m_occ, "Please input minimum 5 character");
     validate["m_occ"] = false;
   } else {
-    setSuccessMsg(m_occ);
-    edit_data["pekerjaan_ibu"] = m_occ.value;
+    setSuccessMsg(info_m_occ);
     validate["m_occ"] = true;
   }
 
-  if (m_phone.value.trim() === "") {
-    setErrorMsg(m_phone, "Please insert Mother's phone number correctly");
+  //% MOTHER PHONE
+  if (info_m_phone.value.trim() === "") {
+    setErrorMsg(info_m_phone, "Please insert Mother's phone number correctly");
     validate["m_phone"] = false;
-  } else if (m_phone.value.trim().length < 8) {
-    setErrorMsg(m_phone, "Please input minimum 8 character");
+  } else if (info_m_phone.value.trim().length < 8) {
+    setErrorMsg(info_m_phone, "Please input minimum 8 character");
     validate["m_phone"] = false;
   } else {
-    setSuccessMsg(m_phone);
-    edit_data["no_telp_ibu"] = m_phone.value;
+    setSuccessMsg(info_m_phone);
     validate["m_phone"] = true;
   }
 
   // ? disini tempat buat masukin ke database
-  if (inputValidation(validate, 14)) {
+  if (inputValidation(validate, 12)) {
+    let edit_data = {};
+    edit_data["jenis_kelamin"] = info_gender.value;
+    edit_data["id_user"] = user_data["id_user"];
+    edit_data["name"] = info_name.value;
+    edit_data["nik"] = info_nik.value;
+    edit_data["tgl_lahir"] = info_birth.value;
+    edit_data["alamat"] = info_address.value;
+    edit_data["email"] = info_email.value;
+    edit_data["no_telp"] = info_phone.value;
+    edit_data["nama_ayah"] = info_f_name.value;
+    edit_data["pekerjaan_ayah"] = info_f_occ.value;
+    edit_data["no_telp_ayah"] = info_f_phone.value;
+    edit_data["nama_ibu"] = info_m_name.value;
+    edit_data["pekerjaan_ibu"] = info_m_occ.value;
+    edit_data["no_telp_ibu"] = info_m_phone.value;
+
     const formData = new URLSearchParams();
     for (const [key, value] of Object.entries(edit_data)) {
       formData.append(key, value.toString());
     }
-
-    // % Submit Data
     // const endpoint = `${config.api}createNewTransaksi`; //? belum ada updatenya
 
     // fetch(endpoint, {
@@ -247,9 +247,9 @@ simpan_button.addEventListener("click", () => {
     //     window.sessionStorage.removeItem("edit-data");
     //     window.location.href = "profile_page.html";
     //   });
+    edit_modal.close();
   }
-  // ? disini tempat buat masukin ke database
-});
+}
 
 // % Jika ada error pada input
 function setErrorMsg(element, message) {
