@@ -1,6 +1,7 @@
-import { config } from "./config.js";
+import { config } from "../config.js";
 
 let user_data = JSON.parse(window.sessionStorage.getItem("user-data"));
+console.log(user_data);
 
 // ? FETCH data pengguna by id START
 const endpoint = `${config.api}getUserById?id_user=${user_data["id_user"]}`;
@@ -20,6 +21,8 @@ fetch(endpoint)
     // % STUDENT ID
     const sid = document.querySelector("#sid");
     sid.innerHTML = data.Data[0].nim;
+    const info_sid = document.querySelector("#info-sid");
+    info_sid.value = data.Data[0].nim;
 
     // % NAME
     const name = document.querySelector("#nama");

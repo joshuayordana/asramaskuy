@@ -1,4 +1,4 @@
-import { config } from "./config.js";
+import { config } from "../config.js";
 
 // % Mengambil semua data dari session
 let user_data = JSON.parse(window.sessionStorage.getItem("user-data"));

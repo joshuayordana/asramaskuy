@@ -1,5 +1,6 @@
-import { config } from "./config.js";
+import { config } from "../config.js";
 
+let user_data = JSON.parse(window.sessionStorage.getItem("user-data"));
 const edit_modal = document.querySelector("#edit-info-modal");
 
 // % MEMBUKA modal edit profile pada halaman profile
@@ -22,6 +23,7 @@ submit_info.addEventListener("click", () => {
 
 function inputData() {
   const info_email = document.querySelector("#info-email");
+  const info_sid = document.querySelector("#info-sid");
   const info_name = document.querySelector("#info-nama");
   const info_nik = document.querySelector("#info-nik");
   const info_birth = document.querySelector("#info-birth");
@@ -34,24 +36,10 @@ function inputData() {
   const info_m_name = document.querySelector("#info-m-name");
   const info_m_occ = document.querySelector("#info-m-occ");
   const info_m_phone = document.querySelector("#info-m-phone");
-  // let edit_data = {};
-  // edit_data["email"] = data.Data[0].email;
-  // edit_data["nim"] = data.Data[0].nim;
-  // edit_data["name"] = data.Data[0].name;
-  // edit_data["nik"] = data.Data[0].nik;
-  // edit_data["tgl_lahir"] = data.Data[0].tgl_lahir.slice(0, 10);
-  // edit_data["alamat"] = data.Data[0].alamat;
-  // edit_data["jenis_kelamin"] = data.Data[0].jenis_kelamin;
-  // edit_data["no_telp"] = data.Data[0].no_telp;
-  // edit_data["nama_ayah"] = data.Data[0].nama_ayah;
-  // edit_data["pekerjaan_ayah"] = data.Data[0].pekerjaan_ayah;
-  // edit_data["no_telp_ayah"] = data.Data[0].no_telp_ayah;
-  // edit_data["nama_ibu"] = data.Data[0].nama_ibu;
-  // edit_data["pekerjaan_ibu"] = data.Data[0].pekerjaan_ibu;
-  // edit_data["no_telp_ibu"] = data.Data[0].no_telp_ibu;
 
   let validate = {
     nama: false,
+    nim: false,
     nik: false,
     tgl_lahir: false,
     alamat: false,
@@ -75,6 +63,18 @@ function inputData() {
   } else {
     setSuccessMsg(info_name);
     validate["nama"] = true;
+  }
+
+  // % SID
+  if (info_sid.value.trim() === "") {
+    setErrorMsg(info_sid, "Please insert Student ID correctly");
+    validate["nim"] = false;
+  } else if (info_sid.value.trim().length < 5) {
+    setErrorMsg(info_sid, "Please input minimum 5 character");
+    validate["nim"] = false;
+  } else {
+    setSuccessMsg(info_sid);
+    validate["nim"] = true;
   }
 
   // % NIK
@@ -209,11 +209,12 @@ function inputData() {
   }
 
   // ? disini tempat buat masukin ke database
-  if (inputValidation(validate, 12)) {
+  if (inputValidation(validate, 13)) {
     let edit_data = {};
     edit_data["jenis_kelamin"] = info_gender.value;
     edit_data["id_user"] = user_data["id_user"];
-    edit_data["name"] = info_name.value;
+    edit_data["nama"] = info_name.value;
+    edit_data["nim"] = info_sid.value;
     edit_data["nik"] = info_nik.value;
     edit_data["tgl_lahir"] = info_birth.value;
     edit_data["alamat"] = info_address.value;
@@ -230,24 +231,24 @@ function inputData() {
     for (const [key, value] of Object.entries(edit_data)) {
       formData.append(key, value.toString());
     }
-    // const endpoint = `${config.api}createNewTransaksi`; //? belum ada updatenya
+    const endpoint = `${config.api}updateUserProfile`; //? belum ada updatenya
 
-    // fetch(endpoint, {
-    //   method: "PUT",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/x-www-form-urlencoded",
-    //   },
-    //   body: formData.toString(),
-    // })
-    //   .then((response) => response.json())
-    //   .then((response) => console.log(JSON.stringify(response)))
-    //   .finally(() => {
-    //     // % Melanjutkan ke halaman transaksi
-    //     window.sessionStorage.removeItem("edit-data");
-    //     window.location.href = "profile_page.html";
-    //   });
-    edit_modal.close();
+    console.log(edit_data);
+    fetch(endpoint, {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: formData.toString(),
+    })
+      .then((response) => response.json())
+      .then((response) => console.log(JSON.stringify(response)))
+      .finally(() => {
+        // % Melanjutkan ke halaman transaksi
+        edit_modal.close();
+        window.location.href = "profile_page.html";
+      });
   }
 }
 

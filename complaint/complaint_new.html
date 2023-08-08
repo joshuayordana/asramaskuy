@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../asset/css/index.css" />
     <link rel="stylesheet" href="../asset/css/navbar_login.css" />
     <link rel="stylesheet" href="../asset/css/list_card.css" />
-    <link rel="stylesheet" href="../asset/css/complaint_form.css" />
+    <link rel="stylesheet" href="../asset/css/register_form.css" />
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
@@ -40,7 +40,7 @@
         <!-- $ Navbar end -->
     </header>
 
-    <section class="container" style="margin-top: 70px; overflow: auto;">
+    <section class="container min-height-100vh" style="margin-top: 70px; overflow: auto;">
         <div style="margin-top: 30px;">
             <div class="flex gap-20 align-center">
                 <a href="./complaint_page.html"><span class="material-symbols-outlined back-logo2">arrow_back</span></a>
@@ -51,37 +51,39 @@
         <div style="padding-inline: 3rem;">
 
             <!-- $ bagian compl-type and submit START -->
-            <div class="card-list2 padding-40" id="complaint-form">
+            <div class="card-list padding-40" id="complaint-form">
                 <div class="flex justify-between">
                     <div>
                         <!-- $ inputan compl-type START -->
                         <p class="no-margin filter-label">Complaint Type</p>
                         <select class="filter-2" name="complaint-type" id="complaint-type">
-                            <option value="type-1">
+                            <option value="Complaint-1">
                                 Room Problem 1
                             </option>
-                            <option value="type-2">
+                            <option value="Complaint-2">
                                 Room Problem 2
                             </option>
                         </select>
                         <!-- $ inputan compl-type END -->
                     </div>
                     <div>
-                        <a href="complaint_page.html">
-                            <div class="clickable-button" onclick="">submit</div>
-                        </a>
+                        <div class="clickable-button" id="submit-compl-button">submit</div>
                     </div>
                 </div>
                 <br>
 
-                <p class="no-margin filter-label" style="margin-bottom: 5px;">Description</p>
-                <textarea class="text-desc" name="compl-desc" id="compl-desc" maxlength="100"
-                    placeholder="Write your problem here"></textarea>
+                <div>
+                    <p class="no-margin filter-label" style="margin-bottom: 5px;">Description</p>
+                    <textarea class="text-desc" name="compl-desc" id="compl-desc" maxlength="100"
+                        placeholder="Write your problem here"></textarea>
+                    <small class="warning"></small>
+                </div>
             </div>
             <!-- $ bagian compl-type and submit END -->
 
             <p class="no-margin filter-label" style="margin-bottom: 5px;">Note:</p>
-            <p class="no-margin text-3">Problems will be replied via email that has been registered</p>
+            <p class="no-margin text-3">Problems will be replied via email that has been
+                registered</p>
         </div>
 
     </section>
@@ -92,6 +94,8 @@
     <footer>
         @copyright 2023
     </footer>
+
+    <script type="module" src="../asset/js/complaint/post_complaint.js"></script>
     <script src="../asset/js/user_validation.js"></script>
 </body>
 

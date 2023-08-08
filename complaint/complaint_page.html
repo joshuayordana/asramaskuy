@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../asset/css/index.css" />
     <link rel="stylesheet" href="../asset/css/navbar_login.css" />
     <link rel="stylesheet" href="../asset/css/list_card.css" />
+    <link rel="stylesheet" href="../asset/css/skeleton_loading.css" />
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
@@ -41,7 +42,7 @@
         <!-- $ Navbar end -->
     </header>
 
-    <section class="container" style="margin-top: 70px; overflow: auto;">
+    <section class="container min-height-100vh" style="margin-top: 70px; overflow: auto;">
         <div class="flex justify-between" style="margin-top: 30px;">
             <div class="flex gap-20 align-center">
                 <a href="../profile_page.html"><span class="material-symbols-outlined back-logo2">arrow_back</span></a>
@@ -66,35 +67,22 @@
             <div class="card-list padding-20 flex flex-direction-column gap-20" id="complaint-list">
 
                 <!-- $ bagian compl-item START -->
-                <div class="card-item padding-10 flex flex-direction-column gap-10" id="complaint-item-n">
-
-                    <!-- $ bagian line-pertama START -->
+                <div class="card-item padding-10 flex flex-direction-column gap-10" id="dummy-skeleton">
                     <div class="flex justify-between align-center">
-                        <div class="flex gap-20 align-center">
-                            <img class="card-logo" src="../asset/image/book-check.png" alt="">
-                            <h1 class="no-margin text-1">Complaint</h1>
-                            <div class="card-status-box flex justify-center padding-10">
-                                <p class="no-margin card-status-text" id="complaint-status-text">Asked</p>
-                            </div>
-                            <p class="no-margin text-2" id="complaint-id">ID-23412342145/BOO/XVII</p>
-                        </div>
-                        <div class="text-2" id="complaint-email">
-                            stevenuhuy@gulugulu.com
-                        </div>
+                        <div class="skeleton skeleton-text-60w"></div>
+                        <div class="skeleton skeleton-text-30w"></div>
                     </div>
-                    <!-- $ bagian line-pertama END -->
+                    <div class="skeleton skeleton-text-30w"></div>
+                    <div class="skeleton skeleton-text"></div>
+                </div>
 
-                    <!-- $ bagian line-kedua START -->
-                    <h1 class="no-margin text-1">Complaint Type</h1>
-                    <p class="no-margin text-2" id="complaint-type">Room Problem</p>
-                    <!-- $ bagian line-kedua END -->
-
-                    <div class="flex align-center justify-between">
-                        <p class="no-margin text-1" id="complaint-date">32 Jan 2023</p>
-                        <a href="complaint_detail.html">
-                            <div class="clickable-button" onclick="">detail</div>
-                        </a>
+                <div class="card-item padding-10 flex flex-direction-column gap-10" id="dummy-skeleton">
+                    <div class="flex justify-between align-center">
+                        <div class="skeleton skeleton-text-60w"></div>
+                        <div class="skeleton skeleton-text-30w"></div>
                     </div>
+                    <div class="skeleton skeleton-text-30w"></div>
+                    <div class="skeleton skeleton-text"></div>
                 </div>
                 <!-- $ bagian compl-item END -->
 
@@ -102,13 +90,49 @@
             <!-- $ bagian compl-list END -->
         </div>
     </section>
+
     <br>
     <br>
     <br>
     <br>
+
     <footer>
         @copyright 2023
     </footer>
+
+    <!-- $ bagian MODAL DETAIL COMPLAINT START -->
+    <dialog class="card-modal padding-40" id="detail-complaint-modal">
+        <div class="flex justify-between align-center">
+            <div class="card-status-box flex justify-center padding-10">
+                <p class="no-margin card-status-text" id="detail-complaint-status">Asked</p>
+            </div>
+            <div class="flex flex-direction-column align-end">
+                <p class="text-3 no-margin">This complaint will be replied through this email</p>
+                <p class="text-2 no-margin" id="detail-complaint-email">stevenuhuy@gulugulu.com</p>
+            </div>
+        </div>
+        <br>
+        <div class="flex justify-between">
+            <div>
+                <p class="no-margin filter-label">Complaint Type</p>
+                <div class="filter">
+                    <p class="no-margin text-4" id="detail-complaint-type">Room Problem 1</p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <p class="no-margin filter-label" style="margin-bottom: 5px;">Description</p>
+        <textarea class="text-desc" name="detail-desc" id="detail-desc" readonly>Asyikk ruangannya hehe</textarea>
+        <br>
+        <br>
+        <div class="flex justify-between text-3" style="width: 100%;">
+            <div class="text-3">Please kindly wait our reply on your email</div>
+            <div class="clickable-button" id="close-detail-modal">Close</div>
+        </div>
+    </dialog>
+    <!-- $ bagian MODAL DETAIL COMPLAINT END -->
+
+    <script type="module" src="../asset/js/complaint/get_complaint.js"></script>
     <script src="../asset/js/user_validation.js"></script>
 </body>
 

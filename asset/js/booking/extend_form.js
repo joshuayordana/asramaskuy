@@ -34,11 +34,3 @@ extend_button.addEventListener("click", () => {
   window.sessionStorage.setItem("booking-data", JSON.stringify(booking_data));
   window.location.href = "book_payment.html";
 });
-
-// @ untuk mengubah tgl dari YYYY-MM-DD menjadi MM/DD/YYYY
-function dateFormatOne(date) {
-  let datearray = date.split("-");
-  let newdate = datearray[1] + "/" + datearray[2] + "/" + datearray[0];
-
-  return newdate;
-}

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="asset/css/index.css" />
     <link rel="stylesheet" href="asset/css/navbar_login.css" />
     <link rel="stylesheet" href="asset/css/list_card.css" />
+    <link rel="stylesheet" href="asset/css/skeleton_loading.css" />
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
@@ -50,34 +51,32 @@
 
         <div style="padding-inline: 3rem;">
 
-            <!-- $ bagian compl-list START -->
-            <div class="card-list padding-20 flex flex-direction-column gap-20" id="complaint-list">
+            <!-- $ bagian notif-list START -->
+            <div class="card-list padding-20 flex flex-direction-column gap-20" id="notif-list">
 
-                <!-- $ bagian compl-item START -->
-                <div class="card-item padding-10 flex flex-direction-column gap-10" id="complaint-item-n">
-
-                    <!-- $ bagian line-pertama START -->
-                    <div class="flex justify-between align-center">
-                        <div class="flex gap-10 align-center">
-                            <img class="card-logo" src="asset/image/notif-logo.png" alt="">
-                            <h1 class="no-margin text-1">Notification</h1>
-                        </div>
-                        <div class="flex gap-10 align-center" id="complaint-email">
-                            <p class="no-margin text-2" id="notification-date">32 Jan 2023</p>
-                            <p class="no-margin text-1" id="notification-time">23:59:15</p>
-                        </div>
-                    </div>
-                    <!-- $ bagian line-pertama END -->
-                    <p class="no-margin text-2" id="notification-detail">Selamat atas booking anda pada tanggal
-                        23/09/2023 sampai 24/09/2023.
-                        Jangan
-                        lupa untuk
-                        konfirmasi ke resepsionis yaa..</p>
+                <!-- $ bagian notif-item START -->
+                <div class="card-item padding-10 flex flex-direction-column gap-10" id="dummy-skeleton">
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
                 </div>
-                <!-- $ bagian compl-item END -->
+                <!-- $ bagian notif-item END -->
+
+                <!-- $ bagian notif-item START -->
+                <div class="card-item padding-10 flex flex-direction-column gap-10" id="dummy-skeleton">
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                </div>
+                <!-- $ bagian notif-item END -->
+
+                <!-- $ bagian notif-item START -->
+                <div class="card-item padding-10 flex flex-direction-column gap-10" id="dummy-skeleton">
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                </div>
+                <!-- $ bagian notif-item END -->
 
             </div>
-            <!-- $ bagian compl-list END -->
+            <!-- $ bagian notif-list END -->
         </div>
     </section>
     <br>
@@ -87,6 +86,8 @@
     <footer>
         @copyright 2023
     </footer>
+
+    <script type="module" src="asset/js/notification.js"></script>
     <script src="asset/js/user_validation.js"></script>
 </body>
 

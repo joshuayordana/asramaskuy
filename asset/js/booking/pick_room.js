@@ -1,4 +1,4 @@
-import { config } from "./config.js";
+import { config } from "../config.js";
 
 console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
 
