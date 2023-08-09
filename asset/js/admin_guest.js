@@ -25,11 +25,9 @@ function openDialog(update = false, id = -1) {
         document.getElementById("email").value = "";
         document.getElementById("password").value = "";
         document.getElementById("no_telp").value = "";
+        document.getElementById("id_user").value = "";
     } else {
         //Update Data
-        console.log(dataUser);
-        console.log(id);
-        console.log(dataUser[id]);
         document.getElementById("nama").value = dataUser[id]["name"];
         document.getElementById("nik").value = dataUser[id]["nik"];
         document.getElementById("tgl_lahir").value = dateFormatInput(dataUser[id]["tgl_lahir"]);
@@ -38,6 +36,7 @@ function openDialog(update = false, id = -1) {
         document.getElementById("email").value = dataUser[id]["email"];
         document.getElementById("password").value = dataUser[id][""];
         document.getElementById("no_telp").value = dataUser[id]["no_telp"];
+        document.getElementById("id_user").value = dataUser[id]["id_user"];
     }
     const dialogTitle = document.getElementById("d-title");
     const dialogButton = document.getElementById("d-button");
@@ -104,7 +103,7 @@ function updateTable(search = "") {
             guestTable.appendChild(tr);
             const editBtn = tr.querySelector("#editBtn");
             editBtn.addEventListener("click", () => {
-                openDialog(true, temp[i]["id_user"]);
+                openDialog(true, i);
             });
         }
     } else {
@@ -129,7 +128,7 @@ function updateTable(search = "") {
             guestTable.appendChild(tr);
             const editBtn = tr.querySelector("#editBtn");
             editBtn.addEventListener("click", () => {
-                openDialog(true, dataUser[i]["id_user"]);
+                openDialog(true, i);
             });
         }
     }
@@ -170,9 +169,12 @@ function submit() {
     if (!modalUpdate) {
         //CREATE
         var endpoint = `${config.api}createNewGuest`;
+        var meth = "POST";
     } else {
         //UPDATE
-        var endpoint = `${config.api}updateGuest`;
+        var endpoint = `${config.api}updateGuestProfile`;
+        formData.append("id_user", document.getElementById("id_user").value);
+        var meth = "PUT";
     }
 
     //Submit Data
@@ -182,12 +184,13 @@ function submit() {
     }
     //Submit Data
     fetch(endpoint, {
-        method: "POST",
+        method: meth,
         body: formData,
     })
         .then((response) => response.json())
         .then((response) => {
             closeDialog();
+            console.log(response);
             Swal.fire({
                 title: `${response["message"]}`,
                 text: "please wait...",
@@ -198,6 +201,14 @@ function submit() {
             }).then((result) => {
                 /* Read more about handling dismissals below */
                 if (result.dismiss === Swal.DismissReason.timer) {
+                    const endpoint = `${config.api}getGuest`;
+                    fetch(endpoint)
+                        .then((result) => result.json())
+                        .then(({ data }) => {
+                            let respond = data.Data;
+                            dataUser = respond;
+                            updateTable();
+                        });
                 }
             });
         });
