@@ -20,7 +20,7 @@ function openDialog(update = false, id = -1) {
         document.getElementById("nama").value = "";
         document.getElementById("nik").value = "";
         document.getElementById("tgl_lahir").value = "";
-        document.getElementById("gender").value = "";
+        document.getElementById("gender").value = "Male";
         document.getElementById("alamat").value = "";
         document.getElementById("email").value = "";
         document.getElementById("password").value = "";
