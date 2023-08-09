@@ -33,6 +33,10 @@ function updateTable(search = "") {
             tr.innerHTML += `<td>${temp[i]["no_telp"]}</td>`;
             tr.innerHTML += `<td>${temp[i]["alamat"]}</td>`;
             tr.innerHTML += `<td>${dateFormat(temp[i]["tgl_lahir"])}</td>`;
+            tr.innerHTML += `<td>
+            <a><iconify-icon icon="ic:baseline-edit" style="color: #ffc800;" width="26" height="26"></iconify-icon></a>
+            <a><iconify-icon icon="ic:baseline-delete" style="color: #ee0202;" width="26" height="26"></iconify-icon></a>
+            </td>`;
             guestTable.appendChild(tr);
         }
     } else {
@@ -46,6 +50,12 @@ function updateTable(search = "") {
             tr.innerHTML += `<td>${dataUser[i]["no_telp"]}</td>`;
             tr.innerHTML += `<td>${dataUser[i]["alamat"]}</td>`;
             tr.innerHTML += `<td>${dateFormat(dataUser[i]["tgl_lahir"])}</td>`;
+            tr.innerHTML += `<td>
+            <a class="edit" data-id="${i}">
+                <iconify-icon icon="ic:baseline-edit" style="color: #ffc800;" width="26" height="26"></iconify-icon>
+            </a>
+            <a><iconify-icon icon="ic:baseline-delete" style="color: #ee0202;" width="26" height="26"></iconify-icon></a>
+            </td>`;
             guestTable.appendChild(tr);
         }
     }
@@ -65,28 +75,3 @@ searchInput.addEventListener("keyup", () => {
     updateTable(search);
 });
 
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("addButton");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-btn.onclick = function () {
-    modal.style.display = "block";
-};
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-    modal.style.display = "none";
-};
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-};
