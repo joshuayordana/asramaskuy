@@ -59,7 +59,7 @@ function dateFormat(tanggal) {
     let date = new Date(tanggal);
     //Ambil Value
     let day = date.getDate();
-    let month = date.getMonth();
+    let month = date.getMonth() + 1;
     let year = date.getFullYear();
     //Gabungkan
     let hasil = `${day}-${month}-${year}`;
@@ -72,7 +72,7 @@ function dateFormatInput(tanggal) {
     if (twoDigitMonth.length == 1) twoDigitMonth = "0" + twoDigitMonth;
     var twoDigitDate = fullDate.getDate() + "";
     if (twoDigitDate.length == 1) twoDigitDate = "0" + twoDigitDate;
-    var currentDate = fullDate.getFullYear() + "-" + twoDigitMonth + "-" + twoDigitDate;
+    var currentDate = fullDate.getFullYear() + "-" + twoDigitMonth + 1 + "-" + twoDigitDate;
     return currentDate;
 }
 
