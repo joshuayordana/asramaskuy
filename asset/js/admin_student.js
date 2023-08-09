@@ -44,10 +44,10 @@ function openDialog(update = false, id = -1) {
     const dialogButton = document.getElementById("d-button");
     //Ganti UI
     if (update) {
-        dialogTitle.innerHTML = "Update Guest";
+        dialogTitle.innerHTML = "Update Student";
         dialogButton.innerHTML = "UPDATE";
     } else {
-        dialogTitle.innerHTML = "New Guest";
+        dialogTitle.innerHTML = "New Student";
         dialogButton.innerHTML = "CREATE";
     }
     editDialog.showModal();
