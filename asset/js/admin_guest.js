@@ -97,13 +97,11 @@ function updateTable(search = "") {
             tr.innerHTML += `<td>${temp[i]["alamat"]}</td>`;
             tr.innerHTML += `<td>${dateFormat(temp[i]["tgl_lahir"])}</td>`;
             tr.innerHTML += `<td>
-            <a id="editBtn"><iconify-icon icon="ic:baseline-edit" style="color: #ffc800;" width="26" height="26"></iconify-icon></a>
-            <a><iconify-icon icon="ic:baseline-delete" style="color: #ee0202;" width="26" height="26"></iconify-icon></a>
-            </td>`;
+            <a id="editBtn"><iconify-icon icon="ic:baseline-edit" style="color: #ffc800;" width="26" height="26"></iconify-icon></a></td>`;
             guestTable.appendChild(tr);
             const editBtn = tr.querySelector("#editBtn");
             editBtn.addEventListener("click", () => {
-                openDialog(true, i);
+                openDialog(true, i); //True untuk update
             });
         }
     } else {
@@ -121,14 +119,12 @@ function updateTable(search = "") {
             tr.innerHTML += `<td>
             <a id="editBtn">
                 <iconify-icon icon="ic:baseline-edit" style="color: #ffc800;" width="26" height="26"></iconify-icon>
-            </a>
-            <a><iconify-icon icon="ic:baseline-delete" style="color: #ee0202;" width="26" height="26"></iconify-icon></a>
-            </td>`;
+            </a></td>`;
 
             guestTable.appendChild(tr);
             const editBtn = tr.querySelector("#editBtn");
             editBtn.addEventListener("click", () => {
-                openDialog(true, i);
+                openDialog(true, i); //True untuk update
             });
         }
     }
