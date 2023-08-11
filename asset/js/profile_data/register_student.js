@@ -472,7 +472,7 @@ function validation_step_3() {
       formData.append("jenis_kelamin", document.getElementById("gender").value);
       formData.append("alamat", document.getElementById("alamat").value);
       formData.append("email", document.getElementById("email").value);
-      formData.append("password", hash_code.hex(document.getElementById("password").value));
+      formData.append("password", document.getElementById("password").value);
       formData.append("no_telp", document.getElementById("no_telp").value);
       formData.append("nama_ayah", document.getElementById("f_name").value);
       formData.append("pekerjaan_ayah", document.getElementById("f_occ").value);

@@ -56,6 +56,9 @@ document.querySelector("#bill-price").innerHTML = `${betterPriceFormat(bill_pric
 
 // ! UNTUK TIPE TRANSAKSI YANG EXTEND
 if (booking_data["jenis_transaksi"] === "Extend") {
+  const pembayaran_cash = document.querySelector("#pembayaran-cash");
+  pembayaran_cash.remove();
+
   //% Assign label paid month
   const label_paid_date_count = document.querySelector("#label-paid-date-count");
   label_paid_date_count.innerHTML = `Paid month`;

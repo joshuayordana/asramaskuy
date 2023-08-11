@@ -1,6 +1,7 @@
 import { config } from "../config.js";
 
 let user_data = JSON.parse(window.sessionStorage.getItem("user-data"));
+// let isActive = false;
 
 let booking_data = {
   id_gedung: "",
@@ -14,10 +15,17 @@ const endpoint = `${config.api}getUserById?id_user=${user_data["id_user"]}`;
 fetch(endpoint)
   .then((result) => result.json())
   .then(({ data }) => {
+    console.log(data.Data);
     booking_data["name"] = data.Data[0].name; // ini nanti ambil dri api
     booking_data["nim_nik"] = data.Data[0].nim;
     name.innerHTML = data.Data[0].name;
     nim_nik.innerHTML = data.Data[0].nim;
+
+    // if (data.Data.status === "Active") {
+    //   isActive = false;
+    // } else {
+    //   isActive = true;
+    // }
   });
 
 // % Jika button pilih tower ditekan

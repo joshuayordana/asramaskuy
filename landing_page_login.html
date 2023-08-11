@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="asset/css/index.css" />
   <link rel="stylesheet" href="asset/css/navbar_login.css" />
   <link rel="stylesheet" href="asset/css/landing_page_login.css" />
+  <link rel="stylesheet" href="asset/css/tower_page.css" />
+  <link rel="stylesheet" href="asset/css/skeleton_loading.css" />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
@@ -37,6 +39,7 @@
     <!-- $ Navbar end -->
   </header>
 
+  <!-- bagian halaman hero START -->
   <section class="container min-height-100vh" style="margin-top: 70px">
     <div class="hero">
       <h1>Asrama<span>Skuy</span></h1>
@@ -70,9 +73,108 @@
       <br />
     </div>
   </section>
+  <!-- bagian halaman hero END -->
+
+  <!-- bagian halaman list tower START -->
+  <section class="container min-height-100vh">
+    <!-- ! tower For Men start -->
+    <div>
+      <div class="flex gap-20 align-center">
+        <h1>List tower for Men</h1>
+        <img src="../asset/image/men-logo.png" alt="" width="25px" height="25px">
+      </div>
+
+      <!-- $LIST tower For Men start -->
+      <div class="grid-col-2 gap-20 grid-center" id="tower-men-list">
+
+        <!-- skeleton card -->
+        <div class="tower-card flex padding-20 gap-20" id="dummy-skeleton-man">
+          <div>
+            <img class="tower-img skeleton">
+          </div>
+          <div class="flex flex-direction-column justify-between" style="width: 100%;">
+            <div class="flex flex-direction-column gap-10">
+              <div class="skeleton skeleton-text"></div>
+              <div class="skeleton skeleton-text"></div>
+              <div class="skeleton skeleton-text"></div>
+            </div>
+            <div class="skeleton skeleton-text"></div>
+          </div>
+        </div>
+
+        <!-- skeleton card -->
+        <div class="tower-card flex padding-20 gap-20" id="dummy-skeleton-man">
+          <div>
+            <img class="tower-img skeleton">
+          </div>
+          <div class="flex flex-direction-column justify-between" style="width: 100%;">
+            <div class="flex flex-direction-column gap-10">
+              <div class="skeleton skeleton-text"></div>
+              <div class="skeleton skeleton-text"></div>
+              <div class="skeleton skeleton-text"></div>
+            </div>
+            <div class="skeleton skeleton-text"></div>
+          </div>
+        </div>
+
+      </div>
+      <!-- $ LIST tower For Men End -->
+    </div>
+
+    <br>
+    <br>
+    <!-- ! tower For Girl start -->
+    <div>
+      <div class="flex gap-20 align-center">
+        <h1>List tower for Girl</h1>
+        <img src="../asset/image/girl-logo.png" alt="" width="20px" height="26px">
+      </div>
+
+      <!-- $LIST tower For Girl start -->
+      <div class="grid-col-2 gap-20 grid-center" id="tower-girl-list">
+        <!-- skeleton card -->
+        <div class="tower-card flex padding-20 gap-20" id="dummy-skeleton-girl">
+          <div>
+            <img class="tower-img skeleton">
+          </div>
+          <div class="flex flex-direction-column justify-between" style="width: 100%;">
+            <div class="flex flex-direction-column gap-10">
+              <div class="skeleton skeleton-text"></div>
+              <div class="skeleton skeleton-text"></div>
+              <div class="skeleton skeleton-text"></div>
+            </div>
+            <div class="skeleton skeleton-text"></div>
+          </div>
+        </div>
+
+        <!-- skeleton card -->
+        <div class="tower-card flex padding-20 gap-20" id="dummy-skeleton-girl">
+          <div>
+            <img class="tower-img skeleton">
+          </div>
+          <div class="flex flex-direction-column justify-between" style="width: 100%;">
+            <div class="flex flex-direction-column gap-10">
+              <div class="skeleton skeleton-text"></div>
+              <div class="skeleton skeleton-text"></div>
+              <div class="skeleton skeleton-text"></div>
+            </div>
+            <div class="skeleton skeleton-text"></div>
+          </div>
+        </div>
+      </div>
+      <!-- $ LIST tower For Girl End -->
+    </div>
+  </section>
+  <!-- bagian halaman list tower END -->
+
+  <br>
+  <br>
+  <br>
+  <br>
   <footer>
     @copyright 2023
   </footer>
+  <script type="module" src="asset/js/tower_list.js"></script>
   <script src="asset/js/user_validation.js"></script>
 </body>
 

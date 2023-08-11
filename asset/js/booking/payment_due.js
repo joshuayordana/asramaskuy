@@ -21,7 +21,7 @@ fetch(endpoint)
   .then(({ data }) => {
     console.log(data);
     const curr_time = new Date();
-    const due_time = new Date("2023-08-10T00:00:00");
+    const due_time = new Date(data.Batas_waktu_pembayaran);
     timeCountdown(curr_time, due_time);
   });
 
@@ -36,20 +36,26 @@ function timeCountdown(curr_time, due_time) {
   const hour = minute * 60;
   let total_time = due_time.getTime() - curr_time.getTime();
 
-  // // % Assign pas page baru reload
-  // document.querySelector("#due-hour").innerHTML = `${Math.floor(total_time / hour)}`;
-  // document.querySelector("#due-minute").innerHTML = `${Math.floor((total_time % hour) / minute)}`;
-  // document.querySelector("#due-second").innerHTML = `${Math.floor((total_time % minute) / second)}`;
-
   // % Assign pas page page udah reload
   let interval = setInterval(() => {
-    document.querySelector("#due-hour").innerHTML = `${Math.floor(total_time / hour)}`;
-    document.querySelector("#due-minute").innerHTML = `${Math.floor((total_time % hour) / minute)}`;
-    document.querySelector("#due-second").innerHTML = `${Math.floor((total_time % minute) / second)}`;
+    document.querySelector("#due-hour").innerHTML = `${betterCountdownNumber(Math.floor(total_time / hour))}`;
+    document.querySelector("#due-minute").innerHTML = `${betterCountdownNumber(Math.floor((total_time % hour) / minute))}`;
+    document.querySelector("#due-second").innerHTML = `${betterCountdownNumber(Math.floor((total_time % minute) / second))}`;
     total_time -= 1000;
 
     if (total_time < 1000) {
+      document.querySelector("#due-hour").innerHTML = `00`;
+      document.querySelector("#due-minute").innerHTML = `00`;
+      document.querySelector("#due-second").innerHTML = `00`;
       clearInterval(interval);
     }
   }, 1000);
+}
+
+function betterCountdownNumber(number) {
+  if (number < 10) {
+    return `0${number}`;
+  } else {
+    return `${number}`;
+  }
 }

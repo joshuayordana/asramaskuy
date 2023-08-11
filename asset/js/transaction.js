@@ -34,12 +34,16 @@ function showAllTransaction(filter_sort) {
         element.parentNode.removeChild(element);
       });
 
-      // ? FETCH API MULAI DARI SINI
-      for (let j = 0; j < data.Data.length; j++) {
-        const trans_card = document.createElement("div");
-        trans_card.setAttribute("class", `card-item padding-10 flex flex-direction-column gap-10`);
-        trans_card.setAttribute("id", `transaction-item-${j}`);
-        trans_card.innerHTML = `
+      if (data.Data === null) {
+        transaction_list.className = "card-list padding-20 flex justify-center align-center";
+        transaction_list.innerHTML = "There is no transaction yet";
+      } else {
+        // ? FETCH API MULAI DARI SINI
+        for (let j = 0; j < data.Data.length; j++) {
+          const trans_card = document.createElement("div");
+          trans_card.setAttribute("class", `card-item padding-10 flex flex-direction-column gap-10`);
+          trans_card.setAttribute("id", `transaction-item-${j}`);
+          trans_card.innerHTML = `
                     <!-- $ bagian line-pertama START -->
                     <div class="flex gap-20 align-center">
                         <img class="card-logo" src="asset/image/book-check.png" alt="">
@@ -54,7 +58,7 @@ function showAllTransaction(filter_sort) {
 
                     <!-- $ bagian line-kedua START -->
                     <div class="flex gap-10 align-center">
-                        <p class="no-margin text-1" id="transaction-room">${data.Data[j].nama_kamar} - [ 1 beds ]</p>
+                        <p class="no-margin text-1" id="transaction-room">${data.Data[j].nama_gedung} - ${data.Data[j].nama_kamar} - [ 1 beds ]</p>
                     </div>
                     <!-- $ bagian line-kedua END -->
 
@@ -86,58 +90,59 @@ function showAllTransaction(filter_sort) {
                     </div>
                     `;
 
-        // % Mengubah warna pada status box
-        const status_box = trans_card.querySelector("#card-status-box");
-        if (data.Data[j].status_transaksi === "Done") {
-          status_box.style.backgroundColor = "#0C35D8";
-        } else if (data.Data[j].status_transaksi === "OnGoing") {
-          status_box.style.backgroundColor = "#0F841B";
-        } else if (data.Data[j].status_transaksi === "Unpaid") {
-          status_box.style.backgroundColor = "#C71313";
+          // % Mengubah warna pada status box
+          const status_box = trans_card.querySelector("#card-status-box");
+          if (data.Data[j].status_transaksi === "Done") {
+            status_box.style.backgroundColor = "#0C35D8";
+          } else if (data.Data[j].status_transaksi === "OnGoing") {
+            status_box.style.backgroundColor = "#0F841B";
+          } else if (data.Data[j].status_transaksi === "Unpaid") {
+            status_box.style.backgroundColor = "#C71313";
+          }
+
+          const ext_button = trans_card.querySelector("#extend-button");
+          const dis_button = trans_card.querySelector("#disabled-button");
+          const pay_button = trans_card.querySelector("#pay-button");
+          // % Mengubah tombol bisa extend atau tidak
+          if (data.Data[j].status_transaksi === "Alloted") {
+            ext_button.classList.add("not-active");
+            pay_button.classList.add("not-active");
+          } else if (data.Data[j].status_transaksi === "OnGoing") {
+            pay_button.classList.add("not-active");
+            dis_button.classList.add("not-active");
+          } else if (data.Data[j].status_transaksi === "Done") {
+            ext_button.classList.add("not-active");
+            pay_button.classList.add("not-active");
+            dis_button.classList.add("not-active");
+          } else if (data.Data[j].status_transaksi === "Unpaid") {
+            ext_button.classList.add("not-active");
+            dis_button.classList.add("not-active");
+          }
+
+          transaction_list.appendChild(trans_card);
+
+          trans_card.querySelector("#extend-button").addEventListener("click", () => {
+            let booking_data = {};
+            booking_data["jenis_transaksi"] = "Extend";
+            booking_data["beds"] = "1";
+            booking_data["id_transaksi"] = data.Data[j].id_transaksi;
+            booking_data["check_in"] = data.Data[j].check_in.slice(0, 10);
+            booking_data["old_check_out"] = data.Data[j].check_out.slice(0, 10);
+            booking_data["id_kamar"] = data.Data[j].id_kamar;
+            booking_data["nama_kamar"] = data.Data[j].nama_kamar;
+            booking_data["harga_kamar"] = data.Data[j].harga_kamar;
+            booking_data["name"] = data.Data[j].nama_user;
+            booking_data["nim_nik"] = data.Data[j].nim;
+            console.log(booking_data);
+
+            window.sessionStorage.setItem("booking-data", JSON.stringify(booking_data));
+            window.location.href = "/booking/extend_form.html";
+          });
+
+          trans_card.querySelector("#pay-button").addEventListener("click", () => {
+            window.location.href = `/booking/payment_due.html?id_transaksi=${data.Data[j].id_transaksi}`;
+          });
         }
-
-        const ext_button = trans_card.querySelector("#extend-button");
-        const dis_button = trans_card.querySelector("#disabled-button");
-        const pay_button = trans_card.querySelector("#pay-button");
-        // % Mengubah tombol bisa extend atau tidak
-        if (data.Data[j].status_transaksi === "Alloted") {
-          ext_button.classList.add("not-active");
-          pay_button.classList.add("not-active");
-        } else if (data.Data[j].status_transaksi === "OnGoing") {
-          pay_button.classList.add("not-active");
-          dis_button.classList.add("not-active");
-        } else if (data.Data[j].status_transaksi === "Done") {
-          ext_button.classList.add("not-active");
-          pay_button.classList.add("not-active");
-          dis_button.classList.add("not-active");
-        } else if (data.Data[j].status_transaksi === "Unpaid") {
-          ext_button.classList.add("not-active");
-          dis_button.classList.add("not-active");
-        }
-
-        transaction_list.appendChild(trans_card);
-
-        trans_card.querySelector("#extend-button").addEventListener("click", () => {
-          let booking_data = {};
-          booking_data["jenis_transaksi"] = "Extend";
-          booking_data["beds"] = "1";
-          booking_data["id_transaksi"] = data.Data[j].id_transaksi;
-          booking_data["check_in"] = data.Data[j].check_in.slice(0, 10);
-          booking_data["old_check_out"] = data.Data[j].check_out.slice(0, 10);
-          booking_data["id_kamar"] = data.Data[j].id_kamar;
-          booking_data["nama_kamar"] = data.Data[j].nama_kamar;
-          booking_data["harga_kamar"] = data.Data[j].harga_kamar;
-          booking_data["name"] = data.Data[j].nama_user;
-          booking_data["nim_nik"] = data.Data[j].nim;
-          console.log(booking_data);
-
-          window.sessionStorage.setItem("booking-data", JSON.stringify(booking_data));
-          window.location.href = "/booking/extend_form.html";
-        });
-
-        trans_card.querySelector("#pay-button").addEventListener("click", () => {
-          window.location.href = `/booking/payment_due.html?id_transaksi=${data.Data[j].id_transaksi}`;
-        });
       }
     });
 }

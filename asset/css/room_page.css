@@ -29,6 +29,7 @@
 }
 
 .room-desc2 > .room-capacity {
+  min-width: fit-content;
   font-weight: 700;
   font-size: 1.5rem;
 }
