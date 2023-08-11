@@ -16,7 +16,7 @@ const endpoint = `${config.api}getPengaduanByIdUser?id_user=${user_data["id_user
 fetch(endpoint)
   .then((result) => result.json())
   .then(({ data }) => {
-    console.log(data.Data);
+    console.log(data);
 
     // % Remove skeleton
     const ALL_SKELETON = document.querySelectorAll("#dummy-skeleton");
@@ -24,7 +24,7 @@ fetch(endpoint)
       element.parentNode.removeChild(element);
     });
 
-    if (data === null) {
+    if (data.Data === null) {
       // % Jika pelanggan belum ada complaint sama sekali
       complaint_list.className = "card-list padding-20 flex justify-center align-center";
       complaint_list.innerHTML = "There is no complaint yet";

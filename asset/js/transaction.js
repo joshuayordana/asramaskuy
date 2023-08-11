@@ -1,8 +1,6 @@
 import { config } from "./config.js";
 
 let user_data = JSON.parse(window.sessionStorage.getItem("user-data"));
-console.log(JSON.parse(window.sessionStorage.getItem("booking-data")));
-
 showAllTransaction("newest");
 
 const transaction_list = document.querySelector("#transaction-list");
@@ -29,6 +27,7 @@ function showAllTransaction(filter_sort) {
   fetch(endpoint)
     .then((result) => result.json())
     .then(({ data }) => {
+      console.log(data.Data);
       // % Remove skeleton
       const ALL_SKELETON = document.querySelectorAll("#dummy-skeleton");
       ALL_SKELETON.forEach((element) => {
@@ -81,8 +80,9 @@ function showAllTransaction(filter_sort) {
                   
                     <div class="flex align-center justify-between">
                         <div class="text-1" id="transaction-method">${data.Data[j].payment_method}</div>
-                        <div class="clickable-button" id="extend-button" onclick="">extend</div>
-                        <div class="disabled-button" id="disabled-button" >extend</div>
+                        <div class="clickable-button" id="extend-button" onclick="">Extend</div>
+                        <div class="clickable-button" id="pay-button" onclick="">Pay</div>
+                        <div class="disabled-button" id="disabled-button" >Extend</div>
                     </div>
                     `;
 
@@ -92,15 +92,27 @@ function showAllTransaction(filter_sort) {
           status_box.style.backgroundColor = "#0C35D8";
         } else if (data.Data[j].status_transaksi === "OnGoing") {
           status_box.style.backgroundColor = "#0F841B";
+        } else if (data.Data[j].status_transaksi === "Unpaid") {
+          status_box.style.backgroundColor = "#C71313";
         }
 
+        const ext_button = trans_card.querySelector("#extend-button");
+        const dis_button = trans_card.querySelector("#disabled-button");
+        const pay_button = trans_card.querySelector("#pay-button");
         // % Mengubah tombol bisa extend atau tidak
-        if (data.Data[j].status_transaksi === "Alloted" || data.Data[j].status_transaksi === "Done") {
-          const button = trans_card.querySelector("#extend-button");
-          button.classList.add("not-active");
+        if (data.Data[j].status_transaksi === "Alloted") {
+          ext_button.classList.add("not-active");
+          pay_button.classList.add("not-active");
         } else if (data.Data[j].status_transaksi === "OnGoing") {
-          const button = trans_card.querySelector("#disabled-button");
-          button.classList.add("not-active");
+          pay_button.classList.add("not-active");
+          dis_button.classList.add("not-active");
+        } else if (data.Data[j].status_transaksi === "Done") {
+          ext_button.classList.add("not-active");
+          pay_button.classList.add("not-active");
+          dis_button.classList.add("not-active");
+        } else if (data.Data[j].status_transaksi === "Unpaid") {
+          ext_button.classList.add("not-active");
+          dis_button.classList.add("not-active");
         }
 
         transaction_list.appendChild(trans_card);
@@ -121,6 +133,10 @@ function showAllTransaction(filter_sort) {
 
           window.sessionStorage.setItem("booking-data", JSON.stringify(booking_data));
           window.location.href = "/booking/extend_form.html";
+        });
+
+        trans_card.querySelector("#pay-button").addEventListener("click", () => {
+          window.location.href = `/booking/payment_due.html?id_transaksi=${data.Data[j].id_transaksi}`;
         });
       }
     });

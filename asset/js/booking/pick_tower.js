@@ -14,6 +14,7 @@ const endpoint_men = `${config.api}getGedungByJenisKelamin?jenis_kelamin=Laki-La
 fetch(endpoint_men)
   .then((result) => result.json())
   .then(({ data }) => {
+    console.log(data);
     const tower_men_list = document.querySelector("#tower-men-list");
 
     const ALL_SKELETON = document.querySelectorAll("#dummy-skeleton-man");
@@ -79,6 +80,7 @@ const endpoint_girl = `${config.api}getGedungByJenisKelamin?jenis_kelamin=Peremp
 fetch(endpoint_girl)
   .then((result) => result.json())
   .then(({ data }) => {
+    console.log(data);
     const tower_girl_list = document.querySelector("#tower-girl-list");
 
     const ALL_SKELETON = document.querySelectorAll("#dummy-skeleton-girl");

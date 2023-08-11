@@ -190,7 +190,7 @@
                     <div class="flex flex-direction-column gap-10">
                         <div>
                             <label class="input-label">Date of Birth</label>
-                            <input type="date" class="input-text" id="info-birth" required>
+                            <input type="date" max="2005-12-31" class="input-text" id="info-birth" required>
                             <small class="warning" id="warning-birth"></small>
                         </div>
                         <div>
@@ -281,18 +281,19 @@
     </dialog>
     <!-- $ Bagian untuk modal edit profil END -->
 
-    <!-- $ Bagian untuk modal edit profil START -->
+    <!-- $ Bagian untuk modal edit password START -->
     <dialog class="pwd-area" id="edit-pwd-modal">
         <div class="header" style="text-align: center;">Edit password</div>
         <div class="flex flex-direction-column gap-20">
             <div>
                 <label class="input-label">Password</label><br>
-                <input class="input-text" id="pwd-old" value="" placeholder="Insert your current password" required>
+                <input class="input-text" type="password" id="pwd-old" value=""
+                    placeholder="Insert your current password" required>
                 <small class="warning" id="warning"></small>
             </div>
             <div>
                 <label class="input-label">New Password</label><br>
-                <input class="input-text" id="pwd-new" value="" placeholder="Insert your new password">
+                <input class="input-text" type="password" id="pwd-new" value="" placeholder="Insert your new password">
                 <small class="warning" id="warning"></small>
             </div>
         </div>
@@ -302,7 +303,7 @@
             <input type="button" class="primary-button" id="submit-pwd-modal" value="Submit">
         </div>
     </dialog>
-    <!-- $ Bagian untuk modal edit profil END -->
+    <!-- $ Bagian untuk modal edit password END -->
 
     <script type="module" src="asset/js/profile_data/profile.js"></script>
     <script type="module" src="asset/js/profile_data/edit_profile.js"></script>

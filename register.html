@@ -43,42 +43,52 @@
       </div>
 
       <div class="login-box">
-
         <div class="header">Sign Up</div>
-        <form action="" id="register_form">
+        <form id="register_form">
 
           <!-- $ halaman pertama START -->
           <div class="isi" id="isi1">
             <div class="header2" style="text-align: center;">Personal Data</div>
+            <!-- @ ini nama -->
             <div class="data">
               <label class="input-label" for="nama">Nama<span class="warning">*</span></label><br>
               <input type="username" class="input-text" id="nama" name="nama" placeholder="Full Name" />
               <small class="warning"></small>
             </div>
+
+            <!-- @ ini Student id -->
             <div class="data">
               <label class="input-label" for="student_id">studentID<span class="warning">*</span></label><br>
               <input type="text" class="input-text" id="student_id" name="student_id"
                 placeholder="Insert your Student ID" />
               <small class="warning"></small>
             </div>
+
+            <!-- @ ini NIK -->
             <div class="data">
               <label class="input-label" for="nik">NIK<span class="warning">*</span></label><br>
               <input type="text" class="input-text" id="nik" name="nik" placeholder="Insert your NIK" />
               <small class="warning"></small>
             </div>
+
+            <!-- @ ini foto -->
             <div class="data">
-              <label class="input-label">Upload Photo</label><br>
+              <label class="input-label">Upload Photo<span class="warning">*</span></label><br>
               <label for="photo" class="input-text input-photo" id="photo-name" style="text-align: center;">Click here
                 to upload a
                 photo</label>
               <input type="file" name="photo" id="photo" accept="image/*" style="display: none" />
               <small class="warning"></small>
             </div>
+
+            <!-- @ ini tgl_lahir -->
             <div class="data">
               <label class="input-label" for="tgl_lahir">Date of Birth<span class="warning">*</span></label><br>
-              <input type="date" class="input-text" name="tgl_lahir" id="tgl_lahir" />
+              <input type="date" max="2005-12-31" class="input-text" name="tgl_lahir" id="tgl_lahir" />
               <small class="warning"></small>
             </div>
+
+            <!-- @ ini gender -->
             <div class="data">
               <label class="input-label" for="gender">Gender</label><br>
               <select name="gender" id="gender" class="input-text">
@@ -86,6 +96,8 @@
                 <option value="Female">Female</option>
               </select>
             </div>
+
+            <!-- @ ini alamat -->
             <div class="data">
               <label class="input-label" for="alamat">Address<span class="warning">*</span></label><br>
               <input type="text" class="input-text" id="alamat" name="alamat" placeholder="Address" />
@@ -100,20 +112,34 @@
           <!-- $ halaman kedua START -->
           <div class="isi" id="isi2" style="display: none;">
             <div class="header2">Account Details</div>
+
+            <!-- @ ini email -->
             <div class="data">
               <label class="input-label" for="email">Email<span class="warning">*</span></label><br>
               <input type="email" class="input-text" id="email" name="email" placeholder="example@gulugulu.com" />
               <small class="warning"></small>
             </div>
+
+            <!-- @ ini password -->
             <div class="data">
               <label class="input-label" for="password">Password<span class="warning">*</span></label><br>
-              <input type="password" class="input-text" id="password" name="password"
-                placeholder="Insert your password" />
+              <div class="input-pass">
+                <input type="password" id="password" name="password" placeholder="Insert your password" />
+                <div class="eye flex justify-center align-center padding-10" id="pass-visibility">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="-2 -2 24 24">
+                    <path fill="currentColor"
+                      d="M9.329 11.885L2.12 19.092a1 1 0 1 1-1.414-1.414l7.324-7.324a2 2 0 0 1 2.322-2.322L17.679.706a1 1 0 0 1 1.414 1.414l-7.208 7.21a2 2 0 0 1-2.556 2.556zm7.54-6.127C18.75 6.842 20 8.34 20 10c0 3.314-4.958 5.993-10 6a14.734 14.734 0 0 1-3.053-.32l1.861-1.86a4 4 0 0 0 5.011-5.011l3.05-3.051zm-4.16-1.496l-1.834 1.834a4 4 0 0 0-4.779 4.779L2.869 14.1C1.134 13.028 0 11.585 0 10c0-3.314 4.984-6.017 10-6c.914.003 1.827.094 2.709.262z" />
+                  </svg>
+                </div>
+              </div>
               <small class="warning"></small>
             </div>
+
+            <!-- @ ini phone -->
             <div class="data">
               <label class="input-label" for="phone">Phone<span class="warning">*</span></label><br>
-              <input type="tel" class="input-text" id="no_telp" name="no_telp" placeholder="Insert your phone number" />
+              <input type="number" class="input-text" id="no_telp" name="no_telp"
+                placeholder="Insert your phone number" />
               <small class="warning"></small>
             </div>
             <div style="text-align: center">
@@ -124,7 +150,8 @@
 
           <!-- $ halaman ketiga START -->
           <div class="isi" id="isi3" style="display: none;">
-            <div class="header2">Father Information</div>
+
+            <!-- @ ini father information -->
             <div class="data">
               <label class="input-label" for="f_name">Father's Name<span class="warning">*</span></label><br>
               <input type="text" class="input-text" id="f_name" placeholder="Full Name" />
@@ -137,10 +164,12 @@
             </div>
             <div class="data">
               <label class="input-label" for="f_phone">Father's Phone<span class="warning">*</span></label><br>
-              <input type="tel" class="input-text" id="f_phone" placeholder="Phone Number" />
+              <input type="number" class="input-text" id="f_phone" placeholder="Phone Number" />
               <small class="warning"></small>
             </div>
 
+
+            <!-- @ ini mother information -->
             <div class="header2">Mother Information</div>
             <div class="data">
               <label class="input-label" for="m_name">Mother's Name<span class="warning">*</span></label><br>
@@ -154,7 +183,7 @@
             </div>
             <div class="data">
               <label class="input-label" for="m_phone">Mother's Phone<span class="warning">*</span></label><br>
-              <input type="tel" class="input-text" id="m_phone" placeholder="Phone Number" />
+              <input type="number" class="input-text" id="m_phone" placeholder="Phone Number" />
               <small class="warning"></small>
             </div>
             <div style="text-align: center">
@@ -176,6 +205,7 @@
   <footer>
     @copyright 2023
   </footer>
+  <script src="http://cdn.rawgit.com/h2non/jsHashes/master/hashes.js"></script>
   <script type="module" src="asset/js/profile_data/register_student.js"></script>
 </body>
 

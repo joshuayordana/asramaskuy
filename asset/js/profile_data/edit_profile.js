@@ -102,8 +102,8 @@ function inputData() {
   if (info_address.value.trim() === "") {
     setErrorMsg(info_address, "Please insert adress correctly");
     validate["alamat"] = false;
-  } else if (info_address.value.trim().length < 3) {
-    setErrorMsg(info_address, "Please input minimum 3 character");
+  } else if (info_address.value.trim().length < 5) {
+    setErrorMsg(info_address, "Please input minimum 5 character");
     validate["alamat"] = false;
   } else {
     setSuccessMsg(info_address);
@@ -114,8 +114,8 @@ function inputData() {
   if (info_email.value.trim() === "") {
     setErrorMsg(info_email, "Please insert email correctly");
     validate["nama"] = false;
-  } else if (info_email.value.trim().length < 3) {
-    setErrorMsg(info_email, "Please input minimum 3 character");
+  } else if (info_email.value.trim().length < 5) {
+    setErrorMsg(info_email, "Please input minimum 5 character");
     validate["email"] = false;
   } else {
     setSuccessMsg(info_email);
@@ -126,8 +126,8 @@ function inputData() {
   if (info_phone.value.trim() === "") {
     setErrorMsg(info_phone, "Please insert phone number correctly");
     validate["phone"] = false;
-  } else if (info_phone.value.trim().length < 8) {
-    setErrorMsg(info_phone, "Please input minimum 8 character");
+  } else if (info_phone.value.trim().length < 12) {
+    setErrorMsg(info_phone, "Please input minimum 12 character");
     validate["phone"] = false;
   } else {
     setSuccessMsg(info_phone);
@@ -163,8 +163,8 @@ function inputData() {
   if (info_f_phone.value.trim() === "") {
     setErrorMsg(info_f_phone, "Please insert Father's phone number correctly");
     validate["f_phone"] = false;
-  } else if (info_f_phone.value.trim().length < 8) {
-    setErrorMsg(info_f_phone, "Please input minimum 8 character");
+  } else if (info_f_phone.value.trim().length < 12) {
+    setErrorMsg(info_f_phone, "Please input minimum 12 character");
     validate["f_phone"] = false;
   } else {
     setSuccessMsg(info_f_phone);
@@ -200,8 +200,8 @@ function inputData() {
   if (info_m_phone.value.trim() === "") {
     setErrorMsg(info_m_phone, "Please insert Mother's phone number correctly");
     validate["m_phone"] = false;
-  } else if (info_m_phone.value.trim().length < 8) {
-    setErrorMsg(info_m_phone, "Please input minimum 8 character");
+  } else if (info_m_phone.value.trim().length < 12) {
+    setErrorMsg(info_m_phone, "Please input minimum 12 character");
     validate["m_phone"] = false;
   } else {
     setSuccessMsg(info_m_phone);

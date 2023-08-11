@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AsramaSkuy</title>
+    <link rel="stylesheet" href="../asset/css/index.css" />
+    <link rel="stylesheet" href="../asset/css/navbar_login.css" />
+    <link rel="stylesheet" href="../asset/css/payment_due.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+</head>
+
+<body>
+    <header>
+        <!-- $ Navbar start -->
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a class="logo-img" href="../landing_page_login.html">Asrama<span>Skuy</span></a>
+                </div>
+                <div class="nav-link">
+                    <a href="../booking/book_form.html" onclick="">Rent a room</a>
+                    <a href="../complaint/complaint_page.html">Complaint</a>
+                    <a href="../transaction_page.html">Transaction</a>
+                    <a href="../profile_page.html"><button class="profile-button" href="">
+                            <span>Profile</span>
+                            <div class="profile-logo">
+                                <img src="../asset/image/profile_avatar.png" width="20px" height="20px" />
+                            </div>
+                        </button></a>
+                </div>
+            </nav>
+        </div>
+        <!-- $ Navbar end -->
+    </header>
+
+    <!-- $ input book start -->
+    <section class="container min-height-100vh flex justify-center" style="margin-top: 70px">
+        <div class="flex gap-20 flex-direction-column padding-20" style="max-width: 500px;">
+            <button class="primary-button" id="back-button">Back</button>
+            <div class="time-card flex flex-direction-column align-center justify-center gap-20 padding-20">
+                <div>Pay your payment before</div>
+                <div class="flex gap-20">
+                    <div>
+                        <div style="text-align: center;">Hour</div>
+                        <div class="time-box" id="due-hour"></div>
+                    </div>
+                    <div>
+                        <div style="text-align: center;">Minute</div>
+                        <div class="time-box" id="due-minute"></div>
+                    </div>
+                    <div>
+                        <div style="text-align: center;">Second</div>
+                        <div class="time-box" id="due-second"></div>
+                    </div>
+                </div>
+
+                <div class="how flex flex-direction-column gap-10 padding-20" id="pemabayaran-cash">
+                    <div class="Cara Pembayaran">Cara Pembayaran:</div>
+                    <div class="Cara Pembayaran">1. Pergi ke Gedung yang tercatat dalam pembayaran anda</div>
+                    <div class="Cara Pembayaran">2. Berikan ID transaksi anda ke kasir</div>
+                    <div class="Cara Pembayaran">3. Bayar sesuai nominal yang diberikan</div>
+                    <div class="Cara Pembayaran">4. Pembayaran selesai</div>
+                    <div class="Cara Pembayaran">5. Enjoy the visit</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- $ input book end -->
+
+    <br />
+    <br />
+    <footer>
+        @copyright 2023
+    </footer>
+    <script type="module" src="../asset/js/booking/payment_due.js"></script>
+    <script src="../asset/js/user_validation.js"></script>
+</body>
+
+</html>

@@ -114,14 +114,18 @@ payment_button.addEventListener("click", () => {
   // % Menyesuaikan endpoint berdasarkan tipe transaksi
   let endpoint;
   if (booking_data["jenis_transaksi"] === "Booking") {
-    endpoint = `${config.api}createNewTransaksi`;
+    if (booking_data["payment_method"] === "Cash") {
+      endpoint = `${config.api}createNewTransaksiAdmin`;
+      booking_data["catatan"] = `Booking dengan pembayaran cash berhasil dilakukan`;
+    } else {
+      endpoint = `${config.api}createNewTransaksi`;
+      booking_data["catatan"] = `Booking dengan pembayaran online berhasil dilakukan`;
+    }
   } else if (booking_data["jenis_transaksi"] === "Extend") {
     booking_data["catatan"] = `extend dari transaksi yang memiliki id ${booking_data["id_transaksi"]}`;
     endpoint = `${config.api}extendTransaksi`;
   }
 
-  console.log(booking_data);
-  console.log(endpoint);
   // ? disini tempat buat masukin ke database
   const formData = new URLSearchParams();
   for (const [key, value] of Object.entries(booking_data)) {

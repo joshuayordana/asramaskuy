@@ -16,7 +16,7 @@ fetch(endpoint)
     });
 
     // % MENAMPILKAN SEMUA DATA NOTIFIKASI
-    if (data === null) {
+    if (data.Data === null) {
       notif_list.className = "card-list padding-20 flex justify-center align-center";
       notif_list.innerHTML = "There is no notification yet";
     } else {
