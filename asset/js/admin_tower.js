@@ -27,7 +27,7 @@ function openDialog(update = false, id = -1) {
         //Update Data
         document.getElementById("nama_gedung").value = dataUser[id]["nama_gedung"];
         document.getElementById("jumlah_lantai").value = dataUser[id]["jumlah_lantai"];
-        document.getElementById("jenis_kelamin").value = dateFormatInput(dataUser[id]["jenis_kelamin"]);
+        document.getElementById("jenis_kelamin").value = dataUser[id]["jenis_kelamin"];
         document.getElementById("alamat_gedung").value = dataUser[id]["alamat_gedung"];
         document.getElementById("no_telp_gedung").value = dataUser[id]["no_telp_gedung"];
         document.getElementById("id_gedung").value = dataUser[id]["id_gedung"];
@@ -71,7 +71,7 @@ function dateFormatInput(tanggal) {
 }
 
 function updateTable(search = "") {
-    console.log(dataUser);
+    //console.log(dataUser);
     guestTable.innerHTML = "";
     if (search != "") {
         let temp = [];
@@ -85,7 +85,11 @@ function updateTable(search = "") {
         for (let i = 0; i < temp.length; i++) {
             const tr = document.createElement("tr");
             tr.innerHTML = `<td>${temp[i]["nama_gedung"]}</td>`;
-            tr.innerHTML += `<td>${temp[i]["status_gedung"]}</td>`;
+            //tr.innerHTML += `<td>${temp[i]["status_gedung"]}</td>`;
+            tr.innerHTML += `<label class="switch">
+            <input type="checkbox" id="roomSwitch" checked>
+            <span class="slider round"></span>
+          </label>`;
             tr.innerHTML += `<td>${temp[i]["jumlah_lantai"]}</td>`;
             tr.innerHTML += `<td>${temp[i]["jenis_kelamin"]}</td>`;
             tr.innerHTML += `<td>${temp[i]["alamat_gedung"]}</td>`;
@@ -94,9 +98,45 @@ function updateTable(search = "") {
             <a id="editBtn"><iconify-icon icon="ic:baseline-edit" style="color: #ffc800;" width="26" height="26"></iconify-icon></a>
             </td>`;
             guestTable.appendChild(tr);
+
+            //Edit Button
             const editBtn = tr.querySelector("#editBtn");
             editBtn.addEventListener("click", () => {
                 openDialog(true, i);
+            });
+
+            //Switch
+            const roomSwitch = tr.querySelector("#roomSwitch");
+            //Matiin switch
+            var roomStatus = temp[i]["status_gedung"];
+            if (roomStatus == "InActive") {
+                roomSwitch.checked = false;
+            }
+            //Ganti Status
+            roomSwitch.addEventListener("change", () => {
+                var id = temp[i]["id_gedung"];
+                var stat = temp[i]["status_gedung"];
+                if (stat == "InActive") {
+                    //Enable
+                    fetch(`${config.api}enableGedung?id_gedung=${id}`, {
+                        method: "PUT",
+                    })
+                        .then((result) => result.json())
+                        .then((result) => {
+                            temp[id]["status_gedung"] = "Active";
+                            console.log(result);
+                        });
+                } else {
+                    //Disable
+                    fetch(`${config.api}disableGedung?id_gedung=${id}`, {
+                        method: "PUT",
+                    })
+                        .then((result) => result.json())
+                        .then((result) => {
+                            temp[id]["status_gedung"] = "InActive";
+                            console.log(result);
+                        });
+                }
             });
         }
     } else {
@@ -105,7 +145,11 @@ function updateTable(search = "") {
             const tr = document.createElement("tr");
             tr.setAttribute("id", `guest-${i}`);
             tr.innerHTML = `<td>${dataUser[i]["nama_gedung"]}</td>`;
-            tr.innerHTML += `<td>${dataUser[i]["status_gedung"]}</td>`;
+            //tr.innerHTML += `<td>${dataUser[i]["status_gedung"]}</td>`;
+            tr.innerHTML += `<label class="switch">
+            <input type="checkbox" id="roomSwitch" checked>
+            <span class="slider round"></span>
+          </label>`;
             tr.innerHTML += `<td>${dataUser[i]["jumlah_lantai"]}</td>`;
             tr.innerHTML += `<td>${dataUser[i]["jenis_kelamin"]}</td>`;
             tr.innerHTML += `<td>${dataUser[i]["alamat_gedung"]}</td>`;
@@ -117,9 +161,45 @@ function updateTable(search = "") {
             </td>`;
 
             guestTable.appendChild(tr);
+
+            //Edit Button
             const editBtn = tr.querySelector("#editBtn");
             editBtn.addEventListener("click", () => {
                 openDialog(true, i);
+            });
+
+            //Switch
+            const roomSwitch = tr.querySelector("#roomSwitch");
+            //Matiin switch
+            var roomStatus = dataUser[i]["status_gedung"];
+            if (roomStatus == "InActive") {
+                roomSwitch.checked = false;
+            }
+            //Ganti Status
+            roomSwitch.addEventListener("change", () => {
+                var id = dataUser[i]["id_gedung"];
+                var stat = dataUser[i]["status_gedung"];
+                if (stat == "InActive") {
+                    //Enable
+                    fetch(`${config.api}enableGedung?id_gedung=${id}`, {
+                        method: "PUT",
+                    })
+                        .then((result) => result.json())
+                        .then((result) => {
+                            dataUser[id]["status_gedung"] = "Active";
+                            console.log(result);
+                        });
+                } else {
+                    //Disable
+                    fetch(`${config.api}disableGedung?id_gedung=${id}`, {
+                        method: "PUT",
+                    })
+                        .then((result) => result.json())
+                        .then((result) => {
+                            dataUser[id]["status_gedung"] = "InActive";
+                            console.log(result);
+                        });
+                }
             });
         }
     }
