@@ -1,7 +1,7 @@
 import { config } from "./config.js";
 
 // ? disini tempat nampilin room dan lantainya MEN
-const endpoint_men = `${config.api}getGedungByJenisKelamin?jenis_kelamin=Laki-Laki`;
+const endpoint_men = `${config.api}getGedungByJenisKelamin?jenis_kelamin=Male`;
 
 // % Fetch Data Tower
 fetch(endpoint_men)
@@ -51,7 +51,7 @@ fetch(endpoint_men)
 // ========================
 
 // ? disini tempat nampilin room dan lantainya GIRL
-const endpoint_girl = `${config.api}getGedungByJenisKelamin?jenis_kelamin=Perempuan`;
+const endpoint_girl = `${config.api}getGedungByJenisKelamin?jenis_kelamin=Female`;
 
 // % Fetch Data Tower
 fetch(endpoint_girl)

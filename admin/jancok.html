@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Asana Login</title>
+    <style>
+        body {
+            background-color: blue;
+        }
+
+        .login-screen {
+            width: 300px;
+            height: 200px;
+            margin: 0 auto;
+            border: 2px solid blue;
+            background-color: white;
+        }
+
+        .login-screen h1 {
+            text-align: center;
+        }
+
+        .login-screen form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-screen label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .login-screen input[type="text"],
+        .login-screen input[type="password"] {
+            width: 80%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-screen">
+        <h1>Welcome to Asana</h1>
+        <form>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <input type="checkbox" id="remember" name="remember">
+            <label for="remember">Remember me</label><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>

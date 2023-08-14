@@ -463,7 +463,6 @@ function validation_step_3() {
     }
 
     if (inputValidation(validate, 6)) {
-      let hash_code = new Hashes.MD5();
       //Get Data
       formData.append("nama", document.getElementById("nama").value);
       formData.append("nim", document.getElementById("student_id").value);
