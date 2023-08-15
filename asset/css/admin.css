@@ -244,15 +244,16 @@ th {
 }
 
 .primary-button {
+  font-family: inherit;
   gap: 10px;
   cursor: pointer;
   width: fit-content;
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: 600;
   background-color: #0b4d70;
-  padding: 5px 10px;
+  padding: 6px 20px;
   color: white;
-  border-radius: 8px;
+  border-radius: 5px;
   border: 1px solid #0b4d70;
   transition: 0.3s;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
@@ -263,6 +264,26 @@ th {
   color: #0b4d70;
 }
 
+.warning-button {
+  font-family: inherit;
+  gap: 10px;
+  cursor: pointer;
+  width: fit-content;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: #c30e0e;
+  padding: 6px 20px;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #c30e0e;
+  transition: 0.3s;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.warning-button:hover {
+  background-color: white;
+  color: #c30e0e;
+}
 /* TABLE MENU END */
 
 /* MODAL */
@@ -332,4 +353,109 @@ dialog {
   font-size: 16pt;
   font-weight: 600;
   transition: 0.3s;
+}
+
+/* Transaction detail START */
+.detail-container {
+  width: 100%;
+  height: fit-content;
+  max-height: 100vh;
+  margin-top: 20px;
+  box-shadow: 0px 5px 4px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  border: 0.5px rgba(11, 77, 112, 1) solid;
+}
+
+.detail-upper {
+  padding: 1.125rem;
+  border-bottom: 1px solid #bbbbbb;
+  display: flex;
+  justify-content: space-between;
+}
+
+.status-unpaid,
+.status-paid,
+.status-complete,
+.change-room,
+.cancel-trans {
+  display: none;
+}
+
+.status-unpaid.active,
+.status-paid.active,
+.status-complete.active,
+.change-room.active,
+.cancel-trans.active {
+  display: block;
+}
+
+.detail-status-unpaid {
+  gap: 10px;
+  width: fit-content;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background-color: #c30e0e;
+  padding: 6px 20px;
+  color: white;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.detail-status-complete {
+  gap: 10px;
+  width: fit-content;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background-color: #0300ca;
+  padding: 6px 20px;
+  color: white;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.status-changer {
+  font-family: inherit;
+  padding: 5px 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.status-changer > select {
+  font-family: inherit;
+}
+
+.detail-info {
+  margin-bottom: 1.125rem;
+}
+
+.detail-text-label {
+  color: black;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.detail-text-label-small {
+  color: black;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.detail-text {
+  color: black;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.detail-text-area {
+  font-family: inherit;
+  margin-top: 5px;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  width: 100%;
+  height: 10rem;
+}
+
+.detail-bottom {
+  padding: 1.125rem;
 }

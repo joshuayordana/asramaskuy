@@ -99,32 +99,35 @@ function updateTable(search = "") {
   if (search != "") {
     let temp = [];
     for (let i = 0; i < dataUser.length; i++) {
-      let x = dataUser[i]["nama_user"].toLowerCase();
+      let x = dataUser[i]["nama_user"];
+      x = x.toLowerCase();
       if (x.includes(search.toLowerCase())) {
         temp.push(dataUser[i]);
       }
     }
+    console.log(temp);
     for (let i = 0; i < temp.length; i++) {
       const tr = document.createElement("tr");
       tr.setAttribute("id", `guest-${i}`);
-      tr.innerHTML = `<td>${dataUser[i]["nama_transaksi"]}</td>`;
-      tr.innerHTML += `<td>${dataUser[i]["nama_user"]}</td>`;
-      tr.innerHTML += `<td>${dataUser[i]["nama_gedung"]}</td>`;
-      tr.innerHTML += `<td>${dataUser[i]["nama_kamar"]}</td>`;
-      tr.innerHTML += `<td>${dateFormat(dataUser[i]["check_in"])}</td>`;
-      tr.innerHTML += `<td>${dateFormat(dataUser[i]["check_out"])}</td>`;
-      tr.innerHTML += `<td>${dataUser[i]["status_transaksi"]}</td>`;
-      tr.innerHTML += `<td>${dataUser[i]["total_pembayaran"]}</td>`;
+      tr.innerHTML = `<td>${temp[i]["nama_transaksi"]}</td>`;
+      tr.innerHTML += `<td>${temp[i]["jenis_transaksi"]}</td>`;
+      tr.innerHTML += `<td>${temp[i]["nama_user"]}</td>`;
+      tr.innerHTML += `<td>${temp[i]["nama_gedung"]}</td>`;
+      tr.innerHTML += `<td>${temp[i]["nama_kamar"]}</td>`;
+      tr.innerHTML += `<td>${dateFormat(temp[i]["check_in"].slice(0, 10))}</td>`;
+      tr.innerHTML += `<td>${dateFormat(temp[i]["check_out"].slice(0, 10))}</td>`;
+      tr.innerHTML += `<td>${temp[i]["status_transaksi"]}</td>`;
+      tr.innerHTML += `<td>${temp[i]["total_pembayaran"]}</td>`;
       tr.innerHTML += `<td>
-                          <button class="primary-button" id="editBtn">
+                          <button class="primary-button" id="detail-btn">
                               Detail
                           </button>
                       </td>`;
 
       guestTable.appendChild(tr);
-      const editBtn = tr.querySelector("#editBtn");
-      editBtn.addEventListener("click", () => {
-        openDialog(true, i); //True untuk update
+      const detailBtn = tr.querySelector("#detail-btn");
+      detailBtn.addEventListener("click", () => {
+        window.location.href = `transaction_detail.html?id_trans=${temp[i]["id_transaksi"]}`;
       });
     }
   } else {
@@ -133,6 +136,7 @@ function updateTable(search = "") {
       const tr = document.createElement("tr");
       tr.setAttribute("id", `guest-${i}`);
       tr.innerHTML = `<td>${dataUser[i]["nama_transaksi"]}</td>`;
+      tr.innerHTML += `<td>${dataUser[i]["jenis_transaksi"]}</td>`;
       tr.innerHTML += `<td>${dataUser[i]["nama_user"]}</td>`;
       tr.innerHTML += `<td>${dataUser[i]["nama_gedung"]}</td>`;
       tr.innerHTML += `<td>${dataUser[i]["nama_kamar"]}</td>`;
@@ -141,15 +145,15 @@ function updateTable(search = "") {
       tr.innerHTML += `<td>${dataUser[i]["status_transaksi"]}</td>`;
       tr.innerHTML += `<td>${rupiahFormatter.format(dataUser[i]["total_pembayaran"])}</td>`;
       tr.innerHTML += `<td>
-                        <button class="primary-button" id="editBtn">
+                        <button class="primary-button" id="detail-btn">
                             Detail
                         </button>
                     </td>`;
 
       guestTable.appendChild(tr);
-      const editBtn = tr.querySelector("#editBtn");
-      editBtn.addEventListener("click", () => {
-        openDialog(true, i); //True untuk update
+      const detailBtn = tr.querySelector("#detail-btn");
+      detailBtn.addEventListener("click", () => {
+        window.location.href = `transaction_detail.html?id_trans=${dataUser[i]["id_transaksi"]}`;
       });
     }
   }
