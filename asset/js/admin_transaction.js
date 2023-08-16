@@ -4,10 +4,10 @@ const guestTable = document.getElementById("guest");
 const searchInput = document.getElementById("searchInput");
 const addButton = document.getElementById("addButton");
 let dataUser = [];
-// let editDialog = document.getElementById("edit-dialog");
+let editDialog = document.getElementById("edit-dialog");
 // let formData = new FormData();
-// var modalUpdate = false; //Untuk nyimpen apakah modal untuk update atau untuk create
-//openDialog();
+var modalUpdate = false; //Untuk nyimpen apakah modal untuk update atau untuk create
+openDialog();
 
 // addButton.addEventListener("click", () => {
 //   openDialog();
@@ -16,159 +16,167 @@ let dataUser = [];
 //Get Data
 const endpoint = `${config.api}getTransaksi?tipe_sort=newest`;
 fetch(endpoint)
-  .then((result) => result.json())
-  .then(({ data }) => {
-    // console.log(data.Data);
-    dataUser = data.Data;
-    console.log(dataUser);
-    updateTable();
-  });
+    .then((result) => result.json())
+    .then(({ data }) => {
+        // console.log(data.Data);
+        dataUser = data.Data;
+        console.log(dataUser);
+        updateTable();
+    });
 
-// addButton.addEventListener("click", () => {
-//   openDialog();
-// });
+addButton.addEventListener("click", () => {
+    openDialog();
+});
 
-// function openDialog(update = false, id = -1) {
-//   modalUpdate = update;
-//   if (id == -1) {
-//     //Clean Data
-//     document.getElementById("nama").value = "";
-//     document.getElementById("nik").value = "";
-//     document.getElementById("tgl_lahir").value = "";
-//     document.getElementById("gender").value = "Male";
-//     document.getElementById("alamat").value = "";
-//     document.getElementById("email").value = "";
-//     document.getElementById("password").value = "";
-//     document.getElementById("no_telp").value = "";
-//     document.getElementById("id_user").value = "";
-//   } else {
-//     //Update Data
-//     document.getElementById("nama").value = dataUser[id]["name"];
-//     document.getElementById("nik").value = dataUser[id]["nik"];
-//     document.getElementById("tgl_lahir").value = dateFormatInput(dataUser[id]["tgl_lahir"]);
-//     document.getElementById("gender").value = dataUser[id]["jenis_kelamin"];
-//     document.getElementById("alamat").value = dataUser[id]["alamat"];
-//     document.getElementById("email").value = dataUser[id]["email"];
-//     document.getElementById("password").value = dataUser[id][""];
-//     document.getElementById("no_telp").value = dataUser[id]["no_telp"];
-//     document.getElementById("id_user").value = dataUser[id]["id_user"];
-//   }
-//   const dialogTitle = document.getElementById("d-title");
-//   const dialogButton = document.getElementById("d-button");
-//   //Ganti UI
-//   if (update) {
-//     dialogTitle.innerHTML = "Update Guest";
-//     dialogButton.innerHTML = "UPDATE";
-//   } else {
-//     dialogTitle.innerHTML = "New Guest";
-//     dialogButton.innerHTML = "CREATE";
-//   }
-//   editDialog.showModal();
-// }
+function openDialog(update = false, id = -1) {
+    modalUpdate = update;
+    if (id == -1) {
+        //Clean Data
+        // document.getElementById("nama").value = "";
+        // document.getElementById("nik").value = "";
+        // document.getElementById("tgl_lahir").value = "";
+        // document.getElementById("gender").value = "Male";
+        // document.getElementById("alamat").value = "";
+        // document.getElementById("email").value = "";
+        // document.getElementById("password").value = "";
+        // document.getElementById("no_telp").value = "";
+        // document.getElementById("id_user").value = "";
+    } else {
+        //Update Data
+        // document.getElementById("nama").value = dataUser[id]["name"];
+        // document.getElementById("nik").value = dataUser[id]["nik"];
+        // document.getElementById("tgl_lahir").value = dateFormatInput(dataUser[id]["tgl_lahir"]);
+        // document.getElementById("gender").value = dataUser[id]["jenis_kelamin"];
+        // document.getElementById("alamat").value = dataUser[id]["alamat"];
+        // document.getElementById("email").value = dataUser[id]["email"];
+        // document.getElementById("password").value = dataUser[id][""];
+        // document.getElementById("no_telp").value = dataUser[id]["no_telp"];
+        // document.getElementById("id_user").value = dataUser[id]["id_user"];
+    }
+    const dialogTitle = document.getElementById("d-title");
+    const dialogButton = document.getElementById("d-button");
+    //Ganti UI
+    dialogTitle.innerHTML = "New Transaction";
+    dialogButton.innerHTML = "CREATE";
+    editDialog.showModal();
+}
 
-// function closeDialog() {
-//     editDialog.close();
-// }
+function closeDialog() {
+    editDialog.close();
+}
 
 // @ untuk mengubah tgl dari YYYY-MM-DD menjadi DD Month YYYY
 function dateFormat(date) {
-  let datearray = date.split("-");
-  const monthNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-  let newdate = datearray[2] + " " + monthNames[parseInt(datearray[1]) - 1] + " " + datearray[0];
+    let datearray = date.split("-");
+    const monthNames = [
+        "Januari",
+        "Februari",
+        "Maret",
+        "April",
+        "Mei",
+        "Juni",
+        "Juli",
+        "Agustus",
+        "September",
+        "Oktober",
+        "November",
+        "Desember",
+    ];
+    let newdate = datearray[2] + " " + monthNames[parseInt(datearray[1]) - 1] + " " + datearray[0];
 
-  return newdate;
+    return newdate;
 }
 
 function dateFormatInput(tanggal) {
-  let fullDate = new Date(tanggal);
-  let twoDigitMonth = fullDate.getMonth() + 1 + "";
-  if (twoDigitMonth.length == 1) twoDigitMonth = "0" + twoDigitMonth;
-  let twoDigitDate = fullDate.getDate() + "";
-  if (twoDigitDate.length == 1) twoDigitDate = "0" + twoDigitDate;
-  let currentDate = fullDate.getFullYear() + "-" + twoDigitMonth + "-" + twoDigitDate;
-  return currentDate;
+    let fullDate = new Date(tanggal);
+    let twoDigitMonth = fullDate.getMonth() + 1 + "";
+    if (twoDigitMonth.length == 1) twoDigitMonth = "0" + twoDigitMonth;
+    let twoDigitDate = fullDate.getDate() + "";
+    if (twoDigitDate.length == 1) twoDigitDate = "0" + twoDigitDate;
+    let currentDate = fullDate.getFullYear() + "-" + twoDigitMonth + "-" + twoDigitDate;
+    return currentDate;
 }
 
 function updateTable(search = "") {
-  const rupiahFormatter = new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    minimumFractionDigits: 2,
-  });
-  guestTable.innerHTML = "";
-  if (search != "") {
-    let temp = [];
-    for (let i = 0; i < dataUser.length; i++) {
-      let x = dataUser[i]["nama_user"];
-      x = x.toLowerCase();
-      if (x.includes(search.toLowerCase())) {
-        temp.push(dataUser[i]);
-      }
-    }
-    console.log(temp);
-    for (let i = 0; i < temp.length; i++) {
-      const tr = document.createElement("tr");
-      tr.setAttribute("id", `guest-${i}`);
-      tr.innerHTML = `<td>${temp[i]["nama_transaksi"]}</td>`;
-      tr.innerHTML += `<td>${temp[i]["jenis_transaksi"]}</td>`;
-      tr.innerHTML += `<td>${temp[i]["nama_user"]}</td>`;
-      tr.innerHTML += `<td>${temp[i]["nama_gedung"]}</td>`;
-      tr.innerHTML += `<td>${temp[i]["nama_kamar"]}</td>`;
-      tr.innerHTML += `<td>${dateFormat(temp[i]["check_in"].slice(0, 10))}</td>`;
-      tr.innerHTML += `<td>${dateFormat(temp[i]["check_out"].slice(0, 10))}</td>`;
-      tr.innerHTML += `<td>${temp[i]["status_transaksi"]}</td>`;
-      tr.innerHTML += `<td>${temp[i]["total_pembayaran"]}</td>`;
-      tr.innerHTML += `<td>
+    const rupiahFormatter = new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+        minimumFractionDigits: 2,
+    });
+    guestTable.innerHTML = "";
+    if (search != "") {
+        let temp = [];
+        for (let i = 0; i < dataUser.length; i++) {
+            let x = dataUser[i]["nama_user"];
+            x = x.toLowerCase();
+            if (x.includes(search.toLowerCase())) {
+                temp.push(dataUser[i]);
+            }
+        }
+        console.log(temp);
+        for (let i = 0; i < temp.length; i++) {
+            const tr = document.createElement("tr");
+            tr.setAttribute("id", `guest-${i}`);
+            tr.innerHTML = `<td>${temp[i]["nama_transaksi"]}</td>`;
+            tr.innerHTML += `<td>${temp[i]["jenis_transaksi"]}</td>`;
+            tr.innerHTML += `<td>${temp[i]["nama_user"]}</td>`;
+            tr.innerHTML += `<td>${temp[i]["nama_gedung"]}</td>`;
+            tr.innerHTML += `<td>${temp[i]["nama_kamar"]}</td>`;
+            tr.innerHTML += `<td>${dateFormat(temp[i]["check_in"].slice(0, 10))}</td>`;
+            tr.innerHTML += `<td>${dateFormat(temp[i]["check_out"].slice(0, 10))}</td>`;
+            tr.innerHTML += `<td>${temp[i]["status_transaksi"]}</td>`;
+            tr.innerHTML += `<td>${temp[i]["total_pembayaran"]}</td>`;
+            tr.innerHTML += `<td>
                           <button class="primary-button" id="detail-btn">
                               Detail
                           </button>
                       </td>`;
 
-      guestTable.appendChild(tr);
-      const detailBtn = tr.querySelector("#detail-btn");
-      detailBtn.addEventListener("click", () => {
-        window.location.href = `transaction_detail.html?id_trans=${temp[i]["id_transaksi"]}`;
-      });
-    }
-  } else {
-    //Masukan dataUser ke tabel
-    for (let i = 0; i < dataUser.length; i++) {
-      const tr = document.createElement("tr");
-      tr.setAttribute("id", `guest-${i}`);
-      tr.innerHTML = `<td>${dataUser[i]["nama_transaksi"]}</td>`;
-      tr.innerHTML += `<td>${dataUser[i]["jenis_transaksi"]}</td>`;
-      tr.innerHTML += `<td>${dataUser[i]["nama_user"]}</td>`;
-      tr.innerHTML += `<td>${dataUser[i]["nama_gedung"]}</td>`;
-      tr.innerHTML += `<td>${dataUser[i]["nama_kamar"]}</td>`;
-      tr.innerHTML += `<td>${dateFormat(dataUser[i]["check_in"].slice(0, 10))}</td>`;
-      tr.innerHTML += `<td>${dateFormat(dataUser[i]["check_out"].slice(0, 10))}</td>`;
-      tr.innerHTML += `<td>${dataUser[i]["status_transaksi"]}</td>`;
-      tr.innerHTML += `<td>${rupiahFormatter.format(dataUser[i]["total_pembayaran"])}</td>`;
-      tr.innerHTML += `<td>
+            guestTable.appendChild(tr);
+            const detailBtn = tr.querySelector("#detail-btn");
+            detailBtn.addEventListener("click", () => {
+                window.location.href = `transaction_detail.html?id_trans=${temp[i]["id_transaksi"]}`;
+            });
+        }
+    } else {
+        //Masukan dataUser ke tabel
+        for (let i = 0; i < dataUser.length; i++) {
+            const tr = document.createElement("tr");
+            tr.setAttribute("id", `guest-${i}`);
+            tr.innerHTML = `<td>${dataUser[i]["nama_transaksi"]}</td>`;
+            tr.innerHTML += `<td>${dataUser[i]["jenis_transaksi"]}</td>`;
+            tr.innerHTML += `<td>${dataUser[i]["nama_user"]}</td>`;
+            tr.innerHTML += `<td>${dataUser[i]["nama_gedung"]}</td>`;
+            tr.innerHTML += `<td>${dataUser[i]["nama_kamar"]}</td>`;
+            tr.innerHTML += `<td>${dateFormat(dataUser[i]["check_in"].slice(0, 10))}</td>`;
+            tr.innerHTML += `<td>${dateFormat(dataUser[i]["check_out"].slice(0, 10))}</td>`;
+            tr.innerHTML += `<td>${dataUser[i]["status_transaksi"]}</td>`;
+            tr.innerHTML += `<td>${rupiahFormatter.format(dataUser[i]["total_pembayaran"])}</td>`;
+            tr.innerHTML += `<td>
                         <button class="primary-button" id="detail-btn">
                             Detail
                         </button>
                     </td>`;
 
-      guestTable.appendChild(tr);
-      const detailBtn = tr.querySelector("#detail-btn");
-      detailBtn.addEventListener("click", () => {
-        window.location.href = `transaction_detail.html?id_trans=${dataUser[i]["id_transaksi"]}`;
-      });
+            guestTable.appendChild(tr);
+            const detailBtn = tr.querySelector("#detail-btn");
+            detailBtn.addEventListener("click", () => {
+                window.location.href = `transaction_detail.html?id_trans=${dataUser[i]["id_transaksi"]}`;
+            });
+        }
     }
-  }
 }
 
 searchInput.addEventListener("keyup", () => {
-  let search = searchInput.value;
-  updateTable(search);
+    let search = searchInput.value;
+    updateTable(search);
 });
 
-// //MODAL
-// const closeModal = document.getElementById("closeModal");
-// closeModal.addEventListener("click", () => {
-//     closeDialog();
-// });
+//MODAL
+const closeModal = document.getElementById("closeModal");
+closeModal.addEventListener("click", () => {
+    closeDialog();
+});
 
 // function submit() {
 //     //Get Data
@@ -330,29 +338,29 @@ searchInput.addEventListener("keyup", () => {
 
 // % Jika ada error pada input
 function setErrorMsg(element, message) {
-  const data = element.parentElement;
-  const small = data.querySelector("small");
-  small.innerText = message;
+    const data = element.parentElement;
+    const small = data.querySelector("small");
+    small.innerText = message;
 }
 
 // % Jika tidak ada error pada input
 function setSuccessMsg(element) {
-  const data = element.parentElement;
-  const small = data.querySelector("small");
-  small.innerText = "";
+    const data = element.parentElement;
+    const small = data.querySelector("small");
+    small.innerText = "";
 }
 
 // % Validasi input-input pada setiap halaman
 function inputValidation(assoc_array, true_count) {
-  let count = 0;
-  Object.values(assoc_array).forEach((value) => {
-    if (value === true) {
-      count++;
+    let count = 0;
+    Object.values(assoc_array).forEach((value) => {
+        if (value === true) {
+            count++;
+        }
+    });
+    if (count === true_count) {
+        return true;
+    } else {
+        return false;
     }
-  });
-  if (count === true_count) {
-    return true;
-  } else {
-    return false;
-  }
 }
