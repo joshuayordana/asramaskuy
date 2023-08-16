@@ -186,7 +186,7 @@ function updateTable(search = "") {
                     })
                         .then((result) => result.json())
                         .then((result) => {
-                            dataUser[id]["status_gedung"] = "Active";
+                            dataUser[i]["status_gedung"] = "Active";
                             console.log(result);
                         });
                 } else {
@@ -196,7 +196,7 @@ function updateTable(search = "") {
                     })
                         .then((result) => result.json())
                         .then((result) => {
-                            dataUser[id]["status_gedung"] = "InActive";
+                            dataUser[i]["status_gedung"] = "InActive";
                             console.log(result);
                         });
                 }
