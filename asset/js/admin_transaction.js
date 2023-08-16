@@ -340,6 +340,17 @@ function submit() {
         });
 }
 
+function convertDate(element) {
+    const elementValue = element.value;
+
+    // Split the date string into year, month, and day
+    const [year, month, day] = elementValue.split("-");
+
+    // Create a Date object with the extracted values
+    const dateObject = new Date(year, month - 1, day);
+    return dateObject;
+}
+
 const form = document.getElementById("d-button");
 form.addEventListener("click", () => {
     let validate = {
@@ -349,15 +360,15 @@ form.addEventListener("click", () => {
         room: false,
         total: false,
     };
-    formatted_today = new Date();
+    let formatted_today = new Date();
     formatted_today.setHours(0, 0, 0, 0);
 
-    const checkin = document.getElementById("checkin");
-    checkin = new Date(checkin);
-    if (checkin.value.trim() === "") {
-        setErrorMsg(checkin, "Please insert date correctly");
+    let checkin = document.getElementById("checkin");
+    let checkin_val = convertDate(checkin);
+    if (checkin.value.trim() == "") {
+        setErrorMsg(checkin, "Please insert date");
         validate["checkin"] = false;
-    } else if (checkin < formatted_today) {
+    } else if (checkin_val < formatted_today) {
         setErrorMsg(checkin, "Date minimum is today");
         validate["checkin"] = false;
     } else {
@@ -365,15 +376,15 @@ form.addEventListener("click", () => {
         validate["checkin"] = true;
     }
 
-    const checkout = document.getElementById("checkout");
-    checkout = new Date(checkout);
-    if (checkout.value.trim() === "") {
-        setErrorMsg(checkout, "Please insert date correctly");
+    let checkout = document.getElementById("checkout");
+    let checkout_val = convertDate(checkout);
+    if (checkout.value.trim() == "") {
+        setErrorMsg(checkout, "Please insert date");
         validate["checkout"] = false;
-    } else if (checkout < formatted_today) {
+    } else if (checkout_val < formatted_today) {
         setErrorMsg(checkout, "Date minimum is today");
         validate["checkout"] = false;
-    } else if (checkout <= checkin) {
+    } else if (checkout_val <= checkin_val) {
         setErrorMsg(checkout, "Checkout date must be later then checkin date");
         validate["checkout"] = false;
     } else {
