@@ -3,7 +3,10 @@ import { config } from "./config.js";
 const guestTable = document.getElementById("guest");
 const searchInput = document.getElementById("searchInput");
 const addButton = document.getElementById("addButton");
+const towerSelect = document.getElementById("tower");
 let dataUser = [];
+let dataTower = [];
+let dataRoom = [];
 let editDialog = document.getElementById("edit-dialog");
 // let formData = new FormData();
 var modalUpdate = false; //Untuk nyimpen apakah modal untuk update atau untuk create
@@ -20,38 +23,115 @@ fetch(endpoint)
     .then(({ data }) => {
         // console.log(data.Data);
         dataUser = data.Data;
-        console.log(dataUser);
+        // console.log(dataUser);
         updateTable();
     });
+
+updateTower();
 
 addButton.addEventListener("click", () => {
     openDialog();
 });
 
+towerSelect.addEventListener("change", () => {
+    let id_gedung = towerSelect.value;
+    updateRoom(id_gedung);
+});
+
+function updateTower() {
+    //Towerlist
+    const endpoint = `${config.api}getGedung`;
+    fetch(endpoint)
+        .then((result) => result.json())
+        .then(({ data }) => {
+            dataTower = data.Data;
+            // console.log(dataTower);
+            updateTowerList();
+        });
+}
+
+function updateTowerList() {
+    //Update List
+    let towerList = document.getElementById("tower");
+    for (let i = 0; i < dataTower.length; i++) {
+        const option = document.createElement("option");
+        option.setAttribute("id", `tower-${i}`);
+        option.value = `${dataTower[i]["id_gedung"]}`;
+        option.innerHTML = `<td>${dataTower[i]["nama_gedung"]}</td>`;
+        towerList.appendChild(option);
+    }
+}
+
+function updateRoom(id_gedung) {
+    let jumlah_lantai = 0;
+    //Cari Jumlah Lantai
+    for (let i = 0; i < dataTower.length; i++) {
+        if (dataTower[i]["id_gedung"] == id_gedung) {
+            jumlah_lantai = dataTower[i]["jumlah_lantai"];
+        }
+    }
+
+    //Update Room
+    let roomList = document.getElementById("room");
+    roomList.innerHTML = "";
+    const endpoint = `${config.api}getKamarByGedungId?id_gedung=${id_gedung}`;
+    fetch(endpoint)
+        .then((result) => result.json())
+        .then(({ data }) => {
+            dataRoom = data.Data;
+            // console.log(dataRoom);
+            //SORT BY LANTAI
+            let kamar = [];
+            for (let i = 0; i < jumlah_lantai; i++) {
+                kamar.push([]);
+                for (let j = 0; j < dataRoom.length; j++) {
+                    if (dataRoom[j]["lantai"] == i) {
+                        kamar[i - 1].push(dataRoom[j]);
+                    }
+                }
+            }
+            //PRINT KE LIST
+            for (let i = 0; i < jumlah_lantai; i++) {
+                addRoomList(kamar[i], i + 1);
+            }
+        });
+}
+
+function addRoomList(dataRoom, lantai) {
+    //Update List
+    let roomList = document.getElementById("room");
+    let optgroup = document.createElement("optgroup");
+    optgroup.label = `Lantai ${lantai}`;
+    if (dataRoom.length === 0) {
+        //Tidak ada kamar
+        const option = document.createElement("option");
+        option.setAttribute("id", `null`);
+        option.setAttribute("disabled", true);
+        option.value = `notfound`;
+        option.innerHTML = `--- No Room ---`;
+        optgroup.appendChild(option);
+    } else {
+        for (let i = 0; i < dataRoom.length; i++) {
+            const option = document.createElement("option");
+            option.setAttribute("id", `kamar-${dataRoom[i]["id_kamar"]}`);
+            option.value = `${dataRoom[i]["id_kamar"]}`;
+            option.innerHTML = `${dataRoom[i]["nama_kamar"]}`;
+            optgroup.appendChild(option);
+        }
+    }
+    roomList.appendChild(optgroup);
+}
+
 function openDialog(update = false, id = -1) {
     modalUpdate = update;
     if (id == -1) {
         //Clean Data
-        // document.getElementById("nama").value = "";
-        // document.getElementById("nik").value = "";
-        // document.getElementById("tgl_lahir").value = "";
-        // document.getElementById("gender").value = "Male";
-        // document.getElementById("alamat").value = "";
-        // document.getElementById("email").value = "";
-        // document.getElementById("password").value = "";
-        // document.getElementById("no_telp").value = "";
-        // document.getElementById("id_user").value = "";
-    } else {
-        //Update Data
-        // document.getElementById("nama").value = dataUser[id]["name"];
-        // document.getElementById("nik").value = dataUser[id]["nik"];
-        // document.getElementById("tgl_lahir").value = dateFormatInput(dataUser[id]["tgl_lahir"]);
-        // document.getElementById("gender").value = dataUser[id]["jenis_kelamin"];
-        // document.getElementById("alamat").value = dataUser[id]["alamat"];
-        // document.getElementById("email").value = dataUser[id]["email"];
-        // document.getElementById("password").value = dataUser[id][""];
-        // document.getElementById("no_telp").value = dataUser[id]["no_telp"];
-        // document.getElementById("id_user").value = dataUser[id]["id_user"];
+        document.getElementById("id_user").value = "";
+        document.getElementById("checkin").value = "";
+        document.getElementById("checkout").value = "";
+        document.getElementById("tower").value = "notfound";
+        document.getElementById("room").value = "notfound";
+        document.getElementById("total").value = "";
     }
     const dialogTitle = document.getElementById("d-title");
     const dialogButton = document.getElementById("d-button");
@@ -68,20 +148,7 @@ function closeDialog() {
 // @ untuk mengubah tgl dari YYYY-MM-DD menjadi DD Month YYYY
 function dateFormat(date) {
     let datearray = date.split("-");
-    const monthNames = [
-        "Januari",
-        "Februari",
-        "Maret",
-        "April",
-        "Mei",
-        "Juni",
-        "Juli",
-        "Agustus",
-        "September",
-        "Oktober",
-        "November",
-        "Desember",
-    ];
+    const monthNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
     let newdate = datearray[2] + " " + monthNames[parseInt(datearray[1]) - 1] + " " + datearray[0];
 
     return newdate;
