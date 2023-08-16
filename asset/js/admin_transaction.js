@@ -161,7 +161,7 @@ function addRoomList(dataRoom, lantai) {
             const option = document.createElement("option");
             option.setAttribute("id", `kamar-${dataRoom[i]["id_kamar"]}`);
             option.value = `${dataRoom[i]["id_kamar"]}`;
-            option.innerHTML = `${dataRoom[i]["jumlah_customer"]}/${dataRoom[i]["jumlah_customer"]} - ${dataRoom[i]["nama_kamar"]} - ${dataRoom[i]["status_kamar"]}`;
+            option.innerHTML = `${dataRoom[i]["jumlah_customer"]}/${dataRoom[i]["kapasitas_kamar"]} - ${dataRoom[i]["nama_kamar"]} - ${dataRoom[i]["status_kamar"]}`;
             optgroup.appendChild(option);
         }
     }
