@@ -79,20 +79,30 @@ function updateRoom(id_gedung) {
         .then((result) => result.json())
         .then(({ data }) => {
             dataRoom = data.Data;
-            // console.log(dataRoom);
-            //SORT BY LANTAI
-            let kamar = [];
-            for (let i = 0; i < jumlah_lantai; i++) {
-                kamar.push([]);
-                for (let j = 0; j < dataRoom.length; j++) {
-                    if (dataRoom[j]["lantai"] == i) {
-                        kamar[i - 1].push(dataRoom[j]);
+            if (dataRoom == null) {
+                //Tidak ada kamar
+                const option = document.createElement("option");
+                option.setAttribute("id", `null`);
+                option.setAttribute("disabled", true);
+                option.setAttribute("selected", true);
+                option.value = `notfound`;
+                option.innerHTML = `--- No Room ---`;
+                roomList.appendChild(option);
+            } else {
+                //SORT BY LANTAI
+                let kamar = [];
+                for (let i = 0; i < jumlah_lantai; i++) {
+                    kamar.push([]);
+                    for (let j = 0; j < dataRoom.length; j++) {
+                        if (dataRoom[j]["lantai"] == i) {
+                            kamar[i - 1].push(dataRoom[j]);
+                        }
                     }
                 }
-            }
-            //PRINT KE LIST
-            for (let i = 0; i < jumlah_lantai; i++) {
-                addRoomList(kamar[i], i + 1);
+                //PRINT KE LIST
+                for (let i = 0; i < jumlah_lantai; i++) {
+                    addRoomList(kamar[i], i + 1);
+                }
             }
         });
 }
