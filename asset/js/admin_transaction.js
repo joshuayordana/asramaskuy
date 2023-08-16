@@ -4,17 +4,16 @@ const guestTable = document.getElementById("guest");
 const searchInput = document.getElementById("searchInput");
 const addButton = document.getElementById("addButton");
 const towerSelect = document.getElementById("tower");
+const userSelect = document.getElementById("id_user");
 let dataUser = [];
 let dataTower = [];
 let dataRoom = [];
+let dataUserSelect = [];
 let editDialog = document.getElementById("edit-dialog");
 // let formData = new FormData();
 var modalUpdate = false; //Untuk nyimpen apakah modal untuk update atau untuk create
 openDialog();
-
-// addButton.addEventListener("click", () => {
-//   openDialog();
-// });
+getUser();
 
 //Get Data
 const endpoint = `${config.api}getTransaksi?tipe_sort=newest`;
@@ -28,6 +27,42 @@ fetch(endpoint)
     });
 
 updateTower();
+
+function getUser() {
+    //Add Guest
+    let endpoint = `${config.api}getGuest`;
+    fetch(endpoint)
+        .then((result) => result.json())
+        .then(({ data }) => {
+            // console.log(data.Data);
+            dataUserSelect = data.Data;
+        })
+        .finally(() => {
+            //Add User
+            endpoint = `${config.api}getUser`;
+            fetch(endpoint)
+                .then((result) => result.json())
+                .then(({ data }) => {
+                    // console.log(data.Data);
+                    for (let i = 0; i < data.Data.length; i++) {
+                        dataUserSelect.push(data.Data[i]);
+                    }
+                })
+                .finally(() => {
+                    updateUserSelect();
+                });
+        });
+}
+
+function updateUserSelect() {
+    for (let i = 0; i < dataUserSelect.length; i++) {
+        const option = document.createElement("option");
+        option.setAttribute("id", `guest-${i}`);
+        option.value = `${dataUserSelect[i]["id_user"]}`;
+        option.innerHTML = `${dataUserSelect[i]["name"]}`;
+        userSelect.appendChild(option);
+    }
+}
 
 addButton.addEventListener("click", () => {
     openDialog();
@@ -57,7 +92,7 @@ function updateTowerList() {
         const option = document.createElement("option");
         option.setAttribute("id", `tower-${i}`);
         option.value = `${dataTower[i]["id_gedung"]}`;
-        option.innerHTML = `<td>${dataTower[i]["nama_gedung"]}</td>`;
+        option.innerHTML = `${dataTower[i]["nama_gedung"]}`;
         towerList.appendChild(option);
     }
 }
@@ -108,6 +143,7 @@ function updateRoom(id_gedung) {
 }
 
 function addRoomList(dataRoom, lantai) {
+    console.log(dataRoom);
     //Update List
     let roomList = document.getElementById("room");
     let optgroup = document.createElement("optgroup");
@@ -125,7 +161,7 @@ function addRoomList(dataRoom, lantai) {
             const option = document.createElement("option");
             option.setAttribute("id", `kamar-${dataRoom[i]["id_kamar"]}`);
             option.value = `${dataRoom[i]["id_kamar"]}`;
-            option.innerHTML = `${dataRoom[i]["nama_kamar"]}`;
+            option.innerHTML = `${dataRoom[i]["jumlah_customer"]}/${dataRoom[i]["jumlah_customer"]} - ${dataRoom[i]["nama_kamar"]} - ${dataRoom[i]["status_kamar"]}`;
             optgroup.appendChild(option);
         }
     }
