@@ -44,7 +44,7 @@ function validation_step_1() {
   let validate = {
     nama: false,
     stid: false,
-    img: false,
+    // img: false,
     nik: false,
     tgl_lahir: false,
     alamat: false,
@@ -96,16 +96,16 @@ function validation_step_1() {
   });
 
   // % error checking img yang diperlukan pada saat diupload
-  const photo_name = document.getElementById("photo-name");
-  photo.addEventListener("change", () => {
-    if (!formData.has("photo")) {
-      setErrorMsg(photo_name, "Please insert your image");
-      validate["img"] = false;
-    } else {
-      setSuccessMsg(photo_name);
-      validate["img"] = true;
-    }
-  });
+  // const photo_name = document.getElementById("photo-name");
+  // photo.addEventListener("change", () => {
+  //   if (!formData.has("photo")) {
+  //     setErrorMsg(photo_name, "Please insert your image");
+  //     validate["img"] = false;
+  //   } else {
+  //     setSuccessMsg(photo_name);
+  //     validate["img"] = true;
+  //   }
+  // });
 
   const tgl_lahir = document.getElementById("tgl_lahir");
   tgl_lahir.addEventListener("change", () => {
@@ -169,13 +169,13 @@ function validation_step_1() {
       validate["nik"] = true;
     }
 
-    if (!formData.has("photo")) {
-      setErrorMsg(photo_name, "Please insert your image");
-      validate["img"] = false;
-    } else {
-      setSuccessMsg(photo_name);
-      validate["img"] = true;
-    }
+    // if (!formData.has("photo")) {
+    //   setErrorMsg(photo_name, "Please insert your image");
+    //   validate["img"] = false;
+    // } else {
+    //   setSuccessMsg(photo_name);
+    //   validate["img"] = true;
+    // }
 
     if (tgl_lahir.value.trim() === "") {
       setErrorMsg(tgl_lahir, "Please insert birth date correctly");
@@ -196,7 +196,7 @@ function validation_step_1() {
       validate["alamat"] = true;
     }
 
-    if (inputValidation(validate, 6)) {
+    if (inputValidation(validate, 5)) {
       nextStep();
     }
   });
