@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../asset/css/index.css" />
     <link rel="stylesheet" href="../asset/css/navbar_login.css" />
     <link rel="stylesheet" href="../asset/css/admin.css" />
+    <link rel="stylesheet" href="../asset/css/admin_modal.css" />
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
@@ -65,8 +66,6 @@
                 <div class="status-paid" id="status-paid">
                     <div class="flex gap-20">
                         <select class="status-changer" id="status-changer">
-                            <option value="Alloted">Alloted</option>
-                            <option value="OnGoing">OnGoing</option>
                         </select>
                         <button class="primary-button" id="done-button">Done</button>
                     </div>
@@ -81,8 +80,7 @@
                 </div>
 
                 <div class="flex gap-10 align-center">
-                    <div class="detail-text" id="transaction-date"><span class="detail-text-label-small">Date:</span>
-                        23 Agustus 2023
+                    <div class="detail-text" id="transaction-date">
                     </div>
                     <div class="detail-text" id="transaction-time"><span class="detail-text-label-small">Time:</span>
                         05:41:58
@@ -145,13 +143,13 @@
                     </div>
                     <div>
                         <div class="detail-info">
-                            <label class="detail-text-label" for="payment-method">ID Transaction</label>
+                            <label class="detail-text-label" for="payment-method">Payment-Method</label>
                             <div class="detail-text" id="payment-method">
                                 asdas
                             </div>
                         </div>
                         <div class="detail-info">
-                            <label class="detail-text-label" for="va">ID Transaction</label>
+                            <label class="detail-text-label" for="va">Virtual Account</label>
                             <div class="detail-text" id="va">
                                 asdas
                             </div>
@@ -163,8 +161,8 @@
                             </div>
                         </div>
                         <div class="detail-info">
-                            <label class="detail-text-label" for="Penalti">Penalti</label>
-                            <div class="detail-text" id="Penalti">
+                            <label class="detail-text-label" for="penalti">Penalti</label>
+                            <div class="detail-text" id="penalti">
                                 asdas
                             </div>
                         </div>
@@ -177,7 +175,7 @@
                 <div class="flex justify-between gap-20">
                     <button class="cancel-trans active warning-button" style="width: 100%;" id="cancel-button">cancel
                         Transaction</button>
-                    <button class="change-room primary-button" style="width: 100%;" id="change-room-button">Change
+                    <button class="change-room primary-button" style="width: 100%;" id="open-modal-change-button">Change
                         Room</button>
                 </div>
             </div>
@@ -186,6 +184,33 @@
 
     </section>
     <!-- Bagian detail end -->
+
+    <dialog class="modal" id="modal-change-room">
+        <div class="upper-modal">
+            <div>Change Room</div>
+            <div class="clickable-modal-btn" id="close-modal-change-button">X</div>
+        </div>
+        <div class="bottom-modal">
+            <div class="detail-info">
+                <label class="detail-text-label-small" for="old-room">From</label>
+                <div class="input-text" id="old-room">
+                    asdas
+                </div>
+            </div>
+            <div class="detail-info">
+                <label class="detail-text-label-small" for="new-room">To</label>
+                <select class="input-text" id="new-room">
+                    asdas
+                </select>
+            </div>
+            <div class="flex justify-center">
+                <button class="primary-button" id="submit-modal-change-button">submit</button>
+            </div>
+        </div>
+
+
+    </dialog>
+
 
     <br />
     <br />
