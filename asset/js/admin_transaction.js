@@ -122,14 +122,17 @@ function updateRoom(id_gedung) {
         option.setAttribute("selected", true);
         option.value = `notfound`;
         option.innerHTML = `--- No Room ---`;
-        optgroup.appendChild(option);
+        roomList.appendChild(option);
       } else {
-        for (let i = 0; i < dataRoom.length; i++) {
-          const option = document.createElement("option");
-          option.setAttribute("id", `kamar-${dataRoom[i]["id_kamar"]}`);
-          option.value = `${dataRoom[i]["id_kamar"]}`;
-          option.innerHTML = `${dataRoom[i]["jumlah_customer"]}/${dataRoom[i]["kapasitas_kamar"]} - ${dataRoom[i]["nama_kamar"]} - ${dataRoom[i]["status_kamar"]}`;
-          optgroup.appendChild(option);
+        //SORT BY LANTAI
+        let kamar = [];
+        for (let i = 0; i < jumlah_lantai; i++) {
+          kamar.push([]);
+          for (let j = 0; j < dataRoom.length; j++) {
+            if (dataRoom[j]["lantai"] == i) {
+              kamar[i - 1].push(dataRoom[j]);
+            }
+          }
         }
         //PRINT KE LIST
         for (let i = 0; i < jumlah_lantai; i++) {
@@ -158,7 +161,10 @@ function addRoomList(dataRoom, lantai) {
       const option = document.createElement("option");
       option.setAttribute("id", `kamar-${dataRoom[i]["id_kamar"]}`);
       option.value = `${dataRoom[i]["id_kamar"]}`;
-      option.innerHTML = `${dataRoom[i]["jumlah_customer"]}/${dataRoom[i]["jumlah_customer"]} - ${dataRoom[i]["nama_kamar"]} - ${dataRoom[i]["status_kamar"]}`;
+      option.innerHTML = `${dataRoom[i]["jumlah_customer"]}/${dataRoom[i]["kapasitas_kamar"]} - ${dataRoom[i]["nama_kamar"]} - ${dataRoom[i]["status_kamar"]}`;
+      if (dataRoom[i]["kapasitas_kamar"] - dataRoom[i]["jumlah_customer"] === 0) {
+        option.setAttribute("disabled", true);
+      }
       optgroup.appendChild(option);
     }
   }
@@ -213,6 +219,7 @@ function updateTable(search = "") {
     currency: "IDR",
     minimumFractionDigits: 2,
   });
+
   guestTable.innerHTML = "";
   if (search != "") {
     let temp = [];
@@ -330,7 +337,7 @@ function submit() {
             .then(({ data }) => {
               let respond = data.Data;
               dataUser = respond;
-              updateTable();
+              window.location.href = "transaction.html";
             });
         }
       });
