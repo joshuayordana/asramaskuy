@@ -1,5 +1,5 @@
 .modal {
-  width: 30rem;
+  width: fit-content;
   height: fit-content;
   border: none;
   outline: none;

@@ -56,16 +56,19 @@ fetch(endpoint)
 function modalChangeRoom(id_gedung, id_kamar_lama) {
   const modal = document.getElementById("modal-change-room");
 
+  // % Menutup Modal change room
   const closeModal = document.getElementById("close-modal-change-button");
   closeModal.addEventListener("click", () => {
     modal.close();
   });
 
+  // % Menutup Modal change room
   const openModal = document.getElementById("open-modal-change-button");
   openModal.addEventListener("click", () => {
     modal.showModal();
   });
 
+  // % Mengambil Data Dari API LIST KAMAR YANG ADA PADA GEDUNG SEKARANG
   const endpoint = `${config.api}getKamarDataByGedungId?id_gedung=${id_gedung}`;
   fetch(endpoint)
     .then((result) => result.json())
@@ -83,13 +86,13 @@ function modalChangeRoom(id_gedung, id_kamar_lama) {
       }
       //PRINT KE LIST
       for (let i = 0; i < data.Data[0].jumlah_lantai; i++) {
-        addRoomList(kamar[i], i + 1, id_kamar_lama);
+        addRoomListChange(kamar[i], i + 1, id_kamar_lama);
       }
     });
+
+  // % SUBMIT PERGANTIAN KAMAR
   const submitModal = document.getElementById("submit-modal-change-button");
   submitModal.addEventListener("click", () => {
-    const ENDPOINT_SUBMIT = `${config.api}moveRoom`;
-
     const newRoomValue = document.getElementById("new-room");
     let new_room_transaction = {};
     new_room_transaction["id_transaksi"] = idTrans;
@@ -97,10 +100,11 @@ function modalChangeRoom(id_gedung, id_kamar_lama) {
     new_room_transaction["catatan"] = `Moved room with id ${id_kamar_lama} to room with id ${newRoomValue.value}`;
 
     const formData = new URLSearchParams();
-    for (const [key, value] of Object.entries(user_data)) {
+    for (const [key, value] of Object.entries(new_room_transaction)) {
       formData.append(key, value.toString());
     }
 
+    const ENDPOINT_SUBMIT = `${config.api}moveRoom`;
     fetch(ENDPOINT_SUBMIT, {
       method: "POST",
       headers: {
@@ -114,18 +118,20 @@ function modalChangeRoom(id_gedung, id_kamar_lama) {
         if (response.data === null) {
           console.log(JSON.stringify(response));
         } else {
-          // window.location.href = `transaction.html`;
+          window.location.href = `transaction.html`;
         }
       });
   });
 }
 
 // @ memasukkan liat kamar pada gedung ke option list
-function addRoomList(dataRoom, lantai, id_room_sekarang) {
+function addRoomListChange(dataRoom, lantai, id_room_sekarang) {
   //Update List
   let roomList = document.getElementById("new-room");
   let optgroup = document.createElement("optgroup");
   optgroup.label = `Lantai ${lantai}`;
+
+  //% JIKA TIDAK ADA KAMAR YANG ADA PADA LANTAI
   if (dataRoom.length === 0) {
     //Tidak ada kamar
     const option = document.createElement("option");
@@ -134,6 +140,8 @@ function addRoomList(dataRoom, lantai, id_room_sekarang) {
     option.value = `notfound`;
     option.innerHTML = `--- No Room ---`;
     optgroup.appendChild(option);
+
+    // % SEBALIKNYA
   } else {
     for (let i = 0; i < dataRoom.length; i++) {
       const option = document.createElement("option");
@@ -150,6 +158,8 @@ function addRoomList(dataRoom, lantai, id_room_sekarang) {
       optgroup.appendChild(option);
     }
   }
+
+  // % menampilkan pada dropdown nya
   roomList.appendChild(optgroup);
 }
 
