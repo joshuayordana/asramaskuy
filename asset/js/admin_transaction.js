@@ -332,8 +332,8 @@ function submit() {
                         .then((result) => result.json())
                         .then(({ data }) => {
                             let respond = data.Data;
-                            // dataUser = respond;
-                            // updateTable();
+                            dataUser = respond;
+                            updateTable();
                         });
                 }
             });
