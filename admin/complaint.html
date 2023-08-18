@@ -4,15 +4,17 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AsramaSkuy - Admin</title>
+    <title>Transaction - Admin</title>
     <link rel="stylesheet" href="../asset/css/index.css" />
     <link rel="stylesheet" href="../asset/css/navbar_login.css" />
     <link rel="stylesheet" href="../asset/css/admin.css" />
+    <link rel="stylesheet" href="../asset/css/admin_modal.css" />
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -41,29 +43,36 @@
 
     <!-- input book start -->
     <section class="container" style="margin-top: 70px">
-        <div class="grid-col-2 titleBar">
-            <span class="h1">All Rooms</span>
+        <!-- $ bagian filter START -->
+        <div class="titleBar">
+            <div class="page-title">All Transaction</div>
 
-            <span class="searchBar gap-20">
-                <a class="filterButton">
-                    <iconify-icon icon="material-symbols:add"></iconify-icon>
-                    <span>Create Room</span>
-                </a>
-            </span>
-        </div>
-
-        <div class="gap-30" style="margin-top: 30px">
-            <div class="filterBar flex align-center justify-between gap-30">
-                <div class="flex align-center gap-20">
-                    <div><label for="tower">Choose a Tower</label></div>
-                    <div class="flex-end">
-                        <select class="towerInput" id="tower"></select>
-                    </div>
+            <div class="searchBar gap-20">
+                <div class="filterSearch">
+                    <iconify-icon icon="material-symbols:search"></iconify-icon>
+                    <input type="search" class="searchInput" id="searchInput" placeholder="Search Guest" />
                 </div>
             </div>
         </div>
+        <!-- $ bagian filter END -->
 
-        <div class="flex flex-direction-column gap-20" id="list-lantai-kamar"></div>
+        <div style="margin-top: 30px">
+            <div class="box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Guest</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="guest"></tbody>
+                </table>
+            </div>
+        </div>
     </section>
     <!-- input book end -->
 
@@ -73,7 +82,7 @@
     @copyright 2023
   </footer> -->
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <script type="module" src="../asset/js/admin_home.js"></script>
+    <script type="module" src="../asset/js/admin_complaint.js"></script>
     <script src="../asset/js/user_validation.js"></script>
     <script src="../asset/js/logout_user.js"></script>
 </body>

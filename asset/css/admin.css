@@ -355,7 +355,7 @@ dialog {
   transition: 0.3s;
 }
 
-/* Transaction detail START */
+/* INFO detail START */
 .detail-container {
   width: 100%;
   height: fit-content;
@@ -406,7 +406,7 @@ dialog {
   width: fit-content;
   font-size: 0.8rem;
   font-weight: 700;
-  background-color: #0300ca;
+  background-color: #c30e0e;
   padding: 6px 20px;
   color: white;
   border-radius: 8px;
@@ -459,3 +459,6 @@ dialog {
 .detail-bottom {
   padding: 1.125rem;
 }
+/* INFO detail START */
+
+/* COMPLAINT DETAIL START */

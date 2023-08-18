@@ -299,10 +299,10 @@ function changeViewByStatus(status) {
   }
 
   function completeView(status_now) {
-    if (status_now === "Canceled") {
+    if (status_now === "Done") {
       const detailStatusComplete = document.getElementById("detail-status-complete");
-      detailStatusComplete.style.backgroundColor = "#c30e0e";
-      detailStatusComplete.textContent = "Canceled";
+      detailStatusComplete.style.backgroundColor = "#0300ca";
+      detailStatusComplete.textContent = "Done";
     }
     statusUnpaid.className = "status-unpaid";
     statusPaid.className = "status-paid";

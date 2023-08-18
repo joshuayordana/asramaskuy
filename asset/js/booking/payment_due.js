@@ -19,9 +19,9 @@ const endpoint = `${config.api}getBatasBayarById?id_transaksi=${idTransaksi}`;
 fetch(endpoint)
   .then((result) => result.json())
   .then(({ data }) => {
-    console.log(data);
     const curr_time = new Date();
-    const due_time = new Date(data.Batas_waktu_pembayaran);
+    const due_time = new Date(data.Batas_waktu_pembayaran.slice(0, -1));
+    console.log(due_time);
     timeCountdown(curr_time, due_time);
   });
 
@@ -35,6 +35,9 @@ function timeCountdown(curr_time, due_time) {
   const minute = second * 60;
   const hour = minute * 60;
   let total_time = due_time.getTime() - curr_time.getTime();
+  // document.querySelector("#due-hour").innerHTML = `${betterCountdownNumber(Math.floor(total_time / hour))}`;
+  // document.querySelector("#due-minute").innerHTML = `${betterCountdownNumber(Math.floor((total_time % hour) / minute))}`;
+  // document.querySelector("#due-second").innerHTML = `${betterCountdownNumber(Math.floor((total_time % minute) / second))}`;
 
   // % Assign pas page page udah reload
   let interval = setInterval(() => {

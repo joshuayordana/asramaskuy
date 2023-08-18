@@ -108,7 +108,7 @@ submit_pwd.addEventListener("click", () => {
         if (response.data === null) {
           setErrorMsg(pwd_old.parentElement, response.message);
         } else {
-          window.location.href = "profile_page.html";
+          window.location.href = "../login.html";
         }
       });
   }
