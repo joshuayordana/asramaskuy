@@ -8,6 +8,7 @@ const endpoint = `${config.api}getUserById?id_user=${user_data["id_user"]}`;
 fetch(endpoint)
   .then((result) => result.json())
   .then(({ data }) => {
+    console.log(data.Data);
     const api_image_src = `${config.api}getfiles?path_gambar=${data.Data[0].user_profile}`;
     const profile_img = document.querySelector("#profile-img");
     profile_img.src = api_image_src;
@@ -91,8 +92,21 @@ fetch(endpoint)
     m_phone.innerHTML = data.Data[0].no_telp_ibu;
     const info_m_phone = document.querySelector("#info-m-phone");
     info_m_phone.value = data.Data[0].no_telp_ibu;
+
+    const unread_notif_count = document.querySelector("#unread-notif");
+    if (data.Data[0].unread_notifikasi > 0) {
+      unread_notif_count.className = "unread-notif active";
+      unread_notif_count.innerHTML = data.Data[0].unread_notifikasi;
+    } else {
+      unread_notif_count.className = "unread-notif";
+    }
   });
 // ? FETCH data pengguna by id END
+
+const notif_btn = document.querySelector("#notif-button");
+notif_btn.addEventListener("click", () => {
+  window.location.href = "notification.html";
+});
 
 // % untuk mengubah foto profil pengguna
 const profile_img_input = document.querySelector("#profile-img-input");

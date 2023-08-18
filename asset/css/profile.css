@@ -99,6 +99,7 @@
 }
 
 .unread-notif {
+  display: none;
   position: absolute;
   height: 0.8rem;
   width: 0.8rem;
@@ -106,6 +107,21 @@
   border-radius: 50%;
   top: 10px;
   right: 10px;
+}
+
+.unread-notif.active {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  height: 1rem;
+  width: 1rem;
+  background-color: rgb(197, 1, 1);
+  border-radius: 50%;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 0.55rem;
 }
 
 .identity-title-1 {
