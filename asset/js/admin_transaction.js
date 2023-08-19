@@ -213,7 +213,7 @@ function dateFormatInput(tanggal) {
     return currentDate;
 }
 
-function updateTable(search = "") {
+function updateTable(search = "", date_in = null, date_out = null) {
     const rupiahFormatter = new Intl.NumberFormat("id-ID", {
         style: "currency",
         currency: "IDR",
@@ -221,13 +221,18 @@ function updateTable(search = "") {
     });
 
     guestTable.innerHTML = "";
-    if (search != "") {
+    if (search != "" || date_in != null || date_out != null) {
         let temp = [];
         for (let i = 0; i < dataUser.length; i++) {
-            let nama = dataUser[i]["nama_user"].toLowerCase();
-            let id = dataUser[i]["nama_transaksi"].toLowerCase();
-            if (nama.includes(search.toLowerCase()) || id.includes(search.toLowerCase())) {
-                temp.push(dataUser[i]);
+            if (false) {
+                //date_in != null || date_out != null
+                // Ada filter tanggal
+            } else {
+                let nama = dataUser[i]["nama_user"].toLowerCase();
+                let id = dataUser[i]["nama_transaksi"].toLowerCase();
+                if (nama.includes(search.toLowerCase()) || id.includes(search.toLowerCase())) {
+                    temp.push(dataUser[i]);
+                }
             }
         }
         console.log(temp);
@@ -455,4 +460,21 @@ function inputValidation(assoc_array, true_count) {
     } else {
         return false;
     }
+}
+
+//FILTER TANGGAL
+let filter_checkin = document.getElementById("filter-checkin");
+let filter_checkout = document.getElementById("filter-checkout");
+
+filter_checkin.addEventListener("change", () => {
+    filterDate();
+});
+filter_checkout.addEventListener("change", () => {
+    filterDate();
+});
+
+function filterDate() {
+    let tgl_in = filter_checkin.value;
+    let tgl_out = filter_checkout.value;
+    updateTable("", tgl_in, tgl_out);
 }
