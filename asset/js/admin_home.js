@@ -11,6 +11,18 @@ let dataTower = [];
 let dataRoom = [];
 let formData = new FormData();
 var modalUpdate = false; //Untuk nyimpen apakah modal untuk update atau untuk create
+const towerSelect = document.getElementById("towerModal");
+towerSelect.addEventListener("change", () => {
+    let id_gedung = towerSelect.value;
+    let lantai = 0;
+    //Get Lantai
+    for (var i = 0; i < dataGedung.length; i++) {
+        if (dataGedung[i]["id_gedung"] == id_gedung) {
+            lantai = dataGedung[i]["jumlah_lantai"];
+            updateFloorList(lantai);
+        }
+    }
+});
 
 function getDetailByGedung(id_gedung) {
     var jumlahLantai = 0;
@@ -226,7 +238,7 @@ addButton.addEventListener("click", () => {
 });
 
 //DEFAULT
-openDialog();
+// openDialog();
 updateTower();
 
 function updateTower() {
@@ -244,13 +256,26 @@ function updateTower() {
 function updateTowerList() {
     //Update List
     let towerList = document.getElementById("towerModal");
-    // console.log(towerList);
     for (let i = 0; i < dataTower.length; i++) {
         const option = document.createElement("option");
         option.setAttribute("id", `tower-${i}`);
         option.value = `${dataTower[i]["id_gedung"]}`;
         option.innerHTML = `${dataTower[i]["nama_gedung"]} - ${dataTower[i]["jenis_kelamin"]}`;
         towerList.appendChild(option);
+    }
+}
+
+function updateFloorList(lantai) {
+    //Update List
+    let floorList = document.getElementById("lantai");
+    floorList.innerHTML = "";
+    // console.log(floorList);
+    for (let i = 1; i <= lantai; i++) {
+        const option = document.createElement("option");
+        option.setAttribute("id", `tower-${i}`);
+        option.value = i;
+        option.innerHTML = `Lantai ${i}`;
+        floorList.appendChild(option);
     }
 }
 
