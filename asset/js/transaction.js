@@ -98,6 +98,8 @@ function showAllTransaction(filter_sort) {
             status_box.style.backgroundColor = "#0F841B";
           } else if (data.Data[j].status_transaksi === "Unpaid") {
             status_box.style.backgroundColor = "#C71313";
+          } else if (data.Data[j].status_transaksi === "Canceled") {
+            status_box.style.backgroundColor = "#C71313";
           }
 
           const ext_button = trans_card.querySelector("#extend-button");
@@ -116,6 +118,10 @@ function showAllTransaction(filter_sort) {
             dis_button.classList.add("not-active");
           } else if (data.Data[j].status_transaksi === "Unpaid") {
             ext_button.classList.add("not-active");
+            dis_button.classList.add("not-active");
+          } else if (data.Data[j].status_transaksi === "Canceled") {
+            ext_button.classList.add("not-active");
+            pay_button.classList.add("not-active");
             dis_button.classList.add("not-active");
           }
 
