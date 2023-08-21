@@ -222,20 +222,47 @@ function updateTable(search = "", date_in = null, date_out = null) {
 
     guestTable.innerHTML = "";
     if (search != "" || date_in != null || date_out != null) {
+        let searchTanggal = false;
+        //Ada search
         let temp = [];
         for (let i = 0; i < dataUser.length; i++) {
-            if (false) {
-                //date_in != null || date_out != null
+            let today = new Date();
+            today.setHours(7, 0, 0, 0);
+            let start = new Date();
+            let end = new Date();
+            if (date_in != null && date_out != null) {
                 // Ada filter tanggal
-            } else {
-                let nama = dataUser[i]["nama_user"].toLowerCase();
-                let id = dataUser[i]["nama_transaksi"].toLowerCase();
-                if (nama.includes(search.toLowerCase()) || id.includes(search.toLowerCase())) {
+                if (date_in != "" && date_out == "") {
+                    start = new Date(date_in);
+                    end = today;
+                    searchTanggal = true;
+                } else if (date_in == "" && date_out != "") {
+                    start = today;
+                    end = new Date(date_out);
+                    searchTanggal = true;
+                } else if (date_in != "" && date_out != "") {
+                    start = new Date(date_in);
+                    end = new Date(date_out);
+                    searchTanggal = true;
+                }
+            }
+            let nama = dataUser[i]["nama_user"].toLowerCase();
+            let id = dataUser[i]["nama_transaksi"].toLowerCase();
+            let checkin = new Date(dataUser[i]["check_in"]);
+            let checkout = new Date(dataUser[i]["check_out"]);
+
+            let dateOK = checkin >= start && checkin <= end;
+            // console.log(dateOK);
+            if (dateOK && searchTanggal) {
+                temp.push(dataUser[i]);
+            }
+            if (nama.includes(search.toLowerCase()) || id.includes(search.toLowerCase())) {
+                if (!searchTanggal) {
                     temp.push(dataUser[i]);
                 }
             }
         }
-        console.log(temp);
+        // console.log(temp);
         for (let i = 0; i < temp.length; i++) {
             const tr = document.createElement("tr");
             tr.setAttribute("id", `guest-${i}`);
