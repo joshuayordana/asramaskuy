@@ -320,7 +320,7 @@ function submit() {
   formData.append("id_kamar", document.getElementById("room").value);
   formData.append("total_harga", document.getElementById("total").value);
   //CREATE
-  var endpoint = `${config.api}createNewTransaksi`;
+  var endpoint = `${config.api}createNewTransaksiAdmin`;
   var meth = "POST";
 
   //Submit Data
