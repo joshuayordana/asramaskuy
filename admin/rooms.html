@@ -1,81 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>AsramaSkuy - Admin</title>
+        <link rel="stylesheet" href="../asset/css/index.css" />
+        <link rel="stylesheet" href="../asset/css/navbar_login.css" />
+        <link rel="stylesheet" href="../asset/css/admin.css" />
+        <link rel="stylesheet" href="../asset/css/admin_modal.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AsramaSkuy - Admin</title>
-    <link rel="stylesheet" href="../asset/css/index.css" />
-    <link rel="stylesheet" href="../asset/css/navbar_login.css" />
-    <link rel="stylesheet" href="../asset/css/admin.css" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
-</head>
+    <body>
+        <header>
+            <!-- $ Navbar start -->
+            <div class="container">
+                <nav class="navbar">
+                    <div class="logo">
+                        <a class="logo-img" href="../landing_page_login.html">Asrama<span>Skuy</span></a>
+                    </div>
+                    <div class="nav-link">
+                        <a href="./complaint.html">COMPLAINT</a>
+                        <a href="./rooms.html">ROOMS</a>
+                        <a href="./student.html">STUDENT</a>
+                        <a href="./guest.html">GUEST</a>
+                        <a href="./transaction.html">TRANSACTION</a>
+                        <a href="./tower.html">TOWER</a>
+                    </div>
+                    <div class="nav-link">
+                        <button class="warning-button" style="width: 100%" id="logout-button">LogOut</button>
+                    </div>
+                </nav>
+            </div>
+            <!-- $ Navbar end -->
+        </header>
 
-<body>
-    <header>
-        <!-- $ Navbar start -->
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <a class="logo-img" href="../landing_page_login.html">Asrama<span>Skuy</span></a>
-                </div>
-                <div class="nav-link">
-                    <a href="./complaint.html">COMPLAINT</a>
-                    <a href="./rooms.html">ROOMS</a>
-                    <a href="./student.html">STUDENT</a>
-                    <a href="./guest.html">GUEST</a>
-                    <a href="./transaction.html">TRANSACTION</a>
-                    <a href="./tower.html">TOWER</a>
-                </div>
-                <div class="nav-link">
-                    <button class="warning-button" style="width: 100%;" id="logout-button">LogOut</button>
-                </div>
-            </nav>
-        </div>
-        <!-- $ Navbar end -->
-    </header>
+        <!-- input book start -->
+        <section class="container" style="margin-top: 70px">
+            <div class="grid-col-2 titleBar">
+                <span class="h1">All Rooms</span>
 
-    <!-- input book start -->
-    <section class="container" style="margin-top: 70px">
-        <div class="grid-col-2 titleBar">
-            <span class="h1">All Rooms</span>
+                <span class="searchBar gap-20">
+                    <a class="filterButton" id="addButton" style="cursor: pointer">
+                        <iconify-icon icon="material-symbols:add"></iconify-icon>
+                        <span>Create Room</span>
+                    </a>
+                </span>
+            </div>
 
-            <span class="searchBar gap-20">
-                <a class="filterButton">
-                    <iconify-icon icon="material-symbols:add"></iconify-icon>
-                    <span>Create Room</span>
-                </a>
-            </span>
-        </div>
-
-        <div class="gap-30" style="margin-top: 30px">
-            <div class="filterBar flex align-center justify-between gap-30">
-                <div class="flex align-center gap-20">
-                    <div><label for="tower">Choose a Tower</label></div>
-                    <div class="flex-end">
-                        <select class="towerInput" id="tower"></select>
+            <div class="gap-30" style="margin-top: 30px">
+                <div class="filterBar flex align-center justify-between gap-30">
+                    <div class="flex align-center gap-20">
+                        <div><label for="tower">Choose a Tower</label></div>
+                        <div class="flex-end">
+                            <select class="towerInput" id="tower"></select>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="flex flex-direction-column gap-20" id="list-lantai-kamar"></div>
-    </section>
-    <!-- input book end -->
+            <div class="flex flex-direction-column gap-20" id="list-lantai-kamar"></div>
+        </section>
+        <!-- input book end -->
 
-    <br />
-    <br />
-    <!-- <footer>
+        <dialog class="modal" id="edit-dialog">
+            <div class="upper-modal">
+                <div id="d-title">Create Transaction</div>
+                <div id="closeModal">X</div>
+            </div>
+            <div class="bottom-modal">
+                <input id="id_gedung" hidden />
+
+                <div class="detail-info">
+                    <label class="detail-text-label-small" for="tower">Tower<span class="warning">*</span></label
+                    ><br />
+                    <select name="tower" id="towerModal" class="input-text">
+                        <option value="notfound" hidden selected>--- Select Tower ---</option>
+                    </select>
+                    <small class="warning"></small>
+                </div>
+                <div class="detail-info">
+                    <label class="detail-text-label-small" for="lantai">Floor<span class="warning">*</span></label
+                    ><br />
+                    <input type="number" class="input-text" id="lantai" name="lantai" placeholder="Floor" />
+                    <small class="warning"></small>
+                </div>
+                <div class="detail-info">
+                    <label class="detail-text-label-small" for="nama">Room Name<span class="warning">*</span></label
+                    ><br />
+                    <input type="username" class="input-text" id="nama" name="nama" placeholder="Room Name" />
+                    <small class="warning"></small>
+                </div>
+                <div class="detail-info">
+                    <label class="detail-text-label-small" for="kapasitas">Capacity<span class="warning">*</span></label
+                    ><br />
+                    <input type="number" class="input-text" id="kapasitas" name="kapasitas" placeholder="Total Beds" />
+                    <small class="warning"></small>
+                </div>
+                <div class="detail-info">
+                    <label class="detail-text-label-small" for="price">Price<span class="warning">*</span></label
+                    ><br />
+                    <input type="number" class="input-text" id="price" name="price" placeholder="Room Price" />
+                    <small class="warning"></small>
+                </div>
+                <div style="text-align: center">
+                    <button type="button" class="primary-button" id="d-button">Submit Registration</button>
+                </div>
+            </div>
+        </dialog>
+
+        <br />
+        <br />
+        <!-- <footer>
     @copyright 2023
   </footer> -->
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <script type="module" src="../asset/js/admin_home.js"></script>
-    <script src="../asset/js/user_validation.js"></script>
-    <script src="../asset/js/logout_user.js"></script>
-</body>
-
+        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+        <script type="module" src="../asset/js/admin_home.js"></script>
+        <script src="../asset/js/user_validation.js"></script>
+        <script src="../asset/js/logout_user.js"></script>
+    </body>
 </html>
