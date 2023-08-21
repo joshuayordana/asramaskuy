@@ -18,6 +18,7 @@ fetch(endpoint)
     console.log(data.Data);
     booking_data["name"] = data.Data[0].name; // ini nanti ambil dri api
     booking_data["nim_nik"] = data.Data[0].nim;
+    booking_data["jenis_kelamin"] = data.Data[0].jenis_kelamin;
     name.innerHTML = data.Data[0].name;
     nim_nik.innerHTML = data.Data[0].nim;
 
