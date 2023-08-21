@@ -248,10 +248,10 @@ function updateTable(search = "", date_in = null, date_out = null) {
             }
             let nama = dataUser[i]["nama_user"].toLowerCase();
             let id = dataUser[i]["nama_transaksi"].toLowerCase();
-            let checkin = new Date(dataUser[i]["check_in"]);
-            let checkout = new Date(dataUser[i]["check_out"]);
+            let tgl_transaksi = new Date(dataUser[i]["tanggal_transaksi"]);
+            tgl_transaksi.setHours(7, 0, 0, 0);
 
-            let dateOK = checkin >= start && checkin <= end;
+            let dateOK = tgl_transaksi >= start && tgl_transaksi <= end;
             // console.log(dateOK);
             if (dateOK && searchTanggal) {
                 temp.push(dataUser[i]);
@@ -262,11 +262,12 @@ function updateTable(search = "", date_in = null, date_out = null) {
                 }
             }
         }
-        // console.log(temp);
+        console.log(temp);
         for (let i = 0; i < temp.length; i++) {
             const tr = document.createElement("tr");
             tr.setAttribute("id", `guest-${i}`);
             tr.innerHTML = `<td>${temp[i]["nama_transaksi"]}</td>`;
+            tr.innerHTML += `<td>${new Date(temp[i]["tanggal_transaksi"]).toLocaleString("id-ID")}</td>`;
             tr.innerHTML += `<td>${temp[i]["jenis_transaksi"]}</td>`;
             tr.innerHTML += `<td>${temp[i]["nama_user"]}</td>`;
             tr.innerHTML += `<td>${temp[i]["nama_gedung"]}</td>`;
@@ -274,7 +275,7 @@ function updateTable(search = "", date_in = null, date_out = null) {
             tr.innerHTML += `<td>${dateFormat(temp[i]["check_in"].slice(0, 10))}</td>`;
             tr.innerHTML += `<td>${dateFormat(temp[i]["check_out"].slice(0, 10))}</td>`;
             tr.innerHTML += `<td>${temp[i]["status_transaksi"]}</td>`;
-            tr.innerHTML += `<td>${temp[i]["total_pembayaran"]}</td>`;
+            tr.innerHTML += `<td>${rupiahFormatter.format(temp[i]["total_pembayaran"])}</td>`;
             tr.innerHTML += `<td>
                           <button class="primary-button" id="detail-btn">
                               Detail
@@ -293,6 +294,7 @@ function updateTable(search = "", date_in = null, date_out = null) {
             const tr = document.createElement("tr");
             tr.setAttribute("id", `guest-${i}`);
             tr.innerHTML = `<td>${dataUser[i]["nama_transaksi"]}</td>`;
+            tr.innerHTML += `<td>${new Date(dataUser[i]["tanggal_transaksi"]).toLocaleString("id-ID")}</td>`;
             tr.innerHTML += `<td>${dataUser[i]["jenis_transaksi"]}</td>`;
             tr.innerHTML += `<td>${dataUser[i]["nama_user"]}</td>`;
             tr.innerHTML += `<td>${dataUser[i]["nama_gedung"]}</td>`;
