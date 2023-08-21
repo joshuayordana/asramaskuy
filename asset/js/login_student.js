@@ -41,7 +41,7 @@ loginButton.addEventListener("click", () => {
         var toSave = {};
         toSave["id_user"] = data["Data"]["id_user"];
         toSave["status"] = data["Data"]["status"];
-        toSave["role"] = "student";
+        toSave["role"] = "User";
         window.sessionStorage.setItem("user-data", JSON.stringify(toSave));
         //console.log(window.sessionStorage.getItem("user-data"));
 
