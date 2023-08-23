@@ -32,11 +32,11 @@ fetch(endpoint_men)
                 <div class="flex flex-direction-column gap-10">
                   <p class="tower-label-1 no-margin" id="tower-name">${data.Data[i].nama_gedung}</p>
                   <div class="flex gap-10 align-center">
-                    <img src="../image/call_icon.png" alt="" width="24px" height="24px">
+                    <img src="asset/image/call_icon.png" alt="" width="24px" height="24px">
                     <p class="tower-label-2 no-margin" id="tower-phone">${data.Data[i].no_telp_gedung}</p>
                   </div>
                   <div class="flex gap-10">
-                    <img src="../image/loc_icon.png" alt="" width="24px" height="24px">
+                    <img src="asset/image/loc_icon.png" alt="" width="24px" height="24px">
                     <p class="tower-label-2 no-margin" id="tower-loc">${data.Data[i].alamat_gedung}</p>
                   </div>
                 </div>
